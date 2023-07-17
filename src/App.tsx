@@ -7,6 +7,7 @@ import {
     Marker,
     Autocomplete, DirectionsService
 } from '@react-google-maps/api';
+import SearchBar from "./SearchBar.tsx";
 
 
 const containerStyle = {
@@ -79,6 +80,8 @@ function App() {
 
 
     return isLoaded ? (
+        <>
+        <SearchBar/>
         <GoogleMap
             mapContainerStyle={containerStyle}
             center={center}
@@ -91,6 +94,7 @@ function App() {
         >
 
         </GoogleMap>
+        </>
     ) : <>
 
         <p>jhsdafdkakh</p></>
