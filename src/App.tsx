@@ -71,22 +71,23 @@ console.log(window)
     }
 
 
-
+console.log(isLoaded)
     return <>
         <SearchBar/>
         {isLoaded ? (
+            <>
             <GoogleMap
                 mapContainerStyle={containerStyle}
                 center={center}
                 zoom={8}
-                onLoad={(map) => setMap(map)}
+                onLoad={onLoad}
                 // onUnmount={onUnmount}
-                {...directionsResponse && (
+                >
+                {directionsResponse && (
                     <DirectionsRenderer directions={directionsResponse}/>
                 )}
-            >
-
             </GoogleMap>
+            </>
         ) : <></>}
 
     </>
