@@ -16,7 +16,7 @@ function App() {
 
     const {isLoaded} = useJsApiLoader({
         id: 'google-map-script',
-        googleMapsApiKey: process.env.REACT_APP_MAPS_KEY ? process.env.REACT_APP_MAPS_KEY : "Maboo",
+        googleMapsApiKey: "AIzaSyBcasNoSHMwScn254MXT0yqLk-oQopCxq0"
     })
 
     const [map, setMap] = React.useState(null)
