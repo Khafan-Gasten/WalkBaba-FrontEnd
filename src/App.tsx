@@ -8,6 +8,7 @@ import {
     Autocomplete,
     DirectionsService
 } from '@react-google-maps/api';
+import SearchBar from "./SearchBar.tsx";
 
 
 const containerStyle = {
@@ -71,24 +72,24 @@ console.log(window)
 
 
 
-    return isLoaded ? (
-        <>
-        <GoogleMap
-            mapContainerStyle={containerStyle}
-            center={center}
-            zoom={8}
-            onLoad={onLoad}
-            // onUnmount={onUnmount}
-        >
-        {/*<Marker position={center} />*/}
-        {directionsResponse && (
-            <DirectionsRenderer directions={directionsResponse} />
-        )}
-        </GoogleMap>
-      </>
-    )  : (
-        <></>
-    );
+    return <>
+        <SearchBar/>
+        {isLoaded ? (
+            <GoogleMap
+                mapContainerStyle={containerStyle}
+                center={center}
+                zoom={8}
+                onLoad={(map) => setMap(map)}
+                // onUnmount={onUnmount}
+                {...directionsResponse && (
+                    <DirectionsRenderer directions={directionsResponse}/>
+                )}
+            >
+
+            </GoogleMap>
+        ) : <></>}
+
+    </>
 }
 
 export default App
