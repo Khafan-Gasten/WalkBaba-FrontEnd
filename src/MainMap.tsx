@@ -39,6 +39,14 @@ function MainMap() {
         const results: google.maps.DirectionsResult = await directionsService.route({
             origin: origin,
             destination: dest,
+            waypoints: [
+                {
+                    location: 'Haarlem, Netherlands',
+                    stopover: true
+                },{
+                    location: 'The Hague, Netherlands',
+                    stopover: true
+                }],
             travelMode: google.maps.TravelMode.DRIVING
         })
         setDirectionsResponse(results)
