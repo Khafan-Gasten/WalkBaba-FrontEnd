@@ -5,13 +5,14 @@ function SearchBar() {
     const onSubmitSearchRoutes = async (e : any) => {
         e.preventDefault();
 
-        await axios.post("http://localhost:8080/api/openai",
-            [
+        const  response = await axios.post("http://localhost:8080/api/openai",
                 {
-                    "city": e.target.elements.cityName.value,
-                    "duration" : e.target.elements.duration.value,
-                },]
+                    "city": e.target.elements.cityName.value.toString(),
+                    "duration" : e.target.elements.duration.value.toString()
+                }
             )
+        console.log( response.data)
+
     }
 
     return <>
