@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, {AxiosResponse} from "axios";
 import React, {Dispatch, SetStateAction, useRef} from "react";
 import {routeResponseDTO} from "./routeResponseDTO.tsx";
 
@@ -20,20 +20,24 @@ function SearchBar(props: SearchBarProps) {
     const durationEl = useRef<HTMLSelectElement>(null);
 
 
-    const onSubmitSearchRoutes = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
+    const fetchData = async () => {
         const request: userRequest = {
             city: cityNameEl.current?.value,
             country: countryNameEl.current?.value,
             duration: durationEl.current?.value,
         }
 
-        const response: routeResponseDTO[] = (await axios.post("http://localhost:8080/api/openai",
+        const response: AxiosResponse<routeResponseDTO[]> = await axios.post("https://walkbaba.azurewebsites.net/api/openai",
                 request
-            )).data;
-        console.log(response);
-        props.setRouteData(response);
+            );
+        console.log(response.data);
+        props.setRouteData(response.data);
         props.setDisplayMap(true)
+    }
+
+    const onSubmitSearchRoutes = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        void fetchData();
     }
 
     return <>

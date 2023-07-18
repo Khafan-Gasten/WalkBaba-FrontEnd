@@ -45,6 +45,7 @@ function Map(props: MapBoardProps) {
         if (!routeWaypoints) {
             return
         }
+        //Maybe change the behaviour of this section
         const origin = routeWaypoints.splice(0, 1)[0]
         const dest = routeWaypoints.splice(-1, 1)[0]
         const waypoints: object[] = []
