@@ -1,5 +1,5 @@
 import axios from "axios";
-import {Dispatch, SetStateAction} from "react";
+import React, {Dispatch, SetStateAction, useRef} from "react";
 import {routeResponseDTO} from "./routeResponseDTO.tsx";
 
 type SearchBarProps = {
@@ -8,19 +8,24 @@ type SearchBarProps = {
 }
 
 type userRequest = {
-    city: string,
-    country: string,
-    duration: string
+    city: string | undefined,
+    country: string | undefined,
+    duration: string | undefined
 }
 
 function SearchBar(props: SearchBarProps) {
 
-    const onSubmitSearchRoutes = async (e: any) => {
+    const cityNameEl = useRef<HTMLInputElement>(null);
+    const countryNameEl = useRef<HTMLInputElement>(null);
+    const durationEl = useRef<HTMLSelectElement>(null);
+
+
+    const onSubmitSearchRoutes = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const request: userRequest = {
-            city: e.target.elements.cityName.value.toString(),
-            country: e.target.elements.countryName.value.toString(),
-            duration: e.target.elements.duration.value.toString()
+            city: cityNameEl.current?.value,
+            country: countryNameEl.current?.value,
+            duration: durationEl.current?.value,
         }
 
         const response: routeResponseDTO[] = (await axios.post("http://localhost:8080/api/openai",
@@ -34,11 +39,11 @@ function SearchBar(props: SearchBarProps) {
     return <>
         <form onSubmit={onSubmitSearchRoutes}>
             <label htmlFor="cityName">City: </label>
-            <input type="text" id="cityName" name="cityName"/><br/>
+            <input type="text" id="cityName" name="cityName" ref={cityNameEl}/><br/>
             <label htmlFor="countryName">Country: </label>
-            <input type="text" id="countryName" name="countryName"/><br/>
+            <input type="text" id="countryName" name="countryName" ref={countryNameEl}/><br/>
             <label htmlFor="duration">Duration: </label>
-            <select id="duration" name="duration">
+            <select id="duration" name="duration" ref={durationEl}>
                 <option value="1">1 hour</option>
                 <option value="2">2 hours</option>
                 <option value="3">3 hours</option>
