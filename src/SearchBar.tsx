@@ -1,5 +1,5 @@
 import axios, {AxiosResponse} from "axios";
-import React, {Dispatch, SetStateAction, useRef} from "react";
+import React, {Dispatch, SetStateAction, useRef, useState} from "react";
 import {routeResponseDTO} from "./routeResponseDTO.tsx";
 
 type SearchBarProps = {
@@ -14,11 +14,15 @@ type userRequest = {
 }
 
 function SearchBar(props: SearchBarProps) {
-    props.setDisplayMap(false)
+
 
     const cityNameEl = useRef<HTMLInputElement>(null);
     const countryNameEl = useRef<HTMLInputElement>(null);
     const durationEl = useRef<HTMLSelectElement>(null);
+
+    const [showError, setShowError] = useState<boolean>(false);
+
+    const errorMessage = "We couldn't find this city. Please check your input and try again."
 
 
     const fetchData = async () => {
@@ -36,6 +40,8 @@ function SearchBar(props: SearchBarProps) {
             props.setDisplayMap(true)
         } catch (err) {
             if (err instanceof Error) {
+                setShowError(true)
+                props.setDisplayMap(false)
                 console.error(err)
             }
         }
@@ -43,6 +49,7 @@ function SearchBar(props: SearchBarProps) {
 
     const onSubmitSearchRoutes = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        setShowError(false)
         void fetchData();
     }
 
@@ -62,6 +69,7 @@ function SearchBar(props: SearchBarProps) {
             </select>
             <input type="submit" value="Search"/>
         </form>
+        <p>{showError && errorMessage}</p>
     </>
 }
 
