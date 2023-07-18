@@ -20,7 +20,7 @@ const origin = "Cube Houses, Rotterdam, Netherlands"
 
 const dest = "City Hall, Rotterdam, Netherlands"
 
-function MainMap() {
+function Map() {
     const {isLoaded} = useJsApiLoader({
         id: 'google-map-script',
         googleMapsApiKey: "AIzaSyBmOpstO2144GQzwOWrWL9NQLvQ5oyE_kw"
@@ -72,4 +72,4 @@ function MainMap() {
     ) : <></>
 }
 
-export default MainMap
+export default Map

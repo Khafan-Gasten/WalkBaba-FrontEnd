@@ -1,12 +1,16 @@
 import './App.css'
 import SearchBar from "./SearchBar.tsx";
-import MainMap from "./MainMap.tsx";
+import {useState} from "react";
+import {routeResponseDTO} from "./routeResponseDTO.tsx";
+import MapGallery from "./MapGallery.tsx";
 
 
 function App() {
+    const [routeData, setRouteData] = useState<routeResponseDTO[]|null>(null);
+
     return <>
-        <SearchBar/>
-        <MainMap/>
+        <SearchBar setRouteData={setRouteData}/>
+        <MapGallery routeData={routeData}/>
     </>
 }
 export default App
