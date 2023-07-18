@@ -3,7 +3,7 @@ import React, {Dispatch, SetStateAction, useRef} from "react";
 import {routeResponseDTO} from "./routeResponseDTO.tsx";
 
 type SearchBarProps = {
-    setRouteData: Dispatch<SetStateAction<routeResponseDTO[]|null>>
+    setRouteData: Dispatch<SetStateAction<routeResponseDTO[] | null>>
     setDisplayMap: Dispatch<SetStateAction<boolean>>
 }
 
@@ -14,6 +14,7 @@ type userRequest = {
 }
 
 function SearchBar(props: SearchBarProps) {
+    props.setDisplayMap(false)
 
     const cityNameEl = useRef<HTMLInputElement>(null);
     const countryNameEl = useRef<HTMLInputElement>(null);
@@ -26,13 +27,18 @@ function SearchBar(props: SearchBarProps) {
             country: countryNameEl.current?.value,
             duration: durationEl.current?.value,
         }
-
-        const response: AxiosResponse<routeResponseDTO[]> = await axios.post("https://walkbaba.azurewebsites.net/api/openai",
+        try {
+            const response: AxiosResponse<routeResponseDTO[]> = await axios.post("https://walkbaba.azurewebsites.net/api/openai",
                 request
             );
-        console.log(response.data);
-        props.setRouteData(response.data);
-        props.setDisplayMap(true)
+            console.log(response.data);
+            props.setRouteData(response.data);
+            props.setDisplayMap(true)
+        } catch (err) {
+            if (err instanceof Error) {
+                console.error(err)
+            }
+        }
     }
 
     const onSubmitSearchRoutes = (e: React.FormEvent<HTMLFormElement>) => {
@@ -58,7 +64,5 @@ function SearchBar(props: SearchBarProps) {
         </form>
     </>
 }
-
-
 
 export default SearchBar
