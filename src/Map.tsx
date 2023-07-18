@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react'
+import React, {useState} from 'react'
 
 import {
     GoogleMap,
@@ -16,11 +16,14 @@ const center = {
     lat: 52.2,
     lng: 4.4
 };
-const origin = "Cube Houses, Rotterdam, Netherlands"
 
-const dest = "City Hall, Rotterdam, Netherlands"
+type MapBoardProps = {
+    routeWaypoints: string[]
+}
 
-function MainMap() {
+
+function Map(props: MapBoardProps) {
+
     const {isLoaded} = useJsApiLoader({
         id: 'google-map-script',
         googleMapsApiKey: "AIzaSyBmOpstO2144GQzwOWrWL9NQLvQ5oyE_kw"
@@ -28,31 +31,44 @@ function MainMap() {
     const [map, setMap] = useState<google.maps.Map | null>(null);
     const [directionsResponse, setDirectionsResponse] = useState<google.maps.DirectionsResult | null>(null);
 
-    const onLoad = React.useCallback(function callback(map) {
-        calculateRoute()
+    const onLoad = React.useCallback(function callback(map: google.maps.Map | null) {
+        void calculateRoute()
         console.log("loading")
         setMap(map)
     }, [])
 
+
+
     async function calculateRoute() {
+        const routeWaypoints = props.routeWaypoints;
+
+        if (!routeWaypoints) {
+            return
+        }
+        const origin = routeWaypoints.splice(0, 1)[0]
+        const dest = routeWaypoints.splice(-1, 1)[0]
+        const waypoints: object[] = []
+        for (let i = 0; i < routeWaypoints.length; i++) {
+            waypoints.push({
+                location: routeWaypoints[i],
+                stopover: true
+            })
+        }
+
+        console.log(origin)
+        console.log(dest)
+        console.log(waypoints)
+
+
         const directionsService = new window.google.maps.DirectionsService();
         const results: google.maps.DirectionsResult = await directionsService.route({
             origin: origin,
             destination: dest,
             optimizeWaypoints: true,
-            waypoints: [
-                {
-                    location: 'Erasmus Bridge, Rotterdam, Netherlands',
-                    stopover: true
-                }, {
-                    location: 'Witte de Withstraat, Rotterdam, Netherlands',
-                    stopover: true
-                }, {
-                    location: 'Markthal, Rottterdam, Netherlands',
-                    stopover: true
-                },],
+            waypoints: waypoints,
             travelMode: google.maps.TravelMode.WALKING
         })
+        console.log(results);
         setDirectionsResponse(results)
         // setDistance(results.routes[0].legs[0].distance.text)
         // setDuration(results.routes[0].legs[0].duration.text)
@@ -63,7 +79,7 @@ function MainMap() {
             mapContainerStyle={containerStyle}
             center={center}
             zoom={8}
-            onLoad={onLoad}
+            onLoad={() => onLoad(map)}
         >
             {directionsResponse && (
                 <DirectionsRenderer directions={directionsResponse}/>
@@ -72,4 +88,4 @@ function MainMap() {
     ) : <></>
 }
 
-export default MainMap
+export default Map
