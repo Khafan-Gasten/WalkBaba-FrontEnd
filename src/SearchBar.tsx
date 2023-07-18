@@ -18,10 +18,10 @@ function SearchBar(props: SearchBarProps) {
     const fetchData = async () => {
         try {
             const response: AxiosResponse<routeResponseDTO[]> = await axios.post("https://walkbaba.azurewebsites.net/api/openai", {
-                    city: cityNameEl.current?.value,
-                    country: countryNameEl.current?.value,
-                    duration: durationEl.current?.value,
-                });
+                city: cityNameEl.current?.value,
+                country: countryNameEl.current?.value,
+                duration: durationEl.current?.value,
+            });
             console.log(response.data);
             props.setRouteData(response.data);
             props.setDisplayMap(true)
