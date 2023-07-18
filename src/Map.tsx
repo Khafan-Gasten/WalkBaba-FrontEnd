@@ -21,7 +21,6 @@ type MapBoardProps = {
     routeWaypoints: string[]
 }
 
-
 function Map(props: MapBoardProps) {
 
     const {isLoaded} = useJsApiLoader({
@@ -33,11 +32,8 @@ function Map(props: MapBoardProps) {
 
     const onLoad = React.useCallback(function callback(map: google.maps.Map | null) {
         void calculateRoute()
-        console.log("loading")
         setMap(map)
     }, [])
-
-
 
     async function calculateRoute() {
         const routeWaypoints = props.routeWaypoints;
@@ -46,20 +42,18 @@ function Map(props: MapBoardProps) {
             return
         }
         //Maybe change the behaviour of this section
-        const origin = routeWaypoints.splice(0, 1)[0]
-        const dest = routeWaypoints.splice(-1, 1)[0]
+        const origin = routeWaypoints[0]
+        const dest = routeWaypoints[routeWaypoints.length - 1]
         const waypoints: object[] = []
-        for (let i = 0; i < routeWaypoints.length; i++) {
+        for (let i = 1; i < routeWaypoints.length - 1; i++) {
             waypoints.push({
                 location: routeWaypoints[i],
                 stopover: true
             })
         }
-
         console.log(origin)
         console.log(dest)
         console.log(waypoints)
-
 
         const directionsService = new window.google.maps.DirectionsService();
         const results: google.maps.DirectionsResult = await directionsService.route({
