@@ -1,9 +1,10 @@
 import axios from "axios";
-import {SetStateAction} from "react";
+import {Dispatch, SetStateAction} from "react";
 import {routeResponseDTO} from "./routeResponseDTO.tsx";
 
 type SearchBarProps = {
-    setRouteData: React.Dispatch<SetStateAction<routeResponseDTO[]>>
+    setRouteData: Dispatch<SetStateAction<routeResponseDTO[]|null>>
+    setDisplayMap: Dispatch<SetStateAction<boolean>>
 }
 
 type userRequest = {
@@ -22,10 +23,12 @@ function SearchBar(props: SearchBarProps) {
             duration: e.target.elements.duration.value.toString()
         }
 
-        const response: routeResponseDTO[] = await axios.post("http://localhost:8080/api/openai",
+        const response: routeResponseDTO[] = (await axios.post("http://localhost:8080/api/openai",
                 request
-            )
+            )).data;
+        console.log(response);
         props.setRouteData(response);
+        props.setDisplayMap(true)
     }
 
     return <>

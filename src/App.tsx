@@ -6,11 +6,18 @@ import MapGallery from "./MapGallery.tsx";
 
 
 function App() {
-    const [routeData, setRouteData] = useState<routeResponseDTO[]|null>(null);
+    const [routeData, setRouteData] = useState<routeResponseDTO[] | null>(null);
+    const [displayMap, setDisplayMap] = useState<boolean>(false)
 
-    return <>
-        <SearchBar setRouteData={setRouteData}/>
+
+
+    return (
+    <>
+        <SearchBar setRouteData={setRouteData} setDisplayMap={setDisplayMap}/>
+        {displayMap &&
         <MapGallery routeData={routeData}/>
+        }
     </>
+);
 }
 export default App
