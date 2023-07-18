@@ -7,41 +7,27 @@ type SearchBarProps = {
     setDisplayMap: Dispatch<SetStateAction<boolean>>
 }
 
-type userRequest = {
-    city: string | undefined,
-    country: string | undefined,
-    duration: string | undefined
-}
-
 function SearchBar(props: SearchBarProps) {
-
-
     const cityNameEl = useRef<HTMLInputElement>(null);
     const countryNameEl = useRef<HTMLInputElement>(null);
     const durationEl = useRef<HTMLSelectElement>(null);
 
     const [showError, setShowError] = useState<boolean>(false);
-
     const errorMessage = "We couldn't find this city. Please check your input and try again."
 
-
     const fetchData = async () => {
-        const request: userRequest = {
-            city: cityNameEl.current?.value,
-            country: countryNameEl.current?.value,
-            duration: durationEl.current?.value,
-        }
         try {
-            const response: AxiosResponse<routeResponseDTO[]> = await axios.post("https://walkbaba.azurewebsites.net/api/openai",
-                request
-            );
+            const response: AxiosResponse<routeResponseDTO[]> = await axios.post("https://walkbaba.azurewebsites.net/api/openai", {
+                    city: cityNameEl.current?.value,
+                    country: countryNameEl.current?.value,
+                    duration: durationEl.current?.value,
+                });
             console.log(response.data);
             props.setRouteData(response.data);
             props.setDisplayMap(true)
         } catch (err) {
             if (err instanceof Error) {
                 setShowError(true)
-                props.setDisplayMap(false)
                 console.error(err)
             }
         }
@@ -50,6 +36,7 @@ function SearchBar(props: SearchBarProps) {
     const onSubmitSearchRoutes = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setShowError(false)
+        props.setDisplayMap(false)
         void fetchData();
     }
 
