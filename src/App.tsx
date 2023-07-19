@@ -13,6 +13,7 @@ function App() {
         <>
             <SearchBar setRouteData={setRouteData} setDisplayMap={setDisplayMap}/>
             {displayMap && <MapGallery routeData={routeData}/>}
+
         </>
     );
 }
