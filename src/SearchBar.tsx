@@ -16,13 +16,15 @@ function SearchBar(props: SearchBarProps) {
     const errorMessage = "We couldn't find this city. Please check your input and try again."
 
     const fetchData = async () => {
+        console.log("About to call backend")
         try {
             const response: AxiosResponse<routeResponseDTO[]> = await axios.post("https://walkbaba.azurewebsites.net/api/openai", {
                 city: cityNameEl.current?.value,
                 country: countryNameEl.current?.value,
                 duration: durationEl.current?.value,
             });
-            console.log(response.data);
+            // console.log(response.data);
+            console.log("Received data from backend")
             props.setRouteData(response.data);
             props.setDisplayMap(true)
         } catch (err) {
@@ -35,6 +37,7 @@ function SearchBar(props: SearchBarProps) {
 
     const onSubmitSearchRoutes = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        console.log("User made a search")
         setShowError(false)
         props.setDisplayMap(false)
         void fetchData();

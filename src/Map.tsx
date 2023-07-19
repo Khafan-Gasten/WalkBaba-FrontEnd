@@ -51,9 +51,11 @@ function Map(props: MapBoardProps) {
                 stopover: true
             })
         }
-        console.log(origin)
-        console.log(dest)
-        console.log(waypoints)
+        // console.log(origin)
+        // console.log(dest)
+        // console.log(waypoints)
+
+        console.log("About to query google maps")
 
         const directionsService = new window.google.maps.DirectionsService();
         const results: google.maps.DirectionsResult = await directionsService.route({
@@ -63,7 +65,8 @@ function Map(props: MapBoardProps) {
             waypoints: waypoints,
             travelMode: google.maps.TravelMode.WALKING
         })
-        console.log(results);
+        // console.log(results);
+        console.log("received response from maps")
         setDirectionsResponse(results)
         // setDistance(results.routes[0].legs[0].distance.text)
         // setDuration(results.routes[0].legs[0].duration.text)
