@@ -2,6 +2,8 @@ import axios, {AxiosResponse} from "axios";
 import React, {Dispatch, SetStateAction, useRef, useState} from "react";
 import {routeResponseDTO} from "./routeResponseDTO.tsx";
 import "./App.css";
+import {useNavigate} from "react-router-dom"
+
 
 type SearchBarProps = {
     setRouteData: Dispatch<SetStateAction<routeResponseDTO[] | null>>
@@ -15,6 +17,7 @@ function SearchBar(props: SearchBarProps) {
 
     const [showError, setShowError] = useState<boolean>(false);
     const errorMessage = "We couldn't find this city. Please check your input and try again."
+    const navigate = useNavigate()
 
     const fetchData = async () => {
         console.log("About to call backend")
@@ -34,6 +37,7 @@ function SearchBar(props: SearchBarProps) {
                 console.error(err)
             }
         }
+        navigate(`/routes?=${cityNameEl.current?.value}`);
     }
 
     const onSubmitSearchRoutes = (e: React.FormEvent<HTMLFormElement>) => {
