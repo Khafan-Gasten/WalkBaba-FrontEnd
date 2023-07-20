@@ -5,6 +5,7 @@ import {
     useJsApiLoader,
     DirectionsRenderer,
 } from '@react-google-maps/api';
+import {WaypointDTO} from "./waypointDTO.tsx";
 
 
 const containerStyle = {
@@ -18,7 +19,7 @@ const center = {
 };
 
 type MapBoardProps = {
-    routeWaypoints: string[]
+    routeWaypoints: WaypointDTO[]
 }
 
 function Map(props: MapBoardProps) {
@@ -42,12 +43,12 @@ function Map(props: MapBoardProps) {
             return
         }
         //Maybe change the behaviour of this section
-        const origin = routeWaypoints[0]
-        const dest = routeWaypoints[routeWaypoints.length - 1]
+        const origin = routeWaypoints[0].waypoint_name
+        const dest = routeWaypoints[routeWaypoints.length - 1].waypoint_name
         const waypoints: object[] = []
         for (let i = 1; i < routeWaypoints.length - 1; i++) {
             waypoints.push({
-                location: routeWaypoints[i],
+                location: routeWaypoints[i].waypoint_name,
                 stopover: true
             })
         }

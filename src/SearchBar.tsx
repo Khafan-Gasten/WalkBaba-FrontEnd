@@ -18,12 +18,12 @@ function SearchBar(props: SearchBarProps) {
     const fetchData = async () => {
         console.log("About to call backend")
         try {
-            const response: AxiosResponse<routeResponseDTO[]> = await axios.post("https://walkbaba.azurewebsites.net/api/openai", {
+            const response: AxiosResponse<routeResponseDTO[]> = await axios.post("http://localhost:8081/api/openai", {
                 city: cityNameEl.current?.value,
                 country: countryNameEl.current?.value,
                 duration: durationEl.current?.value,
             });
-            // console.log(response.data);
+            console.log(response.data);
             console.log("Received data from backend")
             props.setRouteData(response.data);
             props.setDisplayMap(true)
