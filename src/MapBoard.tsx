@@ -14,10 +14,8 @@ function MapBoard(props: MapBoardProps) {
                     <div className="card-body panel-body">
                         {props.routeData &&
                             <>
-                                <h5 className="card-title">{props.routeData.walk_name}</h5>
-                                <ul className="list-group">
-                                    <li className="list-group-item">{props.routeData.description}</li>
-                                </ul>
+                                <h4 className="card-title">{props.routeData.walk_name}</h4>
+                                    <p className="list-group-item">{props.routeData.description}</p>
                             </>}
                     </div>
                 </div>
