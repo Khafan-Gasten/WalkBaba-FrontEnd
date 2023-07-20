@@ -1,4 +1,7 @@
 import React, {useState} from 'react'
+import { useCallback } from "react";
+import "./App.css";
+
 
 import {
     GoogleMap,
@@ -23,6 +26,10 @@ type MapBoardProps = {
 }
 
 function Map(props: MapBoardProps) {
+
+        const onContentCardSimpleArticleCoContainer1Click = useCallback(() => {
+            // Please sync "⟶ [Maps] View #2" to the project
+        }, []);
 
     const {isLoaded} = useJsApiLoader({
         id: 'google-map-script',
@@ -74,16 +81,28 @@ function Map(props: MapBoardProps) {
     }
 
     return isLoaded ? (
-        <GoogleMap
-            mapContainerStyle={containerStyle}
-            center={center}
-            zoom={8}
-            onLoad={() => onLoad(map)}
-        >
-            {directionsResponse && (
-                <DirectionsRenderer directions={directionsResponse}/>
-            )}
-        </GoogleMap>
+        <>
+                    <div className="news-container">
+                        <article className="news-article">
+                            <GoogleMap
+                                mapContainerStyle={containerStyle}
+                                center={center}
+                                zoom={8}
+                                onLoad={() => onLoad(map)}
+                            >
+                                {directionsResponse && (
+                                    <DirectionsRenderer directions={directionsResponse}/>
+                                )}
+                            </GoogleMap>
+                                <h3 className="news-article__title">Heading for Article</h3>
+                                <p className="news-article__content">Lorem ipsum dolor sit amet consectetur adipisicing
+                                    elit. Illo voluptates
+                                    ullam, commodi deserunt necessitatibus assumenda ratione consequuntur!</p>
+
+                        </article>
+                    </div>
+
+        </>
     ) : <></>
 }
 
