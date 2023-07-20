@@ -1,5 +1,6 @@
 import MapBoard from "./MapBoard.tsx";
 import {routeResponseDTO} from "./routeResponseDTO.tsx";
+import "./App.css";
 
 
 type MapGalleryProps = {
@@ -11,7 +12,7 @@ function MapGallery(props: MapGalleryProps) {
     return (
         <>
             <div className="container">
-                <h1>Map Gallery</h1>
+                <h3>Walking sugestion for Rotterdam, Netherlands</h3>
                 <MapBoard routeData={props.routeData![0]}/>
                 <MapBoard routeData={props.routeData![1]}/>
                 <MapBoard routeData={props.routeData![2]}/>

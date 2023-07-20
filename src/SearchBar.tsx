@@ -1,6 +1,7 @@
 import axios, {AxiosResponse} from "axios";
 import React, {Dispatch, SetStateAction, useRef, useState} from "react";
 import {routeResponseDTO} from "./routeResponseDTO.tsx";
+import "./App.css";
 
 type SearchBarProps = {
     setRouteData: Dispatch<SetStateAction<routeResponseDTO[] | null>>
@@ -44,22 +45,32 @@ function SearchBar(props: SearchBarProps) {
     }
 
     return <>
-        <form onSubmit={onSubmitSearchRoutes}>
-            <label htmlFor="cityName">City: </label>
-            <input type="text" id="cityName" name="cityName" ref={cityNameEl}/><br/>
-            <label htmlFor="countryName">Country: </label>
-            <input type="text" id="countryName" name="countryName" ref={countryNameEl}/><br/>
-            <label htmlFor="duration">Duration: </label>
-            <select id="duration" name="duration" ref={durationEl}>
-                <option value="1">1 hour</option>
-                <option value="2">2 hours</option>
-                <option value="3">3 hours</option>
-                <option value="4">4 hours</option>
-                <option value="5">5 hours</option>
-            </select>
-            <input type="submit" value="Search"/>
-        </form>
-        <p>{showError && errorMessage}</p>
+        <div className="container">
+            <form onSubmit={onSubmitSearchRoutes} className="row g-3 searchbar">
+                <div className="input-group col-sm">
+                    <input type="text" className="form-control" placeholder="City" aria-label="City"
+                           aria-describedby="basic-addon1" id="cityName" name="cityName" ref={cityNameEl}/>
+                </div>
+                <div className="input-group col-sm">
+                    <input type="text" className="form-control" placeholder="Country" aria-label="Country"
+                           aria-describedby="basic-addon1" id="countryName" name="countryName" ref={countryNameEl}/>
+                </div>
+                <div className="input-group col-sm">
+                    <select className="form-select" id="inputGroupSelect04"
+                            aria-label="Example select with button addon" ref={durationEl}>
+                        <option selected>Duration</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+                <button className="btn btn-outline-secondary search-button col-auto" type="submit" value="Search">Search</button>
+            </form>
+            <p>{showError && errorMessage}</p>
+        </div>
+
     </>
 }
 
