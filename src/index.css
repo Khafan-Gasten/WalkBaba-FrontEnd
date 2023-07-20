@@ -1,69 +1,49 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap");
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  line-height: normal;
 }
+:root {
+  /* fonts */
+  --heading-heading-4: Montserrat;
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
+  /* font sizes */
+  --heading-heading-4-size: 30px;
+  --label-label-8-size: 18px;
+  --font-size-5xl: 24px;
+  --label-label-4-size: 20px;
+  --uppercase-uppercase-1-size: 26px;
+  --label-label-2-size: 25px;
+  --heading-heading-6-size: 22px;
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
+  /* Colors */
+  --flat-white-01: #fff;
+  --color-gray-100: #121217;
+  --flat-dark-07: rgba(20, 15, 38, 0.7);
+  --flat-grey-00: #6c7b8a;
+  --flat-blue-03: #4c5fef;
+  --color-darkgray: #a1a1a1;
+  --flat-dark-03: #3b3b4d;
+  --flat-dark-02: #2f2f3e;
+  --flat-grey-03: #f4f6f9;
+  --color-gold: #f8e71c;
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+  /* Gaps */
+  --gap-5xs: 8px;
+  --gap-12xs: 1px;
+
+  /* Paddings */
+  --padding-8xs: 5px;
+  --padding-5xs: 8px;
+
+  /* border radiuses */
+  --br-6xs: 7px;
+  --br-3xs: 10px;
+  --br-5xs: 8px;
+  --br-10xs-7: 2.7px;
+  --br-7xs-3: 5.3px;
+  --br-mini: 15px;
+
+  /* Effects */
+  --elevation-middle-xs: 0px 2px 10px rgba(50, 51, 94, 0.17);
 }
