@@ -11,7 +11,7 @@ import {WaypointDTO} from "./waypointDTO.tsx";
 
 
 const containerStyle = {
-    width: '350px',
+    width: '400px',
     height: '300px'
 };
 
@@ -90,9 +90,6 @@ function Map(props: MapBoardProps) {
                                     <DirectionsRenderer directions={directionsResponse}/>
                                 )}
                             </GoogleMap>
-                                <h3 className="map-article__title">{}</h3>
-                                <p className="map-article__content"></p>
-
                         </article>
                     </div>
 

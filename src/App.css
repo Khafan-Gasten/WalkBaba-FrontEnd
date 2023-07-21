@@ -2,7 +2,7 @@ body {
   font-family: Arial, sans-serif;
   background-color: #fafafa;
   margin: 0;
-  padding: 0;
+  padding: 5px;
   box-sizing: border-box;
 }
 
@@ -99,88 +99,36 @@ body {
   flex-direction: row;
 }
 
-.news-article__buttonjust {
-  margin-right: auto;
+
+.map_pic {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  overflow: hidden;
+
+}
+.news-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0 40px;
+  justify-content: center;
+  justify-items: end;
+  align-content: space-evenly;
+}
+.recipe{
+  border-radius: 10px;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  min-width: 40%;
 }
 
-.news-article__button {
-  color: black;
-  border: 1px rgb(0 0 0 / 36%) solid;
-  border-radius: 4px;
-  padding: 8px 12px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  margin-right: 10px;
+.recipe-col {
+  margin-bottom: 20px;
 }
 
-.news-article__button:hover {
-  background-color: #f08028;
-}
-
-@media only screen and (max-width: 320px) {
-  main {
-    padding: 1px;
-  }
-
-  .header {
-    padding: 0 10px;
-  }
-}
-
-@media only screen and (min-width: 480px) {
-  .nav__button {
-    display: inline;
-  }
-}
-
-@media only screen and (min-width: 600px) {
-  main {
-    padding: 10px 50px;
-  }
-
-  .news-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .nav__button {
-    display: inline;
-  }
-
-  .news-article__image {
-    height: 250px;
-  }
-}
-
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
-  main {
-    padding: 10px 50px;
-  }
-
-  .news-container {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .nav__button {
-    display: inline;
-  }
-
-  .news-article__image {
-    height: 250px;
-  }
-}
-
-@media only screen and (min-width: 1281px) {
-  .news-container {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 20px;
-  }
-
-  .nav__button {
-    display: inline;
-  }
-
-  .news-article__image {
-    height: 200px;
-  }
+.map_box {
+  margin-bottom: 20px;
 }
