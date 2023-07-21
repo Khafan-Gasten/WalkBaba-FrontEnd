@@ -12,8 +12,8 @@ import {WaypointDTO} from "./waypointDTO.tsx";
 
 
 const containerStyle = {
-    width: '400px',
-    height: '400px'
+    width: '350px',
+    height: '300px'
 };
 
 const center = {
@@ -27,9 +27,6 @@ type MapBoardProps = {
 
 function Map(props: MapBoardProps) {
 
-        const onContentCardSimpleArticleCoContainer1Click = useCallback(() => {
-            // Please sync "⟶ [Maps] View #2" to the project
-        }, []);
 
     const {isLoaded} = useJsApiLoader({
         id: 'google-map-script',
@@ -82,8 +79,8 @@ function Map(props: MapBoardProps) {
 
     return isLoaded ? (
         <>
-                    <div className="news-container">
-                        <article className="news-article">
+                    <div className="map-container">
+                        <article className="map-article">
                             <GoogleMap
                                 mapContainerStyle={containerStyle}
                                 center={center}
@@ -94,10 +91,8 @@ function Map(props: MapBoardProps) {
                                     <DirectionsRenderer directions={directionsResponse}/>
                                 )}
                             </GoogleMap>
-                                <h3 className="news-article__title">Heading for Article</h3>
-                                <p className="news-article__content">Lorem ipsum dolor sit amet consectetur adipisicing
-                                    elit. Illo voluptates
-                                    ullam, commodi deserunt necessitatibus assumenda ratione consequuntur!</p>
+                                <h3 className="map-article__title">{}</h3>
+                                <p className="map-article__content"></p>
 
                         </article>
                     </div>
