@@ -5,7 +5,9 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
-
+.gm-style-mtc {
+  display: none;
+}
 
 .map-article {
   margin: 20px auto;
