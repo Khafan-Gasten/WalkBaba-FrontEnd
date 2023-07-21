@@ -15,14 +15,17 @@ function MapGallery(props: MapGalleryProps) {
 
     return (
         <>
-            <div className="container">
-                <h3>Walking suggestions for Rotterdam, Netherlands</h3>
+            <div className="map">
                 <SearchBar setRouteData={props.setRouteData} setDisplayMap={props.setDisplayMap}/>
-                <MapBoard routeData={props.routeData![0]}/>
-                <MapBoard routeData={props.routeData![1]}/>
-                <MapBoard routeData={props.routeData![2]}/>
-                <MapBoard routeData={props.routeData![3]}/>
-                <MapBoard routeData={props.routeData![4]}/>
+                <p>Walking suggestions for Rotterdam, Netherlands</p>
+
+                            <MapBoard routeData={props.routeData![0]}/>
+                            <MapBoard routeData={props.routeData![1]}/>
+                            <MapBoard routeData={props.routeData![2]}/>
+                            <MapBoard routeData={props.routeData![3]}/>
+                            <MapBoard routeData={props.routeData![4]}/>
+
+
             </div>
         </>
     );
