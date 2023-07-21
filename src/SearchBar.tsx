@@ -25,7 +25,7 @@ function SearchBar(props: SearchBarProps) {
             const response: AxiosResponse<routeResponseDTO[]> = await axios.post("http://localhost:8081/api/openai", {
                 city: cityNameEl.current?.value,
                 country: countryNameEl.current?.value,
-                duration: durationEl.current?.value,
+                duration: "1",
             });
             console.log(response.data);
             console.log("Received data from backend")
@@ -37,6 +37,7 @@ function SearchBar(props: SearchBarProps) {
                 console.error(err)
             }
         }
+        setShowError(false)
         navigate(`/routes?=${cityNameEl.current?.value}`);
     }
 
@@ -50,6 +51,7 @@ function SearchBar(props: SearchBarProps) {
 
     return <>
         <div className="container">
+            <h1 className="title">WalkBaba</h1>
             <form onSubmit={onSubmitSearchRoutes} className="row g-3 searchbar">
                 <div className="input-group col-sm">
                     <input type="text" className="form-control" placeholder="City" aria-label="City"
