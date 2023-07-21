@@ -17,7 +17,7 @@ function MapGallery(props: MapGalleryProps) {
         <>
             <div className="map">
                 <SearchBar setRouteData={props.setRouteData} setDisplayMap={props.setDisplayMap}/>
-                <p>Walking suggestions for Rotterdam, Netherlands</p>
+                {/*<p>Walking suggestions for Rotterdam, Netherlands</p>*/}
 
                             <MapBoard routeData={props.routeData![0]}/>
                             <MapBoard routeData={props.routeData![1]}/>
