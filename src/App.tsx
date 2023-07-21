@@ -4,6 +4,7 @@ import {useState} from "react";
 import {routeResponseDTO} from "./routeResponseDTO.tsx";
 import MapGallery from "./MapGallery.tsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import LandingPage from "./LandingPage.tsx";
 
 
 
@@ -14,7 +15,7 @@ function App() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<SearchBar setRouteData={setRouteData} setDisplayMap={setDisplayMap}/>}></Route>
+                <Route path="/" element={<LandingPage setRouteData={setRouteData} setDisplayMap={setDisplayMap}/>}></Route>
                 <Route path="/routes" element={displayMap && <MapGallery routeData={routeData} setRouteData={setRouteData} setDisplayMap={setDisplayMap}/>}></Route>
             </Routes>
         </BrowserRouter>

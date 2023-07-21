@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-import { useCallback } from "react";
 import "./App.css";
 
 
@@ -70,7 +69,7 @@ function Map(props: MapBoardProps) {
             waypoints: waypoints,
             travelMode: google.maps.TravelMode.WALKING
         })
-        // console.log(results);
+        console.log(results);
         console.log("received response from maps")
         setDirectionsResponse(results)
         // setDistance(results.routes[0].legs[0].distance.text)

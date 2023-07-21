@@ -5,6 +5,28 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
+
+.landingPage {
+  background: url(assets/amsterdam.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100vh;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+}
+
+.title-landingPage {
+  font-family: Rockwell, sans-serif;
+  text-align: center;
+  font-size: 60px;
+  color: #FFFFFFFF;
+  background-color: rgba(77, 77, 77, 0.78);
+  border-radius: 20px;
+  padding-top: 10px;
 .gm-style-mtc {
   display: none;
 }
