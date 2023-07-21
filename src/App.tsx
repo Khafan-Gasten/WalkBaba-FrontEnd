@@ -1,5 +1,4 @@
 import './App.css'
-import SearchBar from "./SearchBar.tsx";
 import {useState} from "react";
 import {routeResponseDTO} from "./routeResponseDTO.tsx";
 import MapGallery from "./MapGallery.tsx";
