@@ -1,4 +1,4 @@
-import {Dispatch, SetStateAction} from "react";
+import React, {Dispatch, SetStateAction} from "react";
 import {routeResponseDTO} from "./routeResponseDTO.tsx";
 import SearchBar from "./SearchBar.tsx";
 
@@ -12,7 +12,8 @@ function LandingPage(props: SearchBarProps) {
 
     return <>
         <div className="landingPage">
-        <SearchBar setRouteData={props.setRouteData} setDisplayMap={props.setDisplayMap}/>
+            <h1 className="title-landingPage">WalkBaba</h1>
+            <SearchBar setRouteData={props.setRouteData} setDisplayMap={props.setDisplayMap}/>
         </div>
     </>
 }

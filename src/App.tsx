@@ -15,7 +15,6 @@ function App() {
     return (
         <BrowserRouter>
             <Routes>
-                {/*<Route path="/" element={<SearchBar setRouteData={setRouteData} setDisplayMap={setDisplayMap}/>}></Route>*/}
                 <Route path="/" element={<LandingPage setRouteData={setRouteData} setDisplayMap={setDisplayMap}/>}></Route>
                 <Route path="/routes" element={displayMap && <MapGallery routeData={routeData} setRouteData={setRouteData} setDisplayMap={setDisplayMap}/>}></Route>
             </Routes>

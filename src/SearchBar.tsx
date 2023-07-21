@@ -13,7 +13,7 @@ type SearchBarProps = {
 function SearchBar(props: SearchBarProps) {
     const cityNameEl = useRef<HTMLInputElement>(null);
     const countryNameEl = useRef<HTMLInputElement>(null);
-    const durationEl = useRef<HTMLSelectElement>(null);
+    // const durationEl = useRef<HTMLSelectElement>(null);
 
     const [showError, setShowError] = useState<boolean>(false);
     const errorMessage = "We couldn't find this city. Please check your input and try again."
@@ -51,7 +51,6 @@ function SearchBar(props: SearchBarProps) {
 
     return <>
         <div className="container">
-            <h1 className="title">WalkBaba</h1>
             <form onSubmit={onSubmitSearchRoutes} className="row g-3 searchbar">
                 <div className="input-group col-sm">
                     <input type="text" className="form-control" placeholder="City" aria-label="City"
@@ -61,18 +60,18 @@ function SearchBar(props: SearchBarProps) {
                     <input type="text" className="form-control" placeholder="Country" aria-label="Country"
                            aria-describedby="basic-addon1" id="countryName" name="countryName" ref={countryNameEl}/>
                 </div>
-                <div className="input-group col-sm">
-                    <select className="form-select" id="inputGroupSelect04"
-                            aria-label="Example select with button addon" ref={durationEl}>
-                        <option selected>Duration</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
-                </div>
-                <button className="btn btn-outline-secondary search-button col-auto" type="submit" value="Search">Search</button>
+                {/*<div className="input-group col-sm">*/}
+                {/*    <select className="form-select" id="inputGroupSelect04"*/}
+                {/*            aria-label="Example select with button addon" ref={durationEl}>*/}
+                {/*        <option selected>Duration</option>*/}
+                {/*        <option value="1">1</option>*/}
+                {/*        <option value="2">2</option>*/}
+                {/*        <option value="3">3</option>*/}
+                {/*        <option value="4">4</option>*/}
+                {/*        <option value="5">5</option>*/}
+                {/*    </select>*/}
+                {/*</div>*/}
+                <button className="btn btn-primary search-button col-auto" type="submit" value="Search">Search</button>
             </form>
             <p>{showError && errorMessage}</p>
         </div>

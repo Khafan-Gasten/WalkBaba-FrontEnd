@@ -13,10 +13,20 @@ body {
   -o-background-size: cover;
   background-size: cover;
   height: 100vh;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
 }
 
-.landingPage h1 {
+.title-landingPage {
+  font-family: Rockwell, sans-serif;
   text-align: center;
+  font-size: 60px;
+  color: #FFFFFFFF;
+  background-color: rgba(77, 77, 77, 0.78);
+  border-radius: 20px;
+  padding-top: 10px;
 }
 
 .map-article {
