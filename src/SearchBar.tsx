@@ -13,7 +13,10 @@ type SearchBarProps = {
 function SearchBar(props: SearchBarProps) {
     const cityNameEl = useRef<HTMLInputElement>(null);
     const countryNameEl = useRef<HTMLInputElement>(null);
-    // const durationEl = useRef<HTMLSelectElement>(null);
+
+    const localUrl = "http://localhost:8081/api/openai";
+    const deployUrl = "http://walkbaba.azurewebsites.net/api/openai"
+
 
     const [showError, setShowError] = useState<boolean>(false);
     const errorMessage = "We couldn't find this city. Please check your input and try again."
@@ -22,7 +25,7 @@ function SearchBar(props: SearchBarProps) {
     const fetchData = async () => {
         console.log("About to call backend")
         try {
-            const response: AxiosResponse<routeResponseDTO[]> = await axios.post("http://localhost:8081/api/openai", {
+            const response: AxiosResponse<routeResponseDTO[]> = await axios.post(deployUrl, {
                 city: cityNameEl.current?.value,
                 country: countryNameEl.current?.value,
                 duration: "1",
