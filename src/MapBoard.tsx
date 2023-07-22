@@ -2,21 +2,19 @@ import Map from "./Map.tsx";
 import {routeResponseDTO} from "./routeResponseDTO.tsx";
 import "./App.css";
 import {useNavigate} from "react-router-dom";
-import {Dispatch, SetStateAction} from "react";
 
 type MapBoardProps = {
     routeData: routeResponseDTO | null
-    setRouteData: Dispatch<SetStateAction<routeResponseDTO[] | null>>
-    setDisplayMap: Dispatch<SetStateAction<boolean>>
 }
 
 function MapBoard(props: MapBoardProps) {
     const navigate = useNavigate()
-
     const clickHandler = (e: any) => {
         e.preventDefault();
         if (props.routeData) {
-            navigate(`/map`)
+
+            navigate('/routes/map' , {state:{routeData : props.routeData}})
+
         }
     }
 

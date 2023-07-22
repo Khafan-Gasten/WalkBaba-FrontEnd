@@ -2,25 +2,28 @@ import {routeResponseDTO} from "./routeResponseDTO.tsx";
 import "./App.css";
 import {Dispatch, SetStateAction} from "react";
 import Map from "./Map.tsx";
+import {useLocation} from "react-router-dom";
+type MapBoardProps = {
+    routeData: routeResponseDTO | null
+}
 
 type MapSingleProps = {
-    routeData: routeResponseDTO | null
+    routeData: routeResponseDTO[] | null
+    index : number
     setRouteData: Dispatch<SetStateAction<routeResponseDTO[] | null>>
     setDisplayMap: Dispatch<SetStateAction<boolean>>
 }
 
-function MapSingle(props: MapSingleProps) {
+function MapSingle() {
 
 
-
-
-
+    const location  = useLocation();
 return (
     <>
         <main>
             <div className="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-body-tertiary">
                 <div className="col-md-6 p-lg-5 mx-auto my-5">
-                    <Map routeWaypoints={props.routeData!.waypoints}/>
+                    <Map routeWaypoints={location.state.routeData.waypoints}/>
                 </div>
                 <div className="product-device shadow-sm d-none d-md-block"></div>
                 <div className="product-device product-device-2 shadow-sm d-none d-md-block"></div>

@@ -31,7 +31,7 @@ function MapGallery(props: MapGalleryProps) {
                         <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                             {
                                 Array.from(Array(props.routeData?.length).keys()).map((index: number) => (
-                                    <div className="col">
+                                    <div className="col " id={index.toString()}>
                                         <MapBoard routeData={props.routeData![index]}/>
                                     </div>
                                 ))

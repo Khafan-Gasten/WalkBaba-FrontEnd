@@ -11,7 +11,7 @@ import SignUp from "./SignUp.tsx";
 
 
 function App() {
-    const [routeData, setRouteData] = useState<routeResponseDTO[] | null>(null);
+    const [routeData, setRouteData] = useState<routeResponseDTO[]  | null>(null);
     const [displayMap, setDisplayMap] = useState<boolean>(false)
 
     return (
@@ -19,7 +19,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<LandingPage setRouteData={setRouteData} setDisplayMap={setDisplayMap}/>}></Route>
                 <Route path="/routes" element={displayMap && <MapGallery routeData={routeData} setRouteData={setRouteData} setDisplayMap={setDisplayMap}/>}></Route>
-                <Route path="/map" element={<MapSingle routeData={routeData} setRouteData={setRouteData} setDisplayMap={setDisplayMap}/>}></Route>
+                <Route path="/routes/map" element={<MapSingle/>}></Route>
                 <Route path="/profile" element={<Profile />}></Route>
                 <Route path="/signup" element={<SignUp />}></Route>
             </Routes>
