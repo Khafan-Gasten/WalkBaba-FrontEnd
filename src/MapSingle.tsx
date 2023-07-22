@@ -1,18 +1,7 @@
-import {routeResponseDTO} from "./routeResponseDTO.tsx";
+
 import "./App.css";
-import {Dispatch, SetStateAction} from "react";
 import Map from "./Map.tsx";
 import {useLocation} from "react-router-dom";
-type MapBoardProps = {
-    routeData: routeResponseDTO | null
-}
-
-type MapSingleProps = {
-    routeData: routeResponseDTO[] | null
-    index : number
-    setRouteData: Dispatch<SetStateAction<routeResponseDTO[] | null>>
-    setDisplayMap: Dispatch<SetStateAction<boolean>>
-}
 
 function MapSingle() {
 
