@@ -5,6 +5,8 @@ import MapGallery from "./MapGallery.tsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LandingPage from "./LandingPage.tsx";
 import MapSingle from "./MapSingle.tsx";
+import Profile from "./Profile.tsx";
+import SignUp from "./SignUp.tsx";
 
 
 
@@ -18,7 +20,8 @@ function App() {
                 <Route path="/" element={<LandingPage setRouteData={setRouteData} setDisplayMap={setDisplayMap}/>}></Route>
                 <Route path="/routes" element={displayMap && <MapGallery routeData={routeData} setRouteData={setRouteData} setDisplayMap={setDisplayMap}/>}></Route>
                 <Route path="/map" element={<MapSingle routeData={routeData} setRouteData={setRouteData} setDisplayMap={setDisplayMap}/>}></Route>
-
+                <Route path="/profile" element={<Profile />}></Route>
+                <Route path="/signup" element={<SignUp />}></Route>
             </Routes>
         </BrowserRouter>
     );
