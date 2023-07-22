@@ -15,18 +15,31 @@ function MapGallery(props: MapGalleryProps) {
 
     return (
         <>
-            <div className="map">
-                <SearchBar setRouteData={props.setRouteData} setDisplayMap={props.setDisplayMap}/>
-                {/*<p>Walking suggestions for Rotterdam, Netherlands</p>*/}
+            <main>
+                <section className="py-5 text-center container">
+                    <div className="row py-lg-5">
+                        <div className="col-lg-6 col-md-8 mx-auto">
+                            <h1 className="fw-light">WalkBaba</h1>
+                            <SearchBar setRouteData={props.setRouteData} setDisplayMap={props.setDisplayMap}/>
+                            {/*<p>Walking suggestions for Rotterdam, Netherlands</p>*/}
+                        </div>
+                    </div>
+                </section>
 
-                            <MapBoard routeData={props.routeData![0]}/>
-                            <MapBoard routeData={props.routeData![1]}/>
-                            <MapBoard routeData={props.routeData![2]}/>
-                            <MapBoard routeData={props.routeData![3]}/>
-                            <MapBoard routeData={props.routeData![4]}/>
-
-
-            </div>
+                <div className="album py-5 bg-body-tertiary">
+                    <div className="container">
+                        <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                            {
+                                Array.from(Array(props.routeData?.length).keys()).map((index: number) => (
+                                    <div className="col">
+                                        <MapBoard routeData={props.routeData![index]}/>
+                                    </div>
+                                ))
+                            }
+                        </div>
+                    </div>
+                </div>
+            </main>
         </>
     );
 }

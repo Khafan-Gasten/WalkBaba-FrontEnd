@@ -4,6 +4,7 @@ import {routeResponseDTO} from "./routeResponseDTO.tsx";
 import MapGallery from "./MapGallery.tsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LandingPage from "./LandingPage.tsx";
+import MapSingle from "./MapSingle.tsx";
 
 
 
@@ -16,6 +17,8 @@ function App() {
             <Routes>
                 <Route path="/" element={<LandingPage setRouteData={setRouteData} setDisplayMap={setDisplayMap}/>}></Route>
                 <Route path="/routes" element={displayMap && <MapGallery routeData={routeData} setRouteData={setRouteData} setDisplayMap={setDisplayMap}/>}></Route>
+                <Route path="/map" element={<MapSingle routeData={routeData} setRouteData={setRouteData} setDisplayMap={setDisplayMap}/>}></Route>
+
             </Routes>
         </BrowserRouter>
     );
