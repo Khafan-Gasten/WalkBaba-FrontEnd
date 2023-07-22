@@ -14,7 +14,7 @@ function SearchBar(props: SearchBarProps) {
     const cityNameEl = useRef<HTMLInputElement>(null);
     const countryNameEl = useRef<HTMLInputElement>(null);
 
-    const localUrl = "http://localhost:8081/api/openai";
+    // const localUrl = "http://localhost:8081/api/openai";
     const deployUrl = "http://walkbaba.azurewebsites.net/api/openai"
 
 
