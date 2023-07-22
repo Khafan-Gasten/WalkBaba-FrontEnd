@@ -12,9 +12,7 @@ function MapBoard(props: MapBoardProps) {
     const clickHandler = (e: any) => {
         e.preventDefault();
         if (props.routeData) {
-
             navigate('/routes/map' , {state:{routeData : props.routeData}})
-
         }
     }
 

@@ -132,3 +132,8 @@ body {
 .map_box {
   margin-bottom: 20px;
 }
+
+.album h3 {
+  text-align: center;
+  padding-bottom: 1vh;
+}

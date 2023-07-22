@@ -3,6 +3,7 @@ import {routeResponseDTO} from "./routeResponseDTO.tsx";
 import "./App.css";
 import SearchBar from "./SearchBar.tsx";
 import {Dispatch, SetStateAction} from "react";
+import {useLocation} from "react-router-dom";
 
 
 type MapGalleryProps = {
@@ -12,7 +13,7 @@ type MapGalleryProps = {
 }
 
 function MapGallery(props: MapGalleryProps) {
-
+    const location  = useLocation();
     return (
         <>
             <main>
@@ -21,12 +22,12 @@ function MapGallery(props: MapGalleryProps) {
                         <div className="col-lg-6 col-md-8 mx-auto">
                             <h1 className="fw-light">WalkBaba</h1>
                             <SearchBar setRouteData={props.setRouteData} setDisplayMap={props.setDisplayMap}/>
-                            {/*<p>Walking suggestions for Rotterdam, Netherlands</p>*/}
                         </div>
                     </div>
                 </section>
 
                 <div className="album py-5 bg-body-tertiary">
+                    <h3>Top Walking Routes in {location.state.city}, {location.state.country}</h3>
                     <div className="container">
                         <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                             {
