@@ -1,13 +1,11 @@
-import MapBoard from "./MapBoard.tsx";
-import {routeResponseDTO} from "./routeResponseDTO.tsx";
+
 import "./App.css";
-import {Dispatch, SetStateAction} from "react";
+//
+// type ProfileProps = {
+//
+// }
 
-type ProfileProps = {
-
-}
-
-function Profile(props: ProfileProps) {
+function Profile() {
 
 
 
