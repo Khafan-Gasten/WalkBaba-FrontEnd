@@ -3,6 +3,9 @@ import React, {Dispatch, SetStateAction, useRef, useState} from "react";
 import {routeResponseDTO} from "./routeResponseDTO.tsx";
 import "./App.css";
 import {useNavigate} from "react-router-dom"
+import CountrySelect from "./CountrySelect.tsx";
+import Autocomplete from "./Autocomplete.tsx";
+import {Country} from "./Country.tsx";
 
 
 type SearchBarProps = {
@@ -13,10 +16,10 @@ type SearchBarProps = {
 function SearchBar(props: SearchBarProps) {
     const cityNameEl = useRef<HTMLInputElement>(null);
     const countryNameEl = useRef<HTMLInputElement>(null);
+    const [selectedCountry, setSelectedCountry] = useState<Country>();
 
     // const localUrl = "http://localhost:8081/api/openai";
     const deployUrl = "http://walkbaba.azurewebsites.net/api/openai"
-
 
     const [showError, setShowError] = useState<boolean>(false);
     const errorMessage = "We couldn't find this city. Please check your input and try again."
@@ -49,6 +52,7 @@ function SearchBar(props: SearchBarProps) {
         setShowError(false)
         props.setDisplayMap(false)
         void fetchData();
+        console.log(selectedCountry)
         navigate(`/routes?country=${countryNameEl.current!.value}?city=${cityNameEl.current!.value}`,
             {state:{
                 city : cityNameEl.current!.value,
@@ -56,6 +60,8 @@ function SearchBar(props: SearchBarProps) {
     }
 
     return <>
+        <CountrySelect selectedCountry = {selectedCountry} setSelectedCountry = {setSelectedCountry}/>
+        <Autocomplete selectedCountry = {selectedCountry} setSelectedCountry = {setSelectedCountry}/>
         <div className="container">
             <form onSubmit={onSubmitSearchRoutes} className="row g-3 searchbar">
                 <div className="input-group col-sm">
