@@ -14,8 +14,8 @@ function SearchBar(props: SearchBarProps) {
     const cityNameEl = useRef<HTMLInputElement>(null);
     const countryNameEl = useRef<HTMLInputElement>(null);
 
-    // const localUrl = "http://localhost:8081/api/openai";
-    const deployUrl = "http://walkbaba.azurewebsites.net/api/openai"
+    const localUrl = "http://localhost:8081/api/openai";
+    //const deployUrl = "http://walkbaba.azurewebsites.net/api/openai"
 
 
     const [showError, setShowError] = useState<boolean>(false);
@@ -25,7 +25,7 @@ function SearchBar(props: SearchBarProps) {
     const fetchData = async () => {
         console.log("About to call backend")
         try {
-            const response: AxiosResponse<routeResponseDTO[]> = await axios.post(deployUrl, {
+            const response: AxiosResponse<routeResponseDTO[]> = await axios.post(localUrl, {
                 city: cityNameEl.current?.value,
                 country: countryNameEl.current?.value,
                 duration: "1",
