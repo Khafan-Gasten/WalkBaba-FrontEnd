@@ -41,7 +41,6 @@ function SearchBar(props: SearchBarProps) {
             }
         }
         setShowError(false)
-        navigate(`/routes?=${cityNameEl.current?.value}`);
     }
 
     const onSubmitSearchRoutes = (e: React.FormEvent<HTMLFormElement>) => {
@@ -50,6 +49,10 @@ function SearchBar(props: SearchBarProps) {
         setShowError(false)
         props.setDisplayMap(false)
         void fetchData();
+        navigate(`/routes?country=${countryNameEl.current!.value}?city=${cityNameEl.current!.value}`,
+            {state:{
+                city : cityNameEl.current!.value,
+                country : countryNameEl.current!.value}});
     }
 
     return <>

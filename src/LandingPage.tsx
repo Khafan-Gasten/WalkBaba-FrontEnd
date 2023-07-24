@@ -12,8 +12,11 @@ function LandingPage(props: SearchBarProps) {
 
     return <>
         <div className="landingPage">
+            <div className="landingPage-Content">
             <h1 className="title-landingPage">WalkBaba</h1>
+            <h5 className="subtitle-landingPage">AI-generated walking routes to discover your city</h5>
             <SearchBar setRouteData={props.setRouteData} setDisplayMap={props.setDisplayMap}/>
+            </div>
         </div>
     </>
 }
