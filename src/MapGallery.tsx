@@ -16,15 +16,51 @@ function MapGallery(props: MapGalleryProps) {
     const location  = useLocation();
     return (
         <>
-            <main>
-                <section className="py-5 text-center container">
-                    <div className="row py-lg-5">
-                        <div className="col-lg-6 col-md-8 mx-auto">
-                            <h1 className="fw-light">WalkBaba</h1>
+            {/*<header data-bs-theme="dark">*/}
+            {/*    <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">*/}
+            {/*        <div className="container-fluid">*/}
+            {/*            <div className="row flex-nowrap justify-content-between align-items-center">*/}
+            {/*                <div className="col-3 pt-1">*/}
+            {/*                    <h2 className="fw-light">WalkBaba</h2>*/}
+            {/*                </div>*/}
+            {/*                <div className="col-6">*/}
+            {/*                    <SearchBar setRouteData={props.setRouteData} setDisplayMap={props.setDisplayMap}/>*/}
+            {/*                </div>*/}
+            {/*                <div className="col-3 d-flex justify-content-end align-items-center">*/}
+            {/*                    <a className="link-secondary" href="#">Weather</a>*/}
+
+            {/*                </div>*/}
+            {/*            </div>*/}
+            {/*            */}
+            {/*        </div>*/}
+            {/*    </nav>*/}
+            {/*</header>*/}
+
+
+
+                <nav className="border-bottom lh-1 py-1 mapgallery-bar">
+                    <div className="row flex-nowrap justify-content-between align-items-center">
+                        <div className="col-3 pt-1">
+                            <h2 className="fw-light">WalkBaba</h2>
+                        </div>
+                        <div className="col-6">
                             <SearchBar setRouteData={props.setRouteData} setDisplayMap={props.setDisplayMap}/>
                         </div>
+                        <div className="col-3 d-flex justify-content-end align-items-center">
+                            <a className="link-secondary" href="#">Weather</a>
+
+                        </div>
                     </div>
-                </section>
+                </nav>
+
+
+
+            <main className="mapgallery">
+                {/*<div className="col-lg-6 col-md-8 mx-auto">*/}
+
+                {/*    <SearchBar setRouteData={props.setRouteData} setDisplayMap={props.setDisplayMap}/>*/}
+                {/*</div>*/}
+
 
                 <div className="album py-5 bg-body-tertiary">
                     <h3>Top Walking Routes in {location.state.city}, {location.state.country}</h3>
