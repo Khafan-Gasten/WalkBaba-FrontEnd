@@ -1,0 +1,35 @@
+/*.gif-container {*/
+/*    width: 100%;*/
+/*    !*padding-bottom: 100%;*!*/
+/*    !*position: relative;*!*/
+/*    display: grid;*/
+/*    grid-template-columns: 1fr 1fr 1fr;*/
+/*    grid-template-rows: 1fr 1fr 1fr;*/
+/*    height: 100vh;*/
+/*}*/
+
+.frame {
+    /*position: absolute;*/
+    margin-top: 58vh;
+    width: 10vw;
+    position: relative;
+    animation: myMove 20s infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes myMove {
+    0%   {left: -10%;}
+    100% {left: 110%;}
+}
+
+.frame-end {
+    /*position: absolute;*/
+    width: 20vw;
+    grid-row: 2 / span 1;
+    grid-column: 3 / span 1;
+}
+
+body {
+    background: url(assets/1008.jpg) no-repeat center center fixed;
+    background-size: cover;
+}
