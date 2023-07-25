@@ -1,12 +1,11 @@
 import {useRef, useEffect, Dispatch, SetStateAction} from "react";
 import {Country} from "./Country.tsx";
-import {components} from "react-select";
 
 type countryProps = {
     selectedCountry : Country | undefined
     setSelectedCountry :Dispatch<SetStateAction<Country | undefined>>
 }
-const AutoComplete = (props: countryProps) => {
+const CitySelectAutoComplete = (props: countryProps) => {
     const autoCompleteRef = useRef();
     const inputRef = useRef<HTMLInputElement | undefined>();
     const options = {
@@ -40,4 +39,4 @@ const AutoComplete = (props: countryProps) => {
         </div>
     );
 };
-export default AutoComplete;
+export default CitySelectAutoComplete;

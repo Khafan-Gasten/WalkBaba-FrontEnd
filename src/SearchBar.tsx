@@ -4,8 +4,8 @@ import {routeResponseDTO} from "./routeResponseDTO.tsx";
 import "./App.css";
 import {useNavigate} from "react-router-dom"
 import CountrySelect from "./CountrySelect.tsx";
-import Autocomplete from "./Autocomplete.tsx";
 import {Country} from "./Country.tsx";
+import CitySelectAutoComplete from "./CitySelectAutoComplete.tsx"
 
 
 type SearchBarProps = {
@@ -61,7 +61,7 @@ function SearchBar(props: SearchBarProps) {
 
     return <>
         <CountrySelect selectedCountry = {selectedCountry} setSelectedCountry = {setSelectedCountry}/>
-        <Autocomplete selectedCountry = {selectedCountry} setSelectedCountry = {setSelectedCountry}/>
+        <CitySelectAutoComplete selectedCountry = {selectedCountry} setSelectedCountry = {setSelectedCountry}/>
         <div className="container">
             <form onSubmit={onSubmitSearchRoutes} className="row g-3 searchbar">
                 <div className="input-group col-sm">
