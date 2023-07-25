@@ -3,23 +3,26 @@ import "./App.css";
 import Map from "./Map.tsx";
 import {useLocation} from "react-router-dom";
 import DisplayImages from "./DisplayImages.tsx";
+import {WaypointDTO} from "./waypointDTO.tsx";
 
 function MapSingle() {
 
 
     const location  = useLocation();
 return (
-    <>
+
         <main>
             <div className="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-body-tertiary">
                 <div className="col-md-6 p-lg-5 mx-auto my-5">
                     <Map routeWaypoints={location.state.routeData.waypoints}/>
-
                 </div>
                 <div className="product-device shadow-sm d-none d-md-block"></div>
                 <div className="product-device product-device-2 shadow-sm d-none d-md-block"></div>
             </div>
-            <DisplayImages imageList={location.state.routeData.waypoints[1].imageLink}/>
+            {location.state.routeData.waypoints.map((waypoint: WaypointDTO, index: number) => (
+                <div className="col " id={index.toString()}>
+                    <DisplayImages key={index} imageList={waypoint.imageLink}/>
+                </div>))}
             {/*<div className="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">*/}
             {/*    <div className="bg-body-tertiary me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">*/}
             {/*        <div className="my-3 p-3">*/}
@@ -50,7 +53,9 @@ return (
             {/*</div>*/}
 
         </main>
-    </>
+
+
+
 );
 }
 export default MapSingle

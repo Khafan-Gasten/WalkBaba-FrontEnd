@@ -1,5 +1,6 @@
 @import "../node_modules/react-image-gallery/styles/css/image-gallery.css";
 
+
 .images {
     margin: 100px;
 }
@@ -8,3 +9,4 @@
     min-height: 450px;
     max-height: 450px !important;
 }
+
