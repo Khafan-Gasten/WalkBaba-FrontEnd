@@ -15,7 +15,6 @@ return (
             <div className="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-body-tertiary">
                 <div className="col-md-6 p-lg-5 mx-auto my-5">
                     <Map routeWaypoints={location.state.routeData.waypoints}/>
-
                 </div>
                 <div className="product-device shadow-sm d-none d-md-block"></div>
                 <div className="product-device product-device-2 shadow-sm d-none d-md-block"></div>
