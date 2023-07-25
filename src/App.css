@@ -1,13 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');
 body {
-  font-family: Arial, sans-serif;
-  background-color: #fafafa;
+  /*font-family: Arial, sans-serif;*/
   margin: 0;
-  padding: 5px;
   box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+
 }
 
 body::before {
-  background: url(assets/amsterdam.jpg) no-repeat center center fixed;
+  background: url(assets/amsterdam.jpg) center center fixed;
   content: '';
   z-index: -1;
   width: 100%;
@@ -23,17 +24,28 @@ body::before {
   -ms-filter: blur(5px);
   filter: blur(5px);
   background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0, 0.4);
+  background-repeat: repeat;
+
 }
 
 .mapgallery-bar {
-  margin: 0;
-  background-color: #fafafa73;
+ width: 100%;
+  background-color: #fafafab3;
+  padding: 0 20px;
 }
+.result-title {
+  background-color: white;
+  text-align: center;
+  color: white;
+  padding: 10px 0px;
+  margin-bottom: 0;
+  border-radius: 5px;
+  color:#3d3637;
 
+}
+.result-title h5{
+  margin: 0;
+}
 
 .landingPage {
   background: url(assets/amsterdam.jpg) no-repeat center center fixed;
@@ -93,6 +105,7 @@ body::before {
   background-color: #fff;
   overflow: hidden;
   box-shadow: 0 2px 11px rgb(0 0 0 / 15%);
+  width: min-content;
 }
 
 .header {
@@ -195,4 +208,16 @@ body::before {
 
 .bg-body-tertiary{
   background-color: #fefefe05;
+}
+.card-body {
+  background: linear-gradient(0deg, rgba(124,88,214,1) 0%, rgba(178,147,255,1) 100%);
+
+}
+.card-body .card-title
+{
+  color: white;
+}
+.card-body .list-group-item
+{
+  color: white;
 }

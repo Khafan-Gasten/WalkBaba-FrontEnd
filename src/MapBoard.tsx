@@ -18,16 +18,18 @@ function MapBoard(props: MapBoardProps) {
 
     return (
         <>
-            <div className="card shadow-sm">
+            <div className="card h-100 shadow-sm">
                 <div className="bd-placeholder-img card-img-top map_pic">
                     <Map routeWaypoints={props.routeData!.waypoints}/>
                 </div>
+
 
                 <div className="card-body">
                     <div className="d-flex justify-content-between align-items-center">
                         {props.routeData &&
                             <div onClick={clickHandler}>
                                 <h4 className="card-title">{props.routeData.walk_name}</h4>
+                                <p className="list-group-item">{props.routeData.description}</p>
                                 <p className="list-group-item">{props.routeData.description}</p>
                             </div>}
                     </div>
