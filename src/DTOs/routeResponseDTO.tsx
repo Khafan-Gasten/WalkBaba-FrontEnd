@@ -13,5 +13,5 @@ export type routeResponseDTO = {
     like: number,
     dislike: number ,
     waypoints: WaypointDTO[]
-    exportLinks : ExportLinkDTO
+    exportLinks: ExportLinkDTO
 }
