@@ -66,13 +66,19 @@ function SearchBar(props: SearchBarProps) {
 
     return <>
 
+
         <div className="container">
             <form onSubmit={onSubmitSearchRoutes} className="row g-3 searchbar">
-                <CountrySelect selectedCountry = {selectedCountry} setSelectedCountry = {setSelectedCountry}/>
-                <CitySelectAutoComplete selectedCountry = {selectedCountry} setSelectedCountry = {setSelectedCountry}
-                                        selectedCity = {selectedCity} setSelectedCity = {setSelectedCity}/>
-                <button className="btn btn-primary search-button col-auto" type="submit" value="Search">Search</button>
-                <Link to={"/savedroutes"} > Saved</Link>
+                <div className="col-auto">
+                    <CountrySelect selectedCountry = {selectedCountry} setSelectedCountry = {setSelectedCountry}/>
+                </div>
+                <div className="col-auto">
+                    <CitySelectAutoComplete selectedCountry = {selectedCountry} setSelectedCountry = {setSelectedCountry}
+                                            selectedCity = {selectedCity} setSelectedCity = {setSelectedCity}/>
+                </div>
+                <div className="col-auto">
+                    <button className="btn btn-primary mb-3 search-button" type="submit" value="Search">Search</button>
+                </div>
             </form>
             <p>{showError && errorMessage}</p>
         </div>

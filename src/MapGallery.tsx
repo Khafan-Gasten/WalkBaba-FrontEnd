@@ -2,8 +2,8 @@ import MapBoard from "./MapBoard.tsx";
 import {routeResponseDTO} from "./routeResponseDTO.tsx";
 import "./App.css";
 import SearchBar from "./SearchBar.tsx";
-import {Dispatch, SetStateAction} from "react";
-import {useLocation} from "react-router-dom";
+import React, {Dispatch, SetStateAction} from "react";
+import {Link, useLocation} from "react-router-dom";
 import LoadingPage from "./LoadingPage.tsx";
 
 
@@ -33,11 +33,11 @@ function MapGallery(props: MapGalleryProps) {
                             </a>
                         </a>
                     </div>
-                    <div className="col-6 mx-auto d-flex">
+                    <div className="col-7 mx-auto d-flex">
                         <SearchBar setRouteData={props.setRouteData} setDisplayMap={props.setDisplayMap}/>
                     </div>
-                    <div className="col-md-3 text-end">
-                        <a className="link-secondary" href="#">Weather</a>
+                    <div className="col-md-2 text-end">
+                        <Link to={"/savedroutes"} > Saved</Link>
                     </div>
                 </header>
             </nav>
