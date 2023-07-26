@@ -49,7 +49,7 @@ function SearchBar(props: SearchBarProps) {
     const onSubmitSearchRoutes = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         console.log("User made a search for city " + selectedCity)
-        if(!selectedCity) {
+        if (!selectedCity) {
             setShowError(true)
             console.log("bad search")
         } else {
@@ -57,9 +57,12 @@ function SearchBar(props: SearchBarProps) {
             props.setDisplayMap(false)
             void fetchData();
             navigate(`/routes?country=${selectedCountry!.value}?city=${selectedCity.split(",")[0]}`,
-                {state:{
-                        city : selectedCity,
-                        country : selectedCountry?.value}});
+                {
+                    state: {
+                        city: selectedCity,
+                        country: selectedCountry?.value
+                    }
+                });
         }
     }
 
@@ -67,19 +70,23 @@ function SearchBar(props: SearchBarProps) {
 
 
         <div className="container">
-            <form onSubmit={onSubmitSearchRoutes} className="row g-3 searchbar">
-                <div className="col-auto">
-                    <CountrySelect selectedCountry = {selectedCountry} setSelectedCountry = {setSelectedCountry}/>
-                </div>
-                <div className="col-auto">
-                    <CitySelectAutoComplete selectedCountry = {selectedCountry} setSelectedCountry = {setSelectedCountry}
-                                            selectedCity = {selectedCity} setSelectedCity = {setSelectedCity}/>
-                </div>
-                <div className="col-auto">
-                    <button className="btn btn-primary mb-3 search-button" type="submit" value="Search">Search</button>
-                </div>
-            </form>
-            <p>{showError && errorMessage}</p>
+            <div className="main-logo">
+                <form onSubmit={onSubmitSearchRoutes} className="searchbar">
+                    <div className="row g-3">
+                        <div className="col-md-6">
+                            <CountrySelect selectedCountry={selectedCountry} setSelectedCountry={setSelectedCountry}/>
+                        </div>
+                        <div className="col-md-6">
+                            <CitySelectAutoComplete selectedCountry={selectedCountry}
+                                                    setSelectedCountry={setSelectedCountry}
+                                                    selectedCity={selectedCity} setSelectedCity={setSelectedCity}/>
+                        </div>
+                    </div>
+                    <button className="btn btn-primary mb-3 search-button" type="submit" value="Search">Search
+                    </button>
+                </form>
+                <p>{showError && errorMessage}</p>
+            </div>
         </div>
 
     </>
