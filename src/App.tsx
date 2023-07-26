@@ -28,7 +28,6 @@ function App() {
             Array.from(response).forEach( ( route: routeResponseDTO)=> ids.push( route.route_id))
             setSavedRouteId(ids)
             setSavedRoutes( response)
-
         })
 
     }

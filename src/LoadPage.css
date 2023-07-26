@@ -10,7 +10,7 @@
 
 .frame {
     /*position: absolute;*/
-    margin-top: 62vh;
+    margin-top: 25vh;
     width: 10vw;
     position: relative;
     animation: myMove 10s infinite;
@@ -40,7 +40,7 @@
 
 .frame2 {
     /*position: absolute;*/
-    margin-top: 62vh;
+    margin-top: 25vh;
     width: 10vw;
     position: relative;
     animation:
@@ -53,7 +53,7 @@
 
 .frame3 {
     /*position: absolute;*/
-    margin-top: 62vh;
+    margin-top: 25vh;
     width: 10vw;
     position: relative;
     animation:
@@ -86,5 +86,21 @@
     background: url(assets/1008.jpg) no-repeat center center fixed;
     background-size: cover;
     height: 100vh;
+}
 
+.loadingMessages {
+    color: black;
+    font-size: 1.5em;
+    display: grid;
+    padding-top: 10vh;
+    width: 45vw;
+    grid-column: 1 / span 2;
+    justify-self: center;
+    text-align: center;
+}
+
+.lp-container {
+    display: grid;
+    width: 100vw;
+    grid-template-columns: 1fr 1fr;
 }
