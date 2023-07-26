@@ -3,6 +3,7 @@ import {routeResponseDTO} from "./routeResponseDTO.tsx";
 import SearchBar from "./SearchBar.tsx";
 
 
+
 type SearchBarProps = {
     setRouteData: Dispatch<SetStateAction<routeResponseDTO[] | null>>
     setDisplayMap: Dispatch<SetStateAction<boolean>>

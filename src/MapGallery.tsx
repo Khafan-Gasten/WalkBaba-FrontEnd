@@ -6,7 +6,6 @@ import {Dispatch, SetStateAction} from "react";
 import {useLocation} from "react-router-dom";
 import LoadingPage from "./LoadingPage.tsx";
 
-
 type MapGalleryProps = {
     routeData: routeResponseDTO[] | null
     setRouteData: Dispatch<SetStateAction<routeResponseDTO[] | null>>
@@ -30,9 +29,8 @@ function MapGallery(props: MapGalleryProps) {
                         </div>
                     </div>
                 </section>
-
                 <div className="album py-5 bg-body-tertiary">
-                    <h3>Top Walking Routes in {location.state.city}, {location.state.country}</h3>
+                    <h3>Top Walking Routes in {location.state.city}</h3>
                     <div className="container">
                         <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                             {
