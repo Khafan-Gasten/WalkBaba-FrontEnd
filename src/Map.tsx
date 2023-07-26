@@ -11,8 +11,8 @@ import {WaypointDTO} from "./DTOs/waypointDTO.tsx";
 
 
 const containerStyle = {
-    width: '30vw',
-    height: '30vh'
+    width: '55vh',
+    height: '45vh'
 };
 
 const center = {
@@ -78,7 +78,7 @@ function Map(props: MapBoardProps) {
 
     return isLoaded ? (
         <>
-                    <div className="map-container">
+                    <div className="container map-container">
                         <article className="map-article">
                             <GoogleMap
                                 mapContainerStyle={containerStyle}

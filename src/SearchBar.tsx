@@ -50,7 +50,7 @@ function SearchBar(props: SearchBarProps) {
     const onSubmitSearchRoutes = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         console.log("User made a search for city " + selectedCity)
-        if(!selectedCity) {
+        if (!selectedCity) {
             setShowError(true)
             console.log("bad search")
         } else {
@@ -58,9 +58,12 @@ function SearchBar(props: SearchBarProps) {
             props.setDisplayMap(false)
             void fetchData();
             navigate(`/routes?country=${selectedCountry!.value}?city=${selectedCity.split(",")[0]}`,
-                {state:{
-                        city : selectedCity,
-                        country : selectedCountry?.value}});
+                {
+                    state: {
+                        city: selectedCity,
+                        country: selectedCountry?.value
+                    }
+                });
         }
     }
 
