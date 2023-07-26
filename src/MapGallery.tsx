@@ -52,7 +52,7 @@ function MapGallery(props: MapGalleryProps) {
                             {
                                 Array.from(Array(props.routeData?.length).keys()).map((index: number) => (
                                     <div className="col " id={index.toString()}>
-                                        <MapBoard routeData={props.routeData![index]}
+                                        <MapBoard key={index} routeData={props.routeData![index]}
                                                   fetchSavedRoute={props.fetchSavedRoute}
                                                   isSaved={props.savedRoutesId.includes(props.routeData![index].route_id)}/>
                                     </div>

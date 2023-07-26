@@ -29,11 +29,13 @@ function App() {
             setSavedRouteId(ids)
             setSavedRoutes( response)
 
+
         })
 
     }
     useEffect(()=>{
         fetchSavedRoute()
+        console.log("use effect")
     },[])
 
     return (

@@ -1,11 +1,6 @@
 
 import "./App.css";
 
-//
-// type SignUpProps = {
-//
-// }
-
 function SignUp() {
 
 
