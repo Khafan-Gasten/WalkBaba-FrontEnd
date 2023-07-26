@@ -1,8 +1,8 @@
 
-import "./App.css";
+import "./css/App.css";
 import {useEffect} from "react";
 import MapBoard from "./MapBoard.tsx";
-import {routeResponseDTO} from "./routeResponseDTO.tsx";
+import {routeResponseDTO} from "./DTOs/routeResponseDTO.tsx";
 
 type SaveRouteProp = {
     savedRoutes : routeResponseDTO[]

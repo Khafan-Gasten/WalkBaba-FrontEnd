@@ -1,6 +1,6 @@
 import MapBoard from "./MapBoard.tsx";
-import {routeResponseDTO} from "./routeResponseDTO.tsx";
-import "./App.css";
+import {routeResponseDTO} from "./DTOs/routeResponseDTO.tsx";
+import "./css/App.css";
 import React, {Dispatch, SetStateAction} from "react";
 import { useLocation} from "react-router-dom";
 import LoadingPage from "./LoadingPage.tsx";

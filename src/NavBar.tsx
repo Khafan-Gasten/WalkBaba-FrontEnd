@@ -1,7 +1,7 @@
 import SearchBar from "./SearchBar.tsx";
 import {Link, useNavigate} from "react-router-dom";
 import React, {Dispatch, SetStateAction} from "react";
-import {routeResponseDTO} from "./routeResponseDTO.tsx";
+import {routeResponseDTO} from "./DTOs/routeResponseDTO.tsx";
 
 type NavBarProps = {
     setRouteData: Dispatch<SetStateAction<routeResponseDTO[] | null>>

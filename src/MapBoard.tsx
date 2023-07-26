@@ -1,6 +1,6 @@
 import Map from "./Map.tsx";
-import {routeResponseDTO} from "./routeResponseDTO.tsx";
-import "./App.css";
+import {routeResponseDTO} from "./DTOs/routeResponseDTO.tsx";
+import "./css/App.css";
 import {useNavigate} from "react-router-dom";
 import SaveIcon from "./SaveIcon.tsx";
 

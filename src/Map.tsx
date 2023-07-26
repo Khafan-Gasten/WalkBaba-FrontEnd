@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import "./App.css";
+import "./css/App.css";
 
 
 import {
@@ -7,12 +7,12 @@ import {
     useJsApiLoader,
     DirectionsRenderer,
 } from '@react-google-maps/api';
-import {WaypointDTO} from "./waypointDTO.tsx";
+import {WaypointDTO} from "./DTOs/waypointDTO.tsx";
 
 
 const containerStyle = {
-    width: '400px',
-    height: '300px'
+    width: '30vw',
+    height: '25vh'
 };
 
 const center = {

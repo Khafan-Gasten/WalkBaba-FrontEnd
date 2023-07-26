@@ -1,5 +1,5 @@
-import "./App.css";
-import "./LoadPage.css"
+import "./css/App.css";
+import "./css/LoadPage.css"
 import Baba from "./assets/com-gif-maker-unscreen.gif"
 
 type LoadingPageProps = {

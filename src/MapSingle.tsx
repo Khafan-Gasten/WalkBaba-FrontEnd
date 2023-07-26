@@ -1,12 +1,12 @@
 
-import "./App.css";
+import "./css/App.css";
 import Map from "./Map.tsx";
 import {useLocation} from "react-router-dom";
 import DisplayImages from "./DisplayImages.tsx";
-import {WaypointDTO} from "./waypointDTO.tsx";
+import {WaypointDTO} from "./DTOs/waypointDTO.tsx";
 import NavBar from "./NavBar.tsx";
 import {Dispatch, SetStateAction} from "react";
-import {routeResponseDTO} from "./routeResponseDTO.tsx";
+import {routeResponseDTO} from "./DTOs/routeResponseDTO.tsx";
 
 
 type MapSingle = {

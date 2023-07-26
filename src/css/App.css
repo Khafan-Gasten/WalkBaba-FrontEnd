@@ -8,7 +8,7 @@ body {
 }
 
 body::before {
-  background: url(assets/amsterdam-full.jpg) center center fixed;
+  background: url(../assets/amsterdam-full.jpg) center center fixed;
   content: '';
   z-index: -1;
   width: 100%;
@@ -56,7 +56,7 @@ body::before {
 }
 
 .landingPage {
-  background: url(assets/barcelona.jpg) no-repeat top center fixed;
+  background: url(../assets/barcelona.jpg) no-repeat top center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;

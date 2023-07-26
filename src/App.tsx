@@ -1,6 +1,6 @@
-import './App.css'
+import './css/App.css'
 import {useEffect, useState} from "react";
-import {routeResponseDTO} from "./routeResponseDTO.tsx";
+import {routeResponseDTO} from "./DTOs/routeResponseDTO.tsx";
 import MapGallery from "./MapGallery.tsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LandingPage from "./LandingPage.tsx";

@@ -1,11 +1,11 @@
 import axios, {AxiosResponse} from "axios";
 import React, {Dispatch, SetStateAction, useState} from "react";
-import {routeResponseDTO} from "./routeResponseDTO.tsx";
-import "./App.css";
+import {routeResponseDTO} from "./DTOs/routeResponseDTO.tsx";
+import "./css/App.css";
 import CountrySelect from "./CountrySelect.tsx";
-import {Country} from "./Country.tsx";
+import {Country} from "./DTOs/Country.tsx";
 import CitySelectAutoComplete from "./CitySelectAutoComplete.tsx"
-import {Link, useNavigate} from "react-router-dom"
+import { useNavigate} from "react-router-dom"
 import {SingleValue} from "react-select";
 
 

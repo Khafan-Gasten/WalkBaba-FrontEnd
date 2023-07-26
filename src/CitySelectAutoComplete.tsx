@@ -1,5 +1,5 @@
 import {useRef, useEffect, Dispatch, SetStateAction} from "react";
-import {Country} from "./Country.tsx";
+import {Country} from "./DTOs/Country.tsx";
 import {SingleValue} from "react-select";
 
 type countryProps = {
