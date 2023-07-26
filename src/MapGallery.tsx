@@ -4,11 +4,14 @@ import "./App.css";
 import SearchBar from "./SearchBar.tsx";
 import {Dispatch, SetStateAction} from "react";
 import {useLocation} from "react-router-dom";
+import LoadingPage from "./LoadingPage.tsx";
+
 
 type MapGalleryProps = {
     routeData: routeResponseDTO[] | null
     savedRoutesId: number[]
     setRouteData: Dispatch<SetStateAction<routeResponseDTO[] | null>>
+    displayMap: boolean
     setDisplayMap: Dispatch<SetStateAction<boolean>>
     fetchSavedRoute: () => void
 }
@@ -17,7 +20,10 @@ function MapGallery(props: MapGalleryProps) {
     const location = useLocation();
     return (
         <>
-            <nav>
+              {!props.displayMap && <LoadingPage displayMap={props.displayMap}/>}
+            {props.displayMap &&
+                  
+              <nav>
                 <header
                     className="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom mapgallery-bar">
                     <div className="col-md-3 mb-2 mb-md-0">
@@ -38,7 +44,7 @@ function MapGallery(props: MapGalleryProps) {
 
             <main className="mapgallery">
                 <div className="col-lg-5 col-md-6 mx-auto result-title">
-                    <h5>Top Walking Routes in {location.state.city}, {location.state.country}</h5>
+                    <h5>Top Walking Routes in {location.state.city}</h5>
                 </div>
                 <div className="album py-3">
                     <div className="container">
@@ -55,7 +61,8 @@ function MapGallery(props: MapGalleryProps) {
                         </div>
                     </div>
                 </div>
-            </main>
+                </>
+            </main>}
         </>
     );
 }

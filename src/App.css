@@ -48,7 +48,7 @@ body::before {
 }
 
 .landingPage {
-  background: url(assets/amsterdam.jpg) no-repeat center center fixed;
+  background: url(assets/barcelona.jpg) no-repeat top center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -56,8 +56,16 @@ body::before {
   height: 100vh;
   display: grid;
   justify-content: center;
-  align-content: center;
   justify-items: center;
+}
+
+.countrySelection {
+  justify-content: center;
+  display: grid;
+}
+
+.css-b62m3t-container {
+  color: black;
 }
 
 .landingPage-Content {
@@ -65,6 +73,8 @@ body::before {
   border-radius: 30px;
   text-align: center;
   color: white;
+  height: fit-content;
+  margin-top: 10vh;
 }
 
 .title-landingPage {
