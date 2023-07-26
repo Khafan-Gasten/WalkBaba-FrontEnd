@@ -43,8 +43,8 @@ const CitySelectAutoComplete = (props: countryProps) => {
     }, [props.selectedCountry, options]);
     return (
         <div>
-            <label className="searchLabel">Enter a city: </label> <br/>
-            <input className="css-13cymwt-control" ref={inputRef} placeholder={"Select from dropdown"} />
+            <label className="searchLabel">  </label> <br/>
+            <input className="css-13cymwt-control" ref={inputRef} placeholder={"Select city"} />
         </div>
     );
 };

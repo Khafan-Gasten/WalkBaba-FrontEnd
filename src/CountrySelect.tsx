@@ -22,7 +22,7 @@ const CountrySelect = (props: countryProps) => {
     }, []);
     return (
         <div className= "countrySelection">
-        <label className="searchLabel">Enter a country:</label>
+        <label className="searchLabel">1</label>
         <Select
             options={countries}
             value={props.selectedCountry}

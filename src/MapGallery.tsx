@@ -5,6 +5,7 @@ import React, {Dispatch, SetStateAction} from "react";
 import {useLocation} from "react-router-dom";
 import LoadingPage from "./LoadingPage.tsx";
 import NavBar from "./NavBar.tsx"
+import SearchBar from "./SearchBar.tsx";
 
 
 type MapGalleryProps = {
@@ -29,11 +30,16 @@ function MapGallery(props: MapGalleryProps) {
                     <NavBar setRouteData={props.setRouteData} setDisplayMap={props.setDisplayMap}/>
 
                     <main className="mapgallery">
-                        <div className="col-lg-5 col-md-6 mx-auto result-title">
-                            <h5>Top Walking Routes in {location.state.city}</h5>
+                        <div className="col-lg-5 col-md-5 mx-auto searchbar-gallery">
+                            <SearchBar setRouteData={props.setRouteData} setDisplayMap={props.setDisplayMap}/>
                         </div>
+
+
                         <div className="album py-3">
                             <div className="container">
+                                <div className=" result-title">
+                                    <h5>Top Walking Routes in {location.state.city}</h5>
+                                </div>
                                 <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                                     {
                                         Array.from(Array(props.routeData?.length).keys()).map((index: number) => (

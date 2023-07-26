@@ -70,6 +70,7 @@ function SearchBar(props: SearchBarProps) {
     return <>
 
 
+
         <div className="container">
             <form onSubmit={onSubmitSearchRoutes} className="row g-3 searchbar">
                 <div className="col-auto">

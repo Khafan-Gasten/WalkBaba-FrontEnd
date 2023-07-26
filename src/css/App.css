@@ -51,18 +51,24 @@ body::before {
 .mapgallery-bar {
  width: 100%;
   background-color: #fafafab3;
-  padding: 0 20px;
-  height: 18vh;
+  padding: 0 50px;
+
 }
 .result-title {
-  background-color: white;
-  text-align: center;
   color: white;
   padding: 10px 0px;
   margin-bottom: 0;
   border-radius: 5px;
   color:#3d3637;
-
+}
+.result-title h5 {
+  color: white;
+}
+.searchLabel{
+  opacity: 0;
+}
+.searchbar-gallery {
+  align-content: center;
 }
 .save-button {
   float: left;
