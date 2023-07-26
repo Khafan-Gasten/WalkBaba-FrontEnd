@@ -262,3 +262,52 @@ body::before {
 {
   color: #8d8b8b;
 }
+
+.overlay {
+  position: fixed;
+  height: 100vh;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+  z-index:1;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.popup {
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 35%;
+  position: relative;
+  margin: 40vh auto;
+}
+
+.popup h2 {
+  margin-top: 0;
+  color: #333;
+  font-family: Tahoma, Arial, sans-serif;
+}
+.popup .close {
+  position: absolute;
+  top: 14px;
+  right: 20px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  color: #06D85F;
+}
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
+}

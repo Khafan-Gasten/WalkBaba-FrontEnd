@@ -8,6 +8,7 @@ type MapBoardProps = {
     fetchSavedRoute : () => void
     routeData: routeResponseDTO | null
     isSaved : boolean
+    index : number
 }
 
 const containerStyle = {
@@ -37,12 +38,22 @@ function MapBoard(props: MapBoardProps) {
                 <div className="card-body">
 
                         {props.routeData &&
-                            <div onClick={clickHandler}>
-
-
+                            <div>
                                 <h4 className="card-title">{props.routeData.walk_name}</h4>
-
                                 <p className="list-group-item">{props.routeData.description}</p>
+                                <p> <a href='' onClick={clickHandler}>More details</a></p>
+                                <p><a href={`#popup${props.index}`}>Export route</a></p>
+                                <div id={`popup${props.index}`} className="overlay">
+                                    <div className="popup">
+                                        <h2>Route Export Links</h2>
+                                        <a className="close" href="#">&times;</a>
+                                        <div className="content">
+                                            <a href={props.routeData.exportLinks.exportMapLink}>Route map</a><br/>
+                                            <a href={props.routeData.exportLinks.exportStartMapLink}>Route including directions to startpoint</a><br/>
+                                            <a href={props.routeData.exportLinks.exportEndMapLink}>Route including directions to endpoint</a><br/>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div className="d-flex justify-content-between align-items-center">
                                     <div className="save-button">
                                         <SaveIcon fetchSavedRoute={props.fetchSavedRoute} routeId={props.routeData!.route_id} isSaved={props.isSaved}/>
