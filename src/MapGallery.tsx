@@ -2,7 +2,6 @@ import MapBoard from "./MapBoard.tsx";
 import {routeResponseDTO} from "./DTOs/routeResponseDTO.tsx";
 import "./css/App.css";
 import React, {Dispatch, SetStateAction, useEffect} from "react";
-import {useLocation} from "react-router-dom";
 import LoadingPage from "./LoadingPage.tsx";
 import NavBar from "./NavBar.tsx"
 import axios, {AxiosResponse} from "axios";
@@ -19,18 +18,18 @@ type MapGalleryProps = {
 
 
 function MapGallery(props: MapGalleryProps) {
-    const location = useLocation();
+    const country = new URLSearchParams(location.search).get('country');
+    const city = new URLSearchParams(location.search).get('city');
+
     const deployUrl = "http://walkbaba.azurewebsites.net/api/openai"
-
-
-    console.log(props.routeData)
-    console.log(location.state.city)
 
     useEffect(()=>{
         onPageLoad()
     },[])
 
     const onPageLoad = () => {
+        console.log("I'm in here")
+        console.log(new URLSearchParams(location.search).get('country'))
         props.setDisplayMap(false)
         void fetchData();
     }
@@ -38,11 +37,9 @@ function MapGallery(props: MapGalleryProps) {
     const fetchData = async () => {
         console.log("About to call backend")
         try {
-            console.log(location.state.city.split(", ")[0])
-            console.log(location.state.city.split(", ")[1])
             const response: AxiosResponse<routeResponseDTO[]> = await axios.post(deployUrl, {
-                city: location.state.city.split(", ")[0],
-                country: location.state.city.split(", ")[1]
+                city: city,
+                country: country
             });
             console.log(response.data);
             console.log("Received data from backend")
@@ -54,11 +51,7 @@ function MapGallery(props: MapGalleryProps) {
                 console.error(err)
             }
         }
-        // setShowError(false)
     }
-
-
-
 
     return (
         <>
@@ -70,7 +63,7 @@ function MapGallery(props: MapGalleryProps) {
 
                     <main className="mapgallery">
                         <div className="col-lg-5 col-md-6 mx-auto result-title">
-                            <h5>Top Walking Routes in {location.state.city}</h5>
+                            <h5>Top Walking Routes in {city}, {country}</h5>
                         </div>
                         <div className="album py-3">
                             <div className="container">

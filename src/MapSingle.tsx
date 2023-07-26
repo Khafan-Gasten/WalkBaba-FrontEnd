@@ -24,6 +24,7 @@ const containerStyle = {
 
 const standardExportLink = "https://www.google.com/maps/dir/Vondelpark,+Amsterdam/Hortus+Botanicus+Amsterdam,+Plantage+Middenlaan+2a,+1018+DD+Amsterdam/Het+Amsterdamse+Bos,+1182+DB+Amstelveen/@52.3410917,4.8352439,13z/data=!3m1!4b1!4m20!4m19!1m5!1m1!1s0x47c609e2c5b47ccf:0x6cd478550520ca35!2m2!1d4.8686484!2d52.3579946!1m5!1m1!1s0x47c5e1e2667314ab:0x50a7c8595fea0ba6!2m2!1d4.9081845!2d52.3666659!1m5!1m1!1s0x47c5e1b1f2eb0961:0x8fb6f82a2bc45ab6!2m2!1d4.832342!2d52.3149817!3e2?entry=ttu"
 
+
 function MapSingle( props: MapSingle) {
 
     const scrollToGallery = (event) => {
@@ -37,6 +38,8 @@ function MapSingle( props: MapSingle) {
 
 
     const location  = useLocation();
+    console.log("Link" + location.state.routeData.exportLinks.export_map_link);
+    console.log("Link" + location.state.routeData.waypoints);
 return (
 
         <main>
@@ -98,11 +101,14 @@ return (
             {/*<div className="col-auto search-button-container">*/}
             {/*    <button className="btn btn-primary mb-3 search-button btn-link" ref="https://www.google.com/maps/dir/Vondelpark,+Amsterdam/Hortus+Botanicus+Amsterdam,+Plantage+Middenlaan+2a,+1018+DD+Amsterdam/Het+Amsterdamse+Bos,+1182+DB+Amstelveen/@52.3410917,4.8352439,13z/data=!3m1!4b1!4m20!4m19!1m5!1m1!1s0x47c609e2c5b47ccf:0x6cd478550520ca35!2m2!1d4.8686484!2d52.3579946!1m5!1m1!1s0x47c5e1e2667314ab:0x50a7c8595fea0ba6!2m2!1d4.9081845!2d52.3666659!1m5!1m1!1s0x47c5e1b1f2eb0961:0x8fb6f82a2bc45ab6!2m2!1d4.832342!2d52.3149817!3e2?entry=ttu" type="button" value="Search">Export Route</button>*/}
             {/*</div>*/}
-
+            <a href={location.state.routeData.exportLinks.export_map_link} className="btn btn-primary btn-lg active" role="button" aria-pressed="true">Export Route</a>
+            {/*<a href="#" className="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Link</a>*/}
+            <div className="image-galleries-container">
             {location.state.routeData.waypoints.map((waypoint: WaypointDTO, index: number) => (
                 <div className="col " id={`gallery-${index}`}>
                     <DisplayImages key={index} imageList={waypoint.imageLink}/>
                 </div>))}
+            </div>
             {/*<div className="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">*/}
             {/*    <div className="bg-body-tertiary me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">*/}
             {/*        <div className="my-3 p-3">*/}
