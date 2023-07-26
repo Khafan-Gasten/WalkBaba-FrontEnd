@@ -1,10 +1,10 @@
 import {Dispatch, SetStateAction, useEffect, useState} from "react";
-import Select from "react-select";
+import Select, {SingleValue} from "react-select";
 import {Country} from "./Country.tsx";
 
 type countryProps = {
-    selectedCountry : Country | undefined
-    setSelectedCountry :Dispatch<SetStateAction<Country | undefined>>
+    selectedCountry : SingleValue<Country> | undefined
+    setSelectedCountry :Dispatch<SetStateAction<SingleValue<Country> | undefined>>
 }
 const CountrySelect = (props: countryProps) => {
     const [countries, setCountries] = useState([]);
