@@ -12,36 +12,31 @@ type  savingInfo = {
 
 }
 
-const SaveIcon = (props: SaveIconProps) => {
+const SaveIcon = ({fetchSavedRoute, routeId, isSaved}: SaveIconProps) => {
 
-    const localUrl = "http://localhost:8081/api/saveroute";
-    const [saved, setSaved] = useState<boolean>(props.isSaved)
+    const localUrl = "http://walkbaba.azurewebsites.net/api/saveroute";
+    const [saved, setSaved] = useState<boolean>(isSaved)
 
     const data: savingInfo = {
         id: 1,
-        route_id: props.routeId
+        route_id: routeId
     }
-    const changeRouteSavingState = async () => {
-        console.log(" in call axios")
-        console.log(data)
+    const changeRouteSavingState = async (saved: boolean) => {
         if (saved) {
-
-            await axios.delete(localUrl, {data})
-
-        } else {
             await axios.post(localUrl, data);
+        } else {
+            await axios.delete(localUrl, {data})
         }
     }
     const saveButtonHandler = (): void => {
-        console.log("set click")
         setSaved(!saved)
-        props.fetchSavedRoute(props.routeId, saved )
-        changeRouteSavingState()
+        changeRouteSavingState(!saved)
+        fetchSavedRoute(routeId, !saved )
     }
 
     return<>
         {
-            saved ?
+            saved?
                 <button className={"save_Botton"} onClick={saveButtonHandler}>UnSave</button> :
                 <button className={"save_Botton"} onClick={saveButtonHandler}>Save</button>
         }

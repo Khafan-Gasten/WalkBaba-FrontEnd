@@ -21,7 +21,27 @@ function App() {
         return response.data
     }
 
-    const fetchSavedRoute = (id: number, saveRoute: boolean) =>{
+    const fetchSavedRoute = (id: number, isSaved: boolean) =>{
+        console.log("in new fetch")
+        console.log( "change state id " , id)
+        if(isSaved) {
+            if (routeData) {
+                for (let val:routeResponseDTO  of routeData) {
+                    if( val.route_id == id){
+                        console.log( "id is equal I add it")
+                        savedRoutes.push(val)
+                        setSavedRoutes(savedRoutes)
+                        break
+                    }
+                }
+            }
+            console.log( savedRoutes)
+        }else {
+            console.log( "remove" , id)
+            const filterRoute = savedRoutes.filter( (route: routeResponseDTO ) =>  route.route_id != id)
+            setSavedRoutes(filterRoute)
+            console.log( filterRoute)
+        }
 
     }
     const fetchSavedRouteInitial = () =>{

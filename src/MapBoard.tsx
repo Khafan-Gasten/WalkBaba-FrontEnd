@@ -7,11 +7,13 @@ import SaveIcon from "./SaveIcon.tsx";
 type MapBoardProps = {
     fetchSavedRoute : (arg: number,saveRoute: boolean) => void
     routeData: routeResponseDTO | null
-    isSaved : boolean
+    isSaved: boolean
 }
 
 function MapBoard(props: MapBoardProps) {
+
     const navigate = useNavigate()
+
     const clickHandler = (e: any) => {
         e.preventDefault();
         if (props.routeData) {
@@ -37,6 +39,14 @@ function MapBoard(props: MapBoardProps) {
                                 <h4 className="card-title">{props.routeData.walk_name}</h4>
                                 <p className="list-group-item">{props.routeData.description}</p>
                                 <p className="list-group-item">{props.routeData.description}</p>
+                                {
+                                    (props.routeData.durationInMin < 61) ?
+                                    <p className="duration">{props.routeData.durationInMin} min</p>
+                                        :
+                                    <p className="duration">{Math.floor(props.routeData.durationInMin/60)}h {props.routeData.durationInMin%60} min</p>
+
+                                }
+                                <p className="distance">{props.routeData.distance} km</p>
                             </div>}
                     </div>
                 </div>
