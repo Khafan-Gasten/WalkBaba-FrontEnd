@@ -12,7 +12,7 @@ import {WaypointDTO} from "./DTOs/waypointDTO.tsx";
 
 const containerStyle = {
     width: '30vw',
-    height: '25vh'
+    height: '30vh'
 };
 
 const center = {

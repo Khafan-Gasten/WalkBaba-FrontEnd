@@ -76,7 +76,7 @@ function SearchBar(props: SearchBarProps) {
                     <CitySelectAutoComplete selectedCountry = {selectedCountry} setSelectedCountry = {setSelectedCountry}
                                             selectedCity = {selectedCity} setSelectedCity = {setSelectedCity}/>
                 </div>
-                <div className="col-auto">
+                <div className="col-auto search-button-container">
                     <button className="btn btn-primary mb-3 search-button" type="submit" value="Search">Search</button>
                 </div>
             </form>

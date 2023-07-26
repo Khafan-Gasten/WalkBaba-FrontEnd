@@ -36,6 +36,18 @@ body::before {
   margin: auto;
 }
 
+.singleMapInfo {
+  background-color: #fafafab3;
+  border-radius: 5px;
+  width: fit-content;
+  height: fit-content;
+}
+
+.landingPage-Content > .container > form > .search-button-container {
+  grid-column: span 2;
+  margin-top: 20px;
+}
+
 .mapgallery-bar {
  width: 100%;
   background-color: #fafafab3;
