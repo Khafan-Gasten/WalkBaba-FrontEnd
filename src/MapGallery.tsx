@@ -4,10 +4,12 @@ import "./App.css";
 import SearchBar from "./SearchBar.tsx";
 import {Dispatch, SetStateAction} from "react";
 import {useLocation} from "react-router-dom";
+import LoadingPage from "./LoadingPage.tsx";
 
 type MapGalleryProps = {
     routeData: routeResponseDTO[] | null
     setRouteData: Dispatch<SetStateAction<routeResponseDTO[] | null>>
+    displayMap: boolean
     setDisplayMap: Dispatch<SetStateAction<boolean>>
 }
 
@@ -15,7 +17,10 @@ function MapGallery(props: MapGalleryProps) {
     const location  = useLocation();
     return (
         <>
-            <main>
+            {!props.displayMap && <LoadingPage displayMap={props.displayMap}/>}
+            {props.displayMap &&
+                <main>
+                 <>
                 <section className="py-5 text-center container">
                     <div className="row py-lg-5">
                         <div className="col-lg-6 col-md-8 mx-auto">
@@ -38,7 +43,8 @@ function MapGallery(props: MapGalleryProps) {
                         </div>
                     </div>
                 </div>
-            </main>
+                </>
+            </main>}
         </>
     );
 }

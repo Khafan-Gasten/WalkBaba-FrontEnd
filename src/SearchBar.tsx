@@ -14,6 +14,7 @@ type SearchBarProps = {
 }
 
 function SearchBar(props: SearchBarProps) {
+
     const [selectedCountry, setSelectedCountry] = useState<Country>();
     const [selectedCity, setSelectedCity] = useState<string>('');
     // const localUrl = "http://localhost:8081/api/openai";

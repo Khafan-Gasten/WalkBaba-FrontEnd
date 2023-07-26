@@ -18,7 +18,7 @@ function App() {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<LandingPage setRouteData={setRouteData} setDisplayMap={setDisplayMap}/>}></Route>
-                <Route path="/routes" element={displayMap && <MapGallery routeData={routeData} setRouteData={setRouteData} setDisplayMap={setDisplayMap}/>}></Route>
+                <Route path="/routes" element={<MapGallery routeData={routeData} setRouteData={setRouteData} displayMap={displayMap} setDisplayMap={setDisplayMap}/>}></Route>
                 <Route path="/routes/map" element={<MapSingle/>}></Route>
                 <Route path="/profile" element={<Profile />}></Route>
                 <Route path="/signup" element={<SignUp />}></Route>
