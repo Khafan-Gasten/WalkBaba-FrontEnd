@@ -55,9 +55,11 @@ function SearchBar(props: SearchBarProps) {
             console.log("bad search")
         } else {
             setShowError(false)
-            setTimeout(() => {
-                props.setDisplayMap(false)
-            }, 1000);
+            // setTimeout(() => {
+            //     props.setDisplayMap(false)
+            // }, 1000);
+            props.setDisplayMap(false)
+
             void fetchData();
             navigate(`/routes?country=${selectedCountry!.value}?city=${selectedCity.split(",")[0]}`,
                 {
