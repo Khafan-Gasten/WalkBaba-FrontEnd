@@ -1,10 +1,10 @@
 import MapBoard from "./MapBoard.tsx";
 import {routeResponseDTO} from "./routeResponseDTO.tsx";
 import "./App.css";
-import SearchBar from "./SearchBar.tsx";
 import React, {Dispatch, SetStateAction} from "react";
-import {Link, useLocation} from "react-router-dom";
+import { useLocation} from "react-router-dom";
 import LoadingPage from "./LoadingPage.tsx";
+import NavBar from "./NavBar.tsx"
 
 
 type MapGalleryProps = {
@@ -18,30 +18,14 @@ type MapGalleryProps = {
 
 function MapGallery(props: MapGalleryProps) {
     const location = useLocation();
+
+
     return (
         <>
               {!props.displayMap && <LoadingPage displayMap={props.displayMap}/>}
             {props.displayMap &&
                 <>
-              <nav>
-                <header
-                    className="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom mapgallery-bar">
-                    <div className="col-md-3 mb-2 mb-md-0">
-                        <a href="/" className="d-inline-flex link-body-emphasis text-decoration-none">
-                            <a className="navbar-brand" href="#">
-                                <img src="src/assets/walkbaba2.png" width="150" height="70"/>
-                            </a>
-                        </a>
-                    </div>
-                    <div className="col-7 mx-auto d-flex">
-                        <SearchBar setRouteData={props.setRouteData} setDisplayMap={props.setDisplayMap}/>
-                    </div>
-                    <div className="col-md-2 text-end">
-                        <Link to={"/savedroutes"} > Saved</Link>
-                    </div>
-                </header>
-            </nav>
-
+                    <NavBar setRouteData={props.setRouteData} setDisplayMap={props.setDisplayMap}/>
             <main className="mapgallery">
                 <div className="col-lg-5 col-md-6 mx-auto result-title">
                     <h5>Top Walking Routes in {location.state.city}</h5>

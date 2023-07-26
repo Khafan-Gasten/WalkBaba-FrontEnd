@@ -4,28 +4,66 @@ import Map from "./Map.tsx";
 import {useLocation} from "react-router-dom";
 import DisplayImages from "./DisplayImages.tsx";
 import {WaypointDTO} from "./waypointDTO.tsx";
-import SaveIcon from "./SaveIcon.tsx";
+import NavBar from "./NavBar.tsx";
+import {Dispatch, SetStateAction} from "react";
+import {routeResponseDTO} from "./routeResponseDTO.tsx";
 
-type MapSignle = {
+
+type MapSingle = {
     fetchSavedRoute : () => void
+    setRouteData: Dispatch<SetStateAction<routeResponseDTO[] | null>>
+    setDisplayMap: Dispatch<SetStateAction<boolean>>
 }
-function MapSingle( props: MapSignle) {
+function MapSingle( props: MapSingle) {
+
+    const scrollToGallery = (event) => {
+        event.preventDefault();
+        const targetId = event.currentTarget.getAttribute("href");
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+            targetElement.scrollIntoView({ behavior: "smooth" });
+        }
+    };
 
 
     const location  = useLocation();
 return (
 
         <main>
-            <div className="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-body-tertiary">
-                <div className="col-md-6 p-lg-5 mx-auto my-5">
-                    <Map routeWaypoints={location.state.routeData.waypoints}/>
+            <NavBar setRouteData={props.setRouteData} setDisplayMap={props.setDisplayMap}/>
+
+            <div className="singleMapTitle">
+                <h3>{location.state.routeData.walk_name} in {location.state.routeData.city}</h3>
+            </div>
+            <div className="container">
+                <div className="row">
+                    <div className="col-sm-4">
+                        <Map routeWaypoints={location.state.routeData.waypoints}/>
+                    </div>
+                    <div className="col-sm-8">
+                        <p>{location.state.routeData.description}</p>
+                        <ul>
+                        {location.state.routeData.waypoints.map((waypoint: WaypointDTO, index: number) =>
+                            (<li> <a href= {`#gallery-${index}`} onClick={scrollToGallery}>{waypoint.waypoint_name}</a></li>
+                        ))}</ul>
+                        <p>{location.state.routeData.distance}</p>
+                        <p>{location.state.routeData.durationInMin}</p>
+                    </div>
                 </div>
-                <SaveIcon fetchSavedRoute={props.fetchSavedRoute} routeId={location.state.routeData.route_id} isSaved={location.state.isSaved} />
+            </div>
+            <div className="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-body-tertiary">
+                <p>{location.state.routeData.walk_name}</p>
+                <p>{location.state.routeData.city}</p>
+
+                <div className="col-md-6 p-lg-5 mx-auto my-5">
+
+
+                </div>
                 <div className="product-device shadow-sm d-none d-md-block"></div>
                 <div className="product-device product-device-2 shadow-sm d-none d-md-block"></div>
             </div>
             {location.state.routeData.waypoints.map((waypoint: WaypointDTO, index: number) => (
-                <div className="col " id={index.toString()}>
+                <div className="col " id={`gallery-${index}`}>
                     <DisplayImages key={index} imageList={waypoint.imageLink}/>
                 </div>))}
             {/*<div className="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">*/}

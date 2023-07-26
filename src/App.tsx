@@ -42,7 +42,8 @@ function App() {
                 <Route path="/" element={<LandingPage setRouteData={setRouteData} setDisplayMap={setDisplayMap}/>}></Route>
                 <Route path="/routes" element={<MapGallery routeData={routeData} setRouteData={setRouteData} displayMap={displayMap} setDisplayMap={setDisplayMap}
                                 fetchSavedRoute={fetchSavedRoute} savedRoutesId={savedRouteId}/>}></Route>
-                <Route path="/routes/map" element={<MapSingle fetchSavedRoute={fetchSavedRoute}/>}></Route>
+                <Route path="/routes/map" element={<MapSingle setRouteData={setRouteData} setDisplayMap={setDisplayMap}
+                    fetchSavedRoute={fetchSavedRoute}/>}></Route>
                 <Route path="/savedroutes" element={<SavedRoute
                     savedRoutes={ savedRoutes} fetchSavedRoute={fetchSavedRoute}/>}></Route>
                 <Route path="/signup" element={<SignUp />}></Route>
