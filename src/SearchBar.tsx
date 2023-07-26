@@ -6,6 +6,7 @@ import CountrySelect from "./CountrySelect.tsx";
 import {Country} from "./Country.tsx";
 import CitySelectAutoComplete from "./CitySelectAutoComplete.tsx"
 import {Link, useNavigate} from "react-router-dom"
+import {SingleValue} from "react-select";
 
 
 type SearchBarProps = {
@@ -15,7 +16,7 @@ type SearchBarProps = {
 
 function SearchBar(props: SearchBarProps) {
 
-    const [selectedCountry, setSelectedCountry] = useState<Country>();
+    const [selectedCountry, setSelectedCountry] = useState<SingleValue<Country>>();
     const [selectedCity, setSelectedCity] = useState<string>('');
     // const localUrl = "http://localhost:8081/api/openai";
     const deployUrl = "http://walkbaba.azurewebsites.net/api/openai"
