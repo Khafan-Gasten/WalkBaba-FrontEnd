@@ -4,8 +4,12 @@ import Map from "./Map.tsx";
 import {useLocation} from "react-router-dom";
 import DisplayImages from "./DisplayImages.tsx";
 import {WaypointDTO} from "./waypointDTO.tsx";
+import SaveIcon from "./SaveIcon.tsx";
 
-function MapSingle() {
+type MapSignle = {
+    fetchSavedRoute : () => void
+}
+function MapSingle( props: MapSignle) {
 
 
     const location  = useLocation();
@@ -16,6 +20,7 @@ return (
                 <div className="col-md-6 p-lg-5 mx-auto my-5">
                     <Map routeWaypoints={location.state.routeData.waypoints}/>
                 </div>
+                <SaveIcon fetchSavedRoute={props.fetchSavedRoute} routeId={location.state.routeData.route_id} isSaved={location.state.isSaved} />
                 <div className="product-device shadow-sm d-none d-md-block"></div>
                 <div className="product-device product-device-2 shadow-sm d-none d-md-block"></div>
             </div>

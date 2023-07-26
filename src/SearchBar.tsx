@@ -2,10 +2,10 @@ import axios, {AxiosResponse} from "axios";
 import React, {Dispatch, SetStateAction, useState} from "react";
 import {routeResponseDTO} from "./routeResponseDTO.tsx";
 import "./App.css";
-import {useNavigate} from "react-router-dom"
 import CountrySelect from "./CountrySelect.tsx";
 import {Country} from "./Country.tsx";
 import CitySelectAutoComplete from "./CitySelectAutoComplete.tsx"
+import {Link, useNavigate} from "react-router-dom"
 
 
 type SearchBarProps = {
@@ -71,6 +71,7 @@ function SearchBar(props: SearchBarProps) {
                 <CitySelectAutoComplete selectedCountry = {selectedCountry} setSelectedCountry = {setSelectedCountry}
                                         selectedCity = {selectedCity} setSelectedCity = {setSelectedCity}/>
                 <button className="btn btn-primary search-button col-auto" type="submit" value="Search">Search</button>
+                <Link to={"/savedroutes"} > Saved</Link>
             </form>
             <p>{showError && errorMessage}</p>
         </div>
