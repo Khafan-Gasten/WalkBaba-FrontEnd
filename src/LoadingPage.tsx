@@ -7,6 +7,8 @@ type LoadingPageProps = {
 }
 
 function LoadingPage(props: LoadingPageProps) {
+
+
     const loadingMessage1 = "We are scouring the internet to find the very best land marks just for you! The internet's pretty big, this may take a minute!"
     const loadingMessage2 = "Did you know WalkBaba gives 80% of all profits to charity?! What a day you're having! Planning a fantastic walk and saving lives - sight seeing has never been so productive!"
     const loadingMessage3 = "Now using our cutting edge AI to optimize the routes until they are perfect! Only the best for a WalkBaba babe."
@@ -14,9 +16,9 @@ function LoadingPage(props: LoadingPageProps) {
     const loadingMessage5 = "Just like Baba below we are almost there! Give us a couple more seconds I promise you won't be dissapointed!"
     const loadingMessages: string[] = [loadingMessage1, loadingMessage2, loadingMessage3, loadingMessage4, loadingMessage5]
     return (
-        <>
+        <><div className="loading-background">
             <main>
-                <p>Hello, hello I rendered the loading page</p>
+                {/*<p>{loadingMessage}</p>*/}
                 <div className="gif-container">
                     <img src={Baba} className="frame"/>
                     {/*<iframe src="assets/ezgif.com-gif-maker.gif" width="100%" height="100%"*/}
@@ -24,6 +26,7 @@ function LoadingPage(props: LoadingPageProps) {
                 </div>
 
             </main>
+        </div>
         </>
     );
 }
