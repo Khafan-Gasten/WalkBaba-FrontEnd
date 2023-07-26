@@ -5,38 +5,18 @@ import SearchBar from "./SearchBar.tsx";
 import {Dispatch, SetStateAction} from "react";
 import {useLocation} from "react-router-dom";
 
-
 type MapGalleryProps = {
     routeData: routeResponseDTO[] | null
+    savedRoutesId: number[]
     setRouteData: Dispatch<SetStateAction<routeResponseDTO[] | null>>
     setDisplayMap: Dispatch<SetStateAction<boolean>>
+    fetchSavedRoute: () => void
 }
 
 function MapGallery(props: MapGalleryProps) {
     const location = useLocation();
     return (
         <>
-            {/*<header data-bs-theme="dark">*/}
-            {/*    <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">*/}
-            {/*        <div className="container-fluid">*/}
-            {/*            <div className="row flex-nowrap justify-content-between align-items-center">*/}
-            {/*                <div className="col-3 pt-1">*/}
-            {/*                    <h2 className="fw-light">WalkBaba</h2>*/}
-            {/*                </div>*/}
-            {/*                <div className="col-6">*/}
-            {/*                    <SearchBar setRouteData={props.setRouteData} setDisplayMap={props.setDisplayMap}/>*/}
-            {/*                </div>*/}
-            {/*                <div className="col-3 d-flex justify-content-end align-items-center">*/}
-            {/*                    <a className="link-secondary" href="#">Weather</a>*/}
-
-            {/*                </div>*/}
-            {/*            </div>*/}
-            {/*            */}
-            {/*        </div>*/}
-            {/*    </nav>*/}
-            {/*</header>*/}
-
-
             <nav>
                 <header
                     className="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom mapgallery-bar">
@@ -50,37 +30,13 @@ function MapGallery(props: MapGalleryProps) {
                     <div className="col-6 mx-auto d-flex">
                         <SearchBar setRouteData={props.setRouteData} setDisplayMap={props.setDisplayMap}/>
                     </div>
-
                     <div className="col-md-3 text-end">
                         <a className="link-secondary" href="#">Weather</a>
                     </div>
                 </header>
-        </nav>
-
-            {/*<div className="container">*/}
-            {/*    <nav className="navbar navbar-expand-md  mapgallery-bar">*/}
-            {/*        <div className="row flex-nowrap justify-content-between align-items-center">*/}
-            {/*            <div className="col-3 pt-1">*/}
-            {/*                <h2 className="fw-light">WalkBaba</h2>*/}
-            {/*            </div>*/}
-            {/*            <div className="col-6 mx-auto d-flex">*/}
-            {/*                <SearchBar setRouteData={props.setRouteData} setDisplayMap={props.setDisplayMap}/>*/}
-            {/*            </div>*/}
-            {/*            <div className="col-3 d-flex justify-content-end align-items-center">*/}
-            {/*                <a className="link-secondary" href="#">Weather</a>*/}
-
-            {/*            </div>*/}
-            {/*        </div>*/}
-            {/*    </nav>*/}
-            {/*</div>*/}
-
+            </nav>
 
             <main className="mapgallery">
-                {/*<div className="col-lg-6 col-md-8 mx-auto">*/}
-
-                {/*    <SearchBar setRouteData={props.setRouteData} setDisplayMap={props.setDisplayMap}/>*/}
-                {/*</div>*/}
-
                 <div className="col-lg-5 col-md-6 mx-auto result-title">
                     <h5>Top Walking Routes in {location.state.city}, {location.state.country}</h5>
                 </div>
@@ -90,7 +46,9 @@ function MapGallery(props: MapGalleryProps) {
                             {
                                 Array.from(Array(props.routeData?.length).keys()).map((index: number) => (
                                     <div className="col " id={index.toString()}>
-                                        <MapBoard routeData={props.routeData![index]}/>
+                                        <MapBoard routeData={props.routeData![index]}
+                                                  fetchSavedRoute={props.fetchSavedRoute}
+                                                  isSaved={props.savedRoutesId.includes(props.routeData![index].route_id)}/>
                                     </div>
                                 ))
                             }

@@ -2,7 +2,7 @@ import axios, {AxiosResponse} from "axios";
 import React, {Dispatch, SetStateAction, useRef, useState} from "react";
 import {routeResponseDTO} from "./routeResponseDTO.tsx";
 import "./App.css";
-import {useNavigate} from "react-router-dom"
+import {Link, useNavigate} from "react-router-dom"
 
 
 type SearchBarProps = {
@@ -78,6 +78,7 @@ function SearchBar(props: SearchBarProps) {
                 {/*    </select>*/}
                 {/*</div>*/}
                 <button className="btn btn-primary search-button col-auto" type="submit" value="Search">Search</button>
+                <Link to={"/savedroutes"} > Saved</Link>
             </form>
             <p>{showError && errorMessage}</p>
         </div>
