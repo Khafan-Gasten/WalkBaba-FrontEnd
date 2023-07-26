@@ -8,7 +8,7 @@ body {
 }
 
 body::before {
-  background: url(assets/amsterdam.jpg) center center fixed;
+  background: url(assets/amsterdam-full.jpg) center center fixed;
   content: '';
   z-index: -1;
   width: 100%;
@@ -99,10 +99,10 @@ body::before {
   justify-items: center;
 }
 
-.landingPage form button{
-  grid-column: 1 / 3;
-  width: 40%;
-}
+/*.landingPage form button{*/
+/*  grid-column: 1 / 3;*/
+/*  width: 40%;*/
+/*}*/
 
 .subtitle-landingPage {
   font-size: 16px;
@@ -163,7 +163,9 @@ body::before {
   padding: 20px;
 }
 .search-button {
-  width: 20px;
+
+  margin-top: 20px;
+
 }
 .map-article__content {
   margin: 0 20px 20px;
