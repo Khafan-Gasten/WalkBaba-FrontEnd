@@ -18,7 +18,7 @@ function App() {
     const [savedRouteId , setSavedRouteId] = useState<number[]>( [])
     const [savedRoutes,setSavedRoutes ] = useState<routeResponseDTO[]>([])
     const getSavedRoute =  async () => {
-        const response = await axios.get("http://localhost:8081/api/saveroute?userId=1")
+        const response = await axios.get("http://walkbaba.azurewebsites.net/api/saveroute?userId=1")
         return response.data
     }
 

@@ -22,7 +22,7 @@ function MapGallery(props: MapGalleryProps) {
         <>
               {!props.displayMap && <LoadingPage displayMap={props.displayMap}/>}
             {props.displayMap &&
-                  
+                <>
               <nav>
                 <header
                     className="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom mapgallery-bar">
@@ -61,10 +61,10 @@ function MapGallery(props: MapGalleryProps) {
                         </div>
                     </div>
                 </div>
-                </>
-            </main>}
+            </main>
+            </>}
         </>
-    );
+    )
 }
 
 export default MapGallery
