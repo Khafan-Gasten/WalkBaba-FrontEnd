@@ -1,10 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');
-body {
-  /*font-family: Arial, sans-serif;*/
-  margin: 0;
-  box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
 
+@font-face {
+  font-family: "Coolvetica rg";
+  src: url("../assets/Coolvetica rg.otf"),
+  /*src: url("Milky_Again.woff") format("woff"),*/
+  url("../assets/Coolvetica rg.otf") format("opentype");
+  /*url("Milky_Again.svg#filename") format("svg");*/
+}
+
+
+body *{
+  font-family: "Coolvetica rg", sans-serif;
 }
 
 body::before {

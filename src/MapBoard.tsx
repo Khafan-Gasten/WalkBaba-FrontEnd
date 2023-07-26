@@ -10,6 +10,11 @@ type MapBoardProps = {
     isSaved : boolean
 }
 
+const containerStyle = {
+    width: '55vh',
+    height: '45vh'
+};
+
 function MapBoard(props: MapBoardProps) {
     const navigate = useNavigate()
     const clickHandler = (e: any) => {
@@ -27,7 +32,7 @@ function MapBoard(props: MapBoardProps) {
         <>
             <div className="card h-100 shadow-sm">
                 <div className="bd-placeholder-img card-img-top map_pic">
-                    <Map routeWaypoints={props.routeData!.waypoints}/>
+                    <Map containerStyle={containerStyle} routeWaypoints={props.routeData!.waypoints}/>
                 </div>
                 <div className="card-body">
 

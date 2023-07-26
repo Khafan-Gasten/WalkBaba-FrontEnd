@@ -16,6 +16,11 @@ type MapGalleryProps = {
     fetchSavedRoute: () => void
 }
 
+const containerStyle = {
+    width: '55vh',
+    height: '45vh'
+};
+
 function MapGallery(props: MapGalleryProps) {
     const location = useLocation();
 

@@ -14,7 +14,7 @@ import axios from "axios";
 function App() {
 
     const [routeData, setRouteData] = useState<routeResponseDTO[]  | null>(null);
-    const [displayMap, setDisplayMap] = useState<boolean>(false)
+    const [displayMap, setDisplayMap] = useState<boolean>(true)
     const [savedRouteId , setSavedRouteId] = useState<number[]>( [])
     const [savedRoutes,setSavedRoutes ] = useState<routeResponseDTO[]>([])
     const getSavedRoute =  async () => {
