@@ -51,7 +51,7 @@ return (
                         <Map containerStyle={containerStyle} routeWaypoints={location.state.routeData.waypoints}/>
                     </div>
                     <div className="col-sm-8 singleMapInfo">
-                        <p>{location.state.routeData.description}.</p>
+                        <p>{location.state.routeData.description}</p>
                         <p>This tour will take you along some of the following highlights in {location.state.routeData.city}:</p>
                         <ul>
                         {location.state.routeData.waypoints.map((waypoint: WaypointDTO, index: number) =>

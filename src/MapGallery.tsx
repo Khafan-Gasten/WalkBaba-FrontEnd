@@ -22,27 +22,14 @@ function MapGallery(props: MapGalleryProps) {
     const location = useLocation();
     const deployUrl = "http://walkbaba.azurewebsites.net/api/openai"
 
-
-    console.log(props.routeData)
-    console.log(location.state.city)
-
-    useEffect(()=>{
-        onPageLoad()
-    },[])
-
-    const onPageLoad = () => {
-        props.setDisplayMap(false)
-        void fetchData();
-    }
-
-    const fetchData = async () => {
+    const fetchData = async (country, city) => {
         console.log("About to call backend")
         try {
-            console.log(location.state.city.split(", ")[0])
-            console.log(location.state.city.split(", ")[1])
+            console.log("city name sent to backend: " + city)
+            console.log("country name sent to backend: " + country)
             const response: AxiosResponse<routeResponseDTO[]> = await axios.post(deployUrl, {
-                city: location.state.city.split(", ")[0],
-                country: location.state.city.split(", ")[1]
+                city: city,
+                country: country
             });
             console.log(response.data);
             console.log("Received data from backend")
@@ -50,19 +37,55 @@ function MapGallery(props: MapGalleryProps) {
             props.setDisplayMap(true)
         } catch (err) {
             if (err instanceof Error) {
-                // setShowError(true)
                 console.error(err)
             }
         }
-        // setShowError(false)
     }
+
+    if (new URLSearchParams(location.search).get('country')) {
+        const country = (new URLSearchParams(location.search).get('country'))
+        const city = (new URLSearchParams(location.search).get('city'))
+        fetchData(country, city)
+    }
+
+    console.log(props.routeData)
+    console.log(location.state.city)
+
+    // useEffect(()=>{
+    //     onPageLoad()
+    // },[])
+
+    // const onPageLoad = () => {
+    //     props.setDisplayMap(false)
+    //     void fetchData();
+    // }
+    //
+    // const fetchData = async () => {
+    //     console.log("About to call backend")
+    //     try {
+    //         console.log(location.state.city.split(", ")[0])
+    //         console.log(location.state.city.split(", ")[1])
+    //         const response: AxiosResponse<routeResponseDTO[]> = await axios.post(deployUrl, {
+    //             city: location.state.city.split(", ")[0],
+    //             country: location.state.city.split(", ")[1]
+    //         });
+    //         console.log(response.data);
+    //         console.log("Received data from backend")
+    //         props.setRouteData(response.data);
+    //         props.setDisplayMap(true)
+    //     } catch (err) {
+    //         if (err instanceof Error) {
+    //             // setShowError(true)
+    //             console.error(err)
+    //         }
+    //     }
+        // setShowError(false)
 
 
 
 
     return (
         <>
-
             {!props.displayMap && <LoadingPage displayMap={props.displayMap}/>}
             {props.displayMap &&
                 <>
