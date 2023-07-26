@@ -1,10 +1,11 @@
 import MapBoard from "./MapBoard.tsx";
 import {routeResponseDTO} from "./DTOs/routeResponseDTO.tsx";
 import "./css/App.css";
-import React, {Dispatch, SetStateAction} from "react";
+import React, {Dispatch, SetStateAction, useEffect} from "react";
 import {useLocation} from "react-router-dom";
 import LoadingPage from "./LoadingPage.tsx";
 import NavBar from "./NavBar.tsx"
+import axios, {AxiosResponse} from "axios";
 
 
 type MapGalleryProps = {
@@ -19,8 +20,46 @@ type MapGalleryProps = {
 
 function MapGallery(props: MapGalleryProps) {
     const location = useLocation();
+    const deployUrl = "http://walkbaba.azurewebsites.net/api/openai"
 
-console.log(props.routeData)
+
+    console.log(props.routeData)
+    console.log(location.state.city)
+
+    useEffect(()=>{
+        onPageLoad()
+    },[])
+
+    const onPageLoad = () => {
+        props.setDisplayMap(false)
+        void fetchData();
+    }
+
+    const fetchData = async () => {
+        console.log("About to call backend")
+        try {
+            console.log(location.state.city.split(", ")[0])
+            console.log(location.state.city.split(", ")[1])
+            const response: AxiosResponse<routeResponseDTO[]> = await axios.post(deployUrl, {
+                city: location.state.city.split(", ")[0],
+                country: location.state.city.split(", ")[1]
+            });
+            console.log(response.data);
+            console.log("Received data from backend")
+            props.setRouteData(response.data);
+            props.setDisplayMap(true)
+        } catch (err) {
+            if (err instanceof Error) {
+                // setShowError(true)
+                console.error(err)
+            }
+        }
+        // setShowError(false)
+    }
+
+
+
+
     return (
         <>
 

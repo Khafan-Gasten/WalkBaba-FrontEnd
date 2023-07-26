@@ -6,7 +6,7 @@ import {useLocation} from "react-router-dom";
 import DisplayImages from "./DisplayImages.tsx";
 import {WaypointDTO} from "./DTOs/waypointDTO.tsx";
 import NavBar from "./NavBar.tsx";
-import {Dispatch, SetStateAction, useState} from "react";
+import React, {Dispatch, SetStateAction, useState} from "react";
 import {routeResponseDTO} from "./DTOs/routeResponseDTO.tsx";
 import SaveIcon from "./SaveIcon.tsx";
 
@@ -18,9 +18,12 @@ type MapSingle = {
 }
 
 const containerStyle = {
-    width: '55vh',
-    height: '45vh'
+    width: '45vw',
+    height: '35vw'
 };
+
+const standardExportLink = "https://www.google.com/maps/dir/Vondelpark,+Amsterdam/Hortus+Botanicus+Amsterdam,+Plantage+Middenlaan+2a,+1018+DD+Amsterdam/Het+Amsterdamse+Bos,+1182+DB+Amstelveen/@52.3410917,4.8352439,13z/data=!3m1!4b1!4m20!4m19!1m5!1m1!1s0x47c609e2c5b47ccf:0x6cd478550520ca35!2m2!1d4.8686484!2d52.3579946!1m5!1m1!1s0x47c5e1e2667314ab:0x50a7c8595fea0ba6!2m2!1d4.9081845!2d52.3666659!1m5!1m1!1s0x47c5e1b1f2eb0961:0x8fb6f82a2bc45ab6!2m2!1d4.832342!2d52.3149817!3e2?entry=ttu"
+
 function MapSingle( props: MapSingle) {
 
     const scrollToGallery = (event) => {
@@ -92,6 +95,9 @@ return (
                 </div>
 
             </div>
+            {/*<div className="col-auto search-button-container">*/}
+            {/*    <button className="btn btn-primary mb-3 search-button btn-link" ref="https://www.google.com/maps/dir/Vondelpark,+Amsterdam/Hortus+Botanicus+Amsterdam,+Plantage+Middenlaan+2a,+1018+DD+Amsterdam/Het+Amsterdamse+Bos,+1182+DB+Amstelveen/@52.3410917,4.8352439,13z/data=!3m1!4b1!4m20!4m19!1m5!1m1!1s0x47c609e2c5b47ccf:0x6cd478550520ca35!2m2!1d4.8686484!2d52.3579946!1m5!1m1!1s0x47c5e1e2667314ab:0x50a7c8595fea0ba6!2m2!1d4.9081845!2d52.3666659!1m5!1m1!1s0x47c5e1b1f2eb0961:0x8fb6f82a2bc45ab6!2m2!1d4.832342!2d52.3149817!3e2?entry=ttu" type="button" value="Search">Export Route</button>*/}
+            {/*</div>*/}
 
             {location.state.routeData.waypoints.map((waypoint: WaypointDTO, index: number) => (
                 <div className="col " id={`gallery-${index}`}>
