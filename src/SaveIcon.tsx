@@ -1,36 +1,48 @@
 import {useState} from "react";
-import axios, {AxiosResponse} from "axios";
-import {routeResponseDTO} from "./routeResponseDTO.tsx";
+import axios from "axios";
 
-type  SaveIconProps ={
-    routeId : number
+type  SaveIconProps = {
+    fetchSavedRoute :() => void
+    routeId: number
+    isSaved : boolean
+}
+type  savingInfo = {
+    id: number
+    route_id: number
+
 }
 
-const  SaveIcon = (props : SaveIconProps)=>{
+const SaveIcon = (props: SaveIconProps) => {
 
-    const [saved  , setSaved] =  useState<boolean>(false)
+    const localUrl = "http://localhost:8081/api/saveroute";
+    const [saved, setSaved] = useState<boolean>(props.isSaved)
 
-    const saveRouteForUser = () =>{
-        try {
-            const response: AxiosResponse<routeResponseDTO> = await axios.post(localUrl, {
-                id: 1,
-                : countryNameEl.current?.value,
-                duration: "1",
-            });
-            console.log(response.data);
-            console.log("Received data from backend")
-            props.setRouteData(response.data);
-            props.setDisplayMap(true)
+    const data: savingInfo = {
+        id: 1,
+        route_id: props.routeId
+    }
+    const changeRouteSavingState = async () => {
+        console.log(" in call axios")
+        console.log(data)
+        if (saved) {
+            await axios.delete(localUrl, {data})
+        } else {
+            await axios.post(localUrl, data);
         }
-        setSaved( !saved)
-
-        console.log()
+    }
+    const saveButtonHandler = (): void => {
+        console.log("set click")
+        changeRouteSavingState().then(() => setSaved(!saved))
+        props.fetchSavedRoute()
     }
 
-
-    return <>
-     <button className={"save_Botton"} onClick={saveRouteForUser}></button>
+    return<>
+        {
+            saved ?
+                <button className={"save_Botton"} onClick={saveButtonHandler}>UnSave</button> :
+                <button className={"save_Botton"} onClick={saveButtonHandler}>Save</button>
+        }
     </>
 }
 
-export default  SaveIcon
+export default SaveIcon

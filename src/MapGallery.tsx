@@ -5,11 +5,12 @@ import SearchBar from "./SearchBar.tsx";
 import {Dispatch, SetStateAction} from "react";
 import {useLocation} from "react-router-dom";
 
-
 type MapGalleryProps = {
     routeData: routeResponseDTO[] | null
+    savedRoutesId: number[]
     setRouteData: Dispatch<SetStateAction<routeResponseDTO[] | null>>
     setDisplayMap: Dispatch<SetStateAction<boolean>>
+    fetchSavedRoute : () => void
 }
 
 function MapGallery(props: MapGalleryProps) {
@@ -50,6 +51,7 @@ function MapGallery(props: MapGalleryProps) {
                             <a className="link-secondary" href="#">Weather</a>
 
                         </div>
+
                     </div>
                 </nav>
 
@@ -69,7 +71,9 @@ function MapGallery(props: MapGalleryProps) {
                             {
                                 Array.from(Array(props.routeData?.length).keys()).map((index: number) => (
                                     <div className="col " id={index.toString()}>
-                                        <MapBoard routeData={props.routeData![index]}/>
+                                        <MapBoard routeData={props.routeData![index]}
+                                                  fetchSavedRoute={props.fetchSavedRoute}
+                                                  isSaved={ props.savedRoutesId.includes(props.routeData![index].route_id)}/>
                                     </div>
                                 ))
                             }
