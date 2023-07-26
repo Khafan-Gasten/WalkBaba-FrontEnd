@@ -5,15 +5,16 @@ import SearchBar from "./SearchBar.tsx";
 import {Dispatch, SetStateAction} from "react";
 import {useLocation} from "react-router-dom";
 import LoadingPage from "./LoadingPage.tsx";
+import savedRoute from "./SavedRoute.tsx";
 
 
 type MapGalleryProps = {
     routeData: routeResponseDTO[] | null
-    savedRoutesId: number[]
+    savedRoutes: routeResponseDTO[]
     setRouteData: Dispatch<SetStateAction<routeResponseDTO[] | null>>
     displayMap: boolean
     setDisplayMap: Dispatch<SetStateAction<boolean>>
-    fetchSavedRoute: () => void
+    fetchSavedRoute: (arg: number, saveRoute: boolean) => void
 }
 
 function MapGallery(props: MapGalleryProps) {
@@ -54,7 +55,8 @@ function MapGallery(props: MapGalleryProps) {
                                     <div className="col " id={index.toString()}>
                                         <MapBoard key={index} routeData={props.routeData![index]}
                                                   fetchSavedRoute={props.fetchSavedRoute}
-                                                  isSaved={props.savedRoutesId.includes(props.routeData![index].route_id)}/>
+                                                  isSaved={props.savedRoutes.filter( (route)=>{
+                                                      return route.route_id == props.routeData![index].route_id} ).length > 0}/>
                                     </div>
                                 ))
                             }

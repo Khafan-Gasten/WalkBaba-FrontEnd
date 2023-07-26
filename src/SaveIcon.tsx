@@ -2,7 +2,7 @@ import {useState} from "react";
 import axios from "axios";
 
 type  SaveIconProps = {
-    fetchSavedRoute :() => void
+    fetchSavedRoute :(arg: number,saveRoute: boolean) => void
     routeId: number
     isSaved : boolean
 }
@@ -25,15 +25,18 @@ const SaveIcon = (props: SaveIconProps) => {
         console.log(" in call axios")
         console.log(data)
         if (saved) {
+
             await axios.delete(localUrl, {data})
+
         } else {
             await axios.post(localUrl, data);
         }
     }
     const saveButtonHandler = (): void => {
         console.log("set click")
-        changeRouteSavingState().then(() => setSaved(!saved))
-        props.fetchSavedRoute()
+        setSaved(!saved)
+        props.fetchSavedRoute(props.routeId, saved )
+        changeRouteSavingState()
     }
 
     return<>

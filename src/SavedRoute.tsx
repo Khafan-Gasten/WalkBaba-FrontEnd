@@ -6,7 +6,7 @@ import {routeResponseDTO} from "./routeResponseDTO.tsx";
 
 type SaveRouteProp = {
     savedRoutes : routeResponseDTO[]
-    fetchSavedRoute :  () => void
+    fetchSavedRoute :  (arg: number,  saveRoute: boolean) => void
 }
 
 const SavedRoute = ( props: SaveRouteProp) => {
@@ -33,7 +33,7 @@ const SavedRoute = ( props: SaveRouteProp) => {
                             {
                                 Array.from(Array(props.savedRoutes.length).keys()).map((index: number) => (
                                     <div className="col">
-                                        <MapBoard  isSaved={true} fetchSavedRoute={props.fetchSavedRoute}
+                                        <MapBoard key={index} isSaved={true} fetchSavedRoute={props.fetchSavedRoute}
                                                    routeData={props.savedRoutes[index]}/>
                                     </div>
                                 ))

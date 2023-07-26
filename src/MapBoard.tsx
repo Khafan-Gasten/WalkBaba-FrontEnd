@@ -5,7 +5,7 @@ import {useNavigate} from "react-router-dom";
 import SaveIcon from "./SaveIcon.tsx";
 
 type MapBoardProps = {
-    fetchSavedRoute : () => void
+    fetchSavedRoute : (arg: number,saveRoute: boolean) => void
     routeData: routeResponseDTO | null
     isSaved : boolean
 }

@@ -7,7 +7,7 @@ import {WaypointDTO} from "./waypointDTO.tsx";
 import SaveIcon from "./SaveIcon.tsx";
 
 type MapSignle = {
-    fetchSavedRoute : () => void
+    fetchSavedRoute : (arg: number,  saveRoute: boolean) => void
 }
 function MapSingle( props: MapSignle) {
 
