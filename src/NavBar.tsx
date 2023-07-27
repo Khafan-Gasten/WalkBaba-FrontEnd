@@ -25,8 +25,8 @@ function NavBar() {
                 </div>
 
                 <div className="col-md-2 text-end">
-                   <img className="profile-photo" src="../src/assets/king-willy.jpg"/>
                     <Link to={"/savedroutes"}> Saved Routes</Link>
+                    <img className="profile-photo" src="../src/assets/king-willy.jpg"/>
                 </div>
             </header>
         </nav>

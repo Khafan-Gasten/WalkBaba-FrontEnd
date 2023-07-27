@@ -1,6 +1,7 @@
 import  {Dispatch, SetStateAction} from "react";
 import {routeResponseDTO} from "./DTOs/routeResponseDTO.tsx";
 import SearchBar from "./SearchBar.tsx";
+import {Link} from "react-router-dom";
 
 
 
@@ -17,7 +18,8 @@ function LandingPage(props: SearchBarProps) {
                 <img src="../src/assets/walkbaba-first2.png" width="300" height="100" box-shadow="0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"/>
             <h5 className="subtitle-landingPage">AI-generated walking routes to discover your city</h5>
             <SearchBar setRouteData={props.setRouteData} setDisplayMap={props.setDisplayMap}/>
-                <a href={"/savedroutes"}>Saved Routes</a>
+                <Link to={"/savedroutes"}> Saved Routes</Link>
+
             </div>
         </div>
     </>

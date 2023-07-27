@@ -27,7 +27,8 @@ function SavedRoute( props: SaveRouteProp) {
             <div className="saved-route-page-nav-bar">
             <NavBar/>
             </div>
-            <main>
+            <main className="saved-route-page">
+
                 <h1 className={"saved-title"}>Your Saved Routes</h1>
                 <div className="album py-5">
                     <div className="container">
