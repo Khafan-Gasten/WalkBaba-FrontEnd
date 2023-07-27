@@ -1,6 +1,8 @@
 import "./css/App.css";
 import "./css/LoadPage.css"
 import Baba from "./assets/com-gif-maker-unscreen.gif"
+import Bababack from "./assets/ezgif.com-gif-maker-backwards-Baba.gif"
+import Babapink from "./assets/ezgif.com-gif-maker-pink.gif"
 
 type LoadingPageProps = {
     displayMap: boolean
@@ -22,7 +24,9 @@ function LoadingPage(props: LoadingPageProps) {
                 {/*<p>{loadingMessage}</p>*/}
                 <div className="gif-container">
                     <img src={Baba} className="frame"/>
-                    {/*<iframe src="assets/ezgif.com-gif-maker.gif" width="100%" height="100%"*/}
+                    <img src={Bababack} className="frame2"/>
+                    <img src={Babapink} className="frame3"/>
+                    {/*<iframe src="assets/ezgif.com-gif-maker-bg.gif" width="100%" height="100%"*/}
                     {/*        frameBorder="0" className="giphy-embed frame-end" allowFullScreen></iframe>*/}
                 </div>
 

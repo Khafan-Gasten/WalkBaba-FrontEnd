@@ -13,7 +13,7 @@
     margin-top: 62vh;
     width: 10vw;
     position: relative;
-    animation: myMove 20s infinite;
+    animation: myMove 10s infinite;
     animation-timing-function: linear;
 }
 
@@ -21,6 +21,59 @@
     0%   {left: -10%;}
     100% {left: 110%;}
 }
+
+@keyframes myMove2 {
+    0%   {left: -30%;}
+    100% {left: 90%;}
+}
+
+@keyframes myMove3 {
+    0%   {left: -50%;}
+    100% {left: 70%;}
+}
+
+@keyframes fadeIn {
+    0% {opacity: 0}
+    1% {opacity: 100}
+    100% {opacity: 100}
+}
+
+.frame2 {
+    /*position: absolute;*/
+    margin-top: 62vh;
+    width: 10vw;
+    position: relative;
+    animation:
+            myMove2 10s infinite,
+            fadeIn 100s;
+    animation-timing-function: linear;
+    animation-delay: 10.1s;
+    opacity: 0;
+}
+
+.frame3 {
+    /*position: absolute;*/
+    margin-top: 62vh;
+    width: 10vw;
+    position: relative;
+    animation:
+            myMove3 10s infinite,
+            fadeIn 100s;
+    animation-timing-function: linear;
+    animation-delay: 20.3s;
+    opacity: 0;
+}
+
+/*.frame2b {*/
+/*    !*position: absolute;*!*/
+/*    margin-top: 62vh;*/
+/*    width: 10vw;*/
+/*    position: relative;*/
+/*    animation: fadeIn 1s infinite;*/
+/*    animation-delay: 26s;*/
+/*}*/
+
+
 
 .frame-end {
     /*position: absolute;*/
