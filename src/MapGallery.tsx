@@ -72,7 +72,7 @@ function MapGallery(props: MapGalleryProps) {
                         <NavBar/>
                         <main className="mapgallery">
                             <div className=" col-lg-4 col-md-4 mx-auto result-title">
-                                <h5>Top Walking Routes in {city}, {country}</h5>
+                                <h3>Top Walking Routes in {city}, {country}</h3>
                             </div>
                             <div className="col-lg-4 col-md-4 mx-auto searchbar-gallery">
                                 <SearchBar setRouteData={props.setRouteData} setDisplayMap={props.setDisplayMap}/>
