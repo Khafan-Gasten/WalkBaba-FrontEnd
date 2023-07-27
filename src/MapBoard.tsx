@@ -48,9 +48,9 @@ function MapBoard(props: MapBoardProps) {
                                         <h2>Route Export Links</h2>
                                         <a className="close" href="#">&times;</a>
                                         <div className="content">
-                                            <a href={props.routeData.exportLinks.exportMapLink}>Route map</a><br/>
-                                            <a href={props.routeData.exportLinks.exportStartMapLink}>Route including directions to startpoint</a><br/>
-                                            <a href={props.routeData.exportLinks.exportEndMapLink}>Route including directions to endpoint</a><br/>
+                                            <a target="_blank" href={props.routeData.exportLinks.exportMapLink}>Route map</a><br/>
+                                            <a target="_blank" href={props.routeData.exportLinks.exportStartMapLink}>Route including directions to startpoint</a><br/>
+                                            <a target="_blank" href={props.routeData.exportLinks.exportEndMapLink}>Route including directions to endpoint</a><br/>
                                         </div>
                                     </div>
                                 </div>
