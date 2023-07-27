@@ -72,7 +72,7 @@ function SearchBar(props: SearchBarProps) {
 
 
         <div className="container">
-            <form onSubmit={onSubmitSearchRoutes} className="row g-3 searchbar">
+            <form onSubmit={onSubmitSearchRoutes} className="row g-3 justify-content-center searchbar">
                 <div className="col-auto">
                     <CountrySelect selectedCountry = {selectedCountry} setSelectedCountry = {setSelectedCountry}/>
                 </div>

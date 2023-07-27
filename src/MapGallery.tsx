@@ -27,8 +27,8 @@ function MapGallery(props: MapGalleryProps) {
             {!props.displayMap && <LoadingPage displayMap={props.displayMap}/>}
             {props.displayMap &&
                 <>
+                <div className="mapgallery-root">
                     <NavBar setRouteData={props.setRouteData} setDisplayMap={props.setDisplayMap}/>
-
                     <main className="mapgallery">
                         <div className="col-lg-5 col-md-5 mx-auto searchbar-gallery">
                             <SearchBar setRouteData={props.setRouteData} setDisplayMap={props.setDisplayMap}/>
@@ -37,7 +37,7 @@ function MapGallery(props: MapGalleryProps) {
 
                         <div className="album py-3">
                             <div className="container">
-                                <div className=" result-title">
+                                <div className="result-title">
                                     <h5>Top Walking Routes in {location.state.city}</h5>
                                 </div>
                                 <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
@@ -54,7 +54,10 @@ function MapGallery(props: MapGalleryProps) {
                             </div>
                         </div>
                     </main>
+                </div>
+
                 </>}
+
         </>
     )
 }
