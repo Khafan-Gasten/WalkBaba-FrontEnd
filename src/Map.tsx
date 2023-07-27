@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import "./App.css";
+import "./css/App.css";
 
 
 import {
@@ -7,24 +7,22 @@ import {
     useJsApiLoader,
     DirectionsRenderer,
 } from '@react-google-maps/api';
-import {WaypointDTO} from "./waypointDTO.tsx";
+import {WaypointDTO} from "./DTOs/waypointDTO.tsx";
 
 
-const containerStyle = {
-    width: '400px',
-    height: '300px'
-};
+
 
 const center = {
     lat: 52.2,
     lng: 4.4
 };
 
-type MapBoardProps = {
+type MapProps = {
     routeWaypoints: WaypointDTO[]
+    containerStyle: object
 }
 
-function Map(props: MapBoardProps) {
+function Map(props: MapProps) {
 
 
     const {isLoaded} = useJsApiLoader({
@@ -78,10 +76,10 @@ function Map(props: MapBoardProps) {
 
     return isLoaded ? (
         <>
-                    <div className="map-container">
+                    <div className="container map-container">
                         <article className="map-article">
                             <GoogleMap
-                                mapContainerStyle={containerStyle}
+                                mapContainerStyle={props.containerStyle}
                                 center={center}
                                 zoom={8}
                                 onLoad={() => onLoad(map)}

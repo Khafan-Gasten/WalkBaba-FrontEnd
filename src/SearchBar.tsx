@@ -1,11 +1,11 @@
 import axios, {AxiosResponse} from "axios";
 import React, {Dispatch, SetStateAction, useState} from "react";
-import {routeResponseDTO} from "./routeResponseDTO.tsx";
-import "./App.css";
+import {routeResponseDTO} from "./DTOs/routeResponseDTO.tsx";
+import "./css/App.css";
 import CountrySelect from "./CountrySelect.tsx";
-import {Country} from "./Country.tsx";
+import {Country} from "./DTOs/Country.tsx";
 import CitySelectAutoComplete from "./CitySelectAutoComplete.tsx"
-import {Link, useNavigate} from "react-router-dom"
+import { useNavigate} from "react-router-dom"
 import {SingleValue} from "react-select";
 
 
@@ -50,29 +50,45 @@ function SearchBar(props: SearchBarProps) {
     const onSubmitSearchRoutes = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         console.log("User made a search for city " + selectedCity)
-        if(!selectedCity) {
+        if (!selectedCity) {
             setShowError(true)
             console.log("bad search")
         } else {
             setShowError(false)
+            // setTimeout(() => {
+            //     props.setDisplayMap(false)
+            // }, 1000);
             props.setDisplayMap(false)
+
             void fetchData();
-            navigate(`/routes?country=${selectedCountry!.value}?city=${selectedCity.split(",")[0]}`,
-                {state:{
-                        city : selectedCity,
-                        country : selectedCountry?.value}});
+            const countryUrl = (selectedCountry!.label).split(" ")[1];
+            console.log(countryUrl)
+            navigate(`/routes?country=${countryUrl}&city=${selectedCity.split(",")[0]}`,
+                {
+                    state: {
+                        city: selectedCity,
+                        country: selectedCountry?.value
+                    }
+                });
         }
     }
 
     return <>
 
+
+
         <div className="container">
-            <form onSubmit={onSubmitSearchRoutes} className="row g-3 searchbar">
-                <CountrySelect selectedCountry = {selectedCountry} setSelectedCountry = {setSelectedCountry}/>
-                <CitySelectAutoComplete selectedCountry = {selectedCountry} setSelectedCountry = {setSelectedCountry}
-                                        selectedCity = {selectedCity} setSelectedCity = {setSelectedCity}/>
-                <button className="btn btn-primary search-button col-auto" type="submit" value="Search">Search</button>
-                <Link to={"/savedroutes"} > Saved</Link>
+            <form onSubmit={onSubmitSearchRoutes} className="row g-3 justify-content-center searchbar">
+                <div className="col-auto">
+                    <CountrySelect selectedCountry = {selectedCountry} setSelectedCountry = {setSelectedCountry}/>
+                </div>
+                <div className="col-auto">
+                    <CitySelectAutoComplete selectedCountry = {selectedCountry} setSelectedCountry = {setSelectedCountry}
+                                            selectedCity = {selectedCity} setSelectedCity = {setSelectedCity}/>
+                </div>
+                <div className="col-auto search-button-container">
+                    <button className="btn btn-primary mb-3 search-button" type="submit" value="Search">Search</button>
+                </div>
             </form>
             <p>{showError && errorMessage}</p>
         </div>

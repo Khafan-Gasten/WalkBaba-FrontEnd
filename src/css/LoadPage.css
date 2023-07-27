@@ -83,7 +83,7 @@
 }
 
 .loading-background {
-    background: url(assets/1008.jpg) no-repeat center center fixed;
+    background: url(../assets/1008.jpg) no-repeat center center fixed;
     background-size: cover;
     height: 100vh;
 

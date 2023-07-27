@@ -1,6 +1,6 @@
 import {Dispatch, SetStateAction, useEffect, useState} from "react";
 import Select, {SingleValue} from "react-select";
-import {Country} from "./Country.tsx";
+import {Country} from "./DTOs/Country.tsx";
 
 type countryProps = {
     selectedCountry : SingleValue<Country> | undefined
@@ -22,7 +22,7 @@ const CountrySelect = (props: countryProps) => {
     }, []);
     return (
         <div className= "countrySelection">
-        <label>Enter a country:</label>
+        <label className="searchLabel">1</label>
         <Select
             options={countries}
             value={props.selectedCountry}

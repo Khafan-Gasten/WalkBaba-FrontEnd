@@ -1,10 +1,5 @@
 
-import "./App.css";
-
-//
-// type SignUpProps = {
-//
-// }
+import "./css/App.css";
 
 function SignUp() {
 

@@ -1,5 +1,5 @@
 import {useRef, useEffect, Dispatch, SetStateAction} from "react";
-import {Country} from "./Country.tsx";
+import {Country} from "./DTOs/Country.tsx";
 import {SingleValue} from "react-select";
 
 type countryProps = {
@@ -43,8 +43,8 @@ const CitySelectAutoComplete = (props: countryProps) => {
     }, [props.selectedCountry, options]);
     return (
         <div>
-            <label>Enter a city: </label> <br/>
-            <input className="css-13cymwt-control" ref={inputRef} placeholder={"Select from dropdown"} />
+            <label className="searchLabel">  </label> <br/>
+            <input className="css-13cymwt-control" ref={inputRef} placeholder={"Select city"} />
         </div>
     );
 };

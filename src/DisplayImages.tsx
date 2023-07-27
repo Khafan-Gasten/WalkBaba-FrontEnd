@@ -1,5 +1,5 @@
-import "./App.css";
-import "./DisplayImages.css"
+import "./css/App.css";
+import "./css/DisplayImages.css"
 import ImageGallery, {ReactImageGalleryItem} from 'react-image-gallery';
 import {useEffect, useState} from "react";
 
