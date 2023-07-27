@@ -2,6 +2,7 @@
 import "./css/App.css";
 import MapBoard from "./MapBoard.tsx";
 import {routeResponseDTO} from "./DTOs/routeResponseDTO.tsx";
+
 import { useNavigate} from "react-router-dom";
 import NavBar from "./NavBar.tsx";
 
@@ -21,6 +22,8 @@ function SavedRoute( props: SaveRouteProp) {
 
     return (
         <>
+            <div className={"background-image"}></div>
+
             <div className="saved-route-page-nav-bar">
             <NavBar/>
             </div>
