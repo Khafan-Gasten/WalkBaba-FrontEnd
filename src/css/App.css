@@ -8,13 +8,13 @@ body {
   margin: 0;
 }
 
-@font-face {
-  font-family: "Coolvetica rg";
-  src: url("../assets/Coolvetica rg.otf"),
-  /*src: url("Milky_Again.woff") format("woff"),*/
-  url("../assets/Coolvetica rg.otf") format("opentype");
-  /*url("Milky_Again.svg#filename") format("svg");*/
-}
+/*@font-face {*/
+/*  font-family: "Coolvetica rg";*/
+/*  src: url("../assets/Coolvetica rg.otf"),*/
+/*  !*src: url("Milky_Again.woff") format("woff"),*!*/
+/*  url("../assets/Coolvetica rg.otf") format("opentype");*/
+/*  !*url("Milky_Again.svg#filename") format("svg");*!*/
+/*}*/
 
 
 body *{
@@ -34,22 +34,17 @@ body::before {
   -o-background-size: cover;
   background-size: cover;
   -webkit-filter: blur(5px);
-
   filter: blur(5px);
+
+  display: grid;
+  justify-content: center;
+  justify-items: center;
 
 }
 
-/*.mapgallery-root {*/
-/*  background: url(../assets/amsterdam-full.jpg) no-repeat top center fixed;*/
-/*  -webkit-background-size: cover;*/
-/*  -moz-background-size: cover;*/
-/*  -o-background-size: cover;*/
-/*  background-size: cover;*/
-/*  height: 100vh;*/
-/*  display: grid;*/
-/*  justify-content: center;*/
-/*  justify-items: center;*/
-/*}*/
+.searchbar-gallery .col-auto {
+  margin: 0;
+}
 
 .singleMapTitle {
   color: rgb(106	68	241);
@@ -78,15 +73,18 @@ body::before {
 
 }
 .result-title {
-
-  padding: 10px 0px;
+  padding: 5px 10px;
   margin-bottom: 0;
   border-radius: 5px;
+  background-color: white;
+  text-align: center;
+  margin-bottom: 10px;
 
 }
 .result-title h5 {
-  color: white;
+  color: black;
   margin: 0;
+  font-size: 18px;
 }
 .searchLabel{
   opacity: 0;
@@ -129,7 +127,7 @@ body::before {
 }
 .searchbar-gallery {
   background-color: rgba(72, 72, 72, 0.62);
-  border-radius: 20px;
+  border-radius: 10px;
   text-align: center;
   color: white;
   height: fit-content;
@@ -220,21 +218,14 @@ body::before {
 }
 
 .searchbar {
-  padding-bottom: 20px;
+  padding-bottom: 10px;
+  margin-top: 10PX;
 }
 .search-button {
   margin-top: 25px;
 }
 .map-article__content {
   margin: 0 20px 20px;
-}
-
-.news-article__buttons {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  padding: 20px;
-  flex-direction: row;
 }
 
 
@@ -287,6 +278,7 @@ body::before {
 .card-body .list-group-item
 {
   color: #8d8b8b;
+  margin-bottom: 2rem;
 }
 
 .card-body hr {
@@ -294,7 +286,6 @@ body::before {
 }
 .icons {
   color: #6f55dc;
-
 }
 
 .overlay {
@@ -346,3 +337,45 @@ body::before {
   overflow: auto;
 }
 
+.route-buttons {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+}
+
+.route-button {
+  color: white;
+  /*border: 1px rgb(0 0 0 / 36%) solid;*/
+  border-radius: 4px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-right: 10px;
+  font-size: 12px;
+  background-color: #876ff0;
+}
+.route-button a {
+  text-decoration: none;
+  color: white;
+}
+.export-button {
+  float: left;
+}
+/*.route-button:hover {*/
+/*  background-color: #6f55dc;*/
+/*  color: white;*/
+/*}*/
+
+.text-end {
+
+
+}
+.text-end a {
+  text-decoration: none;
+  color: white;
+  background-color: #876ff0;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 15px;
+}
