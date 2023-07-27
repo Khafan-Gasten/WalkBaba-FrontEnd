@@ -1,11 +1,12 @@
 import MapBoard from "./MapBoard.tsx";
 import {routeResponseDTO} from "./DTOs/routeResponseDTO.tsx";
 import "./css/App.css";
-import React, {Dispatch, SetStateAction} from "react";
-import {useLocation} from "react-router-dom";
+import React, {Dispatch, SetStateAction, useEffect} from "react";
 import LoadingPage from "./LoadingPage.tsx";
 import NavBar from "./NavBar.tsx"
 import SearchBar from "./SearchBar.tsx";
+import axios, {AxiosResponse} from "axios";
+
 
 type MapGalleryProps = {
     routeData: routeResponseDTO[] | null
@@ -17,7 +18,7 @@ type MapGalleryProps = {
 }
 
 function MapGallery(props: MapGalleryProps) {
-    const location = useLocation();
+
     const isRouteSaved = (route: routeResponseDTO): boolean => {
         for (const val of props.savedRoutes)
             if (val.route_id == route.route_id) {
@@ -25,6 +26,42 @@ function MapGallery(props: MapGalleryProps) {
             }
         return false
     }
+
+    const country = new URLSearchParams(location.search).get('country');
+    const city = new URLSearchParams(location.search).get('city');
+
+    const deployUrl = "http://walkbaba.azurewebsites.net/api/openai"
+
+    useEffect(()=>{
+        onPageLoad()
+    },[])
+
+    const onPageLoad = () => {
+        console.log("I'm in here")
+        console.log(new URLSearchParams(location.search).get('country'))
+        props.setDisplayMap(false)
+        void fetchData();
+    }
+
+    const fetchData = async () => {
+        console.log("About to call backend")
+        try {
+            const response: AxiosResponse<routeResponseDTO[]> = await axios.post(deployUrl, {
+                city: city,
+                country: country
+            });
+            console.log(response.data);
+            console.log("Received data from backend")
+            props.setRouteData(response.data);
+            props.setDisplayMap(true)
+        } catch (err) {
+            if (err instanceof Error) {
+                // setShowError(true)
+                console.error(err)
+            }
+        }
+    }
+
     return (
         <>
 
@@ -41,7 +78,7 @@ function MapGallery(props: MapGalleryProps) {
                             <div className="album py-3">
                                 <div className="container">
                                     <div className="result-title">
-                                        <h5>Top Walking Routes in {location.state.city}</h5>
+                                        <h5>Top Walking Routes in {city}, {country}</h5>
                                     </div>
                                     <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                                         {
@@ -54,6 +91,7 @@ function MapGallery(props: MapGalleryProps) {
                                             ))
                                         }
                                     </div>
+
                                 </div>
                             </div>
                         </main>

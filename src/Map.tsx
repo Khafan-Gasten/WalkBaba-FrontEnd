@@ -10,21 +10,19 @@ import {
 import {WaypointDTO} from "./DTOs/waypointDTO.tsx";
 
 
-const containerStyle = {
-    width: '55vh',
-    height: '45vh'
-};
+
 
 const center = {
     lat: 52.2,
     lng: 4.4
 };
 
-type MapBoardProps = {
+type MapProps = {
     routeWaypoints: WaypointDTO[]
+    containerStyle: object
 }
 
-function Map(props: MapBoardProps) {
+function Map(props: MapProps) {
 
 
     const {isLoaded} = useJsApiLoader({
@@ -81,7 +79,7 @@ function Map(props: MapBoardProps) {
                     <div className="container map-container">
                         <article className="map-article">
                             <GoogleMap
-                                mapContainerStyle={containerStyle}
+                                mapContainerStyle={props.containerStyle}
                                 center={center}
                                 zoom={8}
                                 onLoad={() => onLoad(map)}

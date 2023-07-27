@@ -1,11 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');
+
 body {
   /*font-family: Arial, sans-serif;*/
   box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
   height: 100%;
   margin: 0;
+}
 
+@font-face {
+  font-family: "Coolvetica rg";
+  src: url("../assets/Coolvetica rg.otf"),
+  /*src: url("Milky_Again.woff") format("woff"),*/
+  url("../assets/Coolvetica rg.otf") format("opentype");
+  /*url("Milky_Again.svg#filename") format("svg");*/
+}
+
+
+body *{
+  font-family: "Coolvetica rg", sans-serif;
 }
 
 body::before {
@@ -275,6 +288,7 @@ body::before {
 {
   color: #8d8b8b;
 }
+
 .card-body hr {
   margin-top: 0;
 }
@@ -282,3 +296,53 @@ body::before {
   color: #6f55dc;
 
 }
+
+.overlay {
+  position: fixed;
+  height: 100vh;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+  z-index:1;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.popup {
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 35%;
+  position: relative;
+  margin: 40vh auto;
+}
+
+.popup h2 {
+  margin-top: 0;
+  color: #333;
+  font-family: Tahoma, Arial, sans-serif;
+}
+.popup .close {
+  position: absolute;
+  top: 14px;
+  right: 20px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  color: #06D85F;
+}
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
+}
+

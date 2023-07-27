@@ -10,6 +10,11 @@ type MapBoardProps = {
     isSaved: boolean
 }
 
+const containerStyle = {
+    width: '55vh',
+    height: '45vh'
+};
+
 function MapBoard(props: MapBoardProps) {
 
     const navigate = useNavigate()
@@ -17,12 +22,11 @@ function MapBoard(props: MapBoardProps) {
     const clickHandler = (e: any) => {
         e.preventDefault();
         if (props.routeData) {
-            navigate('/routes/map', {
-                state: {
-                    routeData: props.routeData,
-                    isSaved: props.isSaved,
-                }
-            })
+            navigate(`/routes/map?routeId=${props.routeData.route_id}` , {
+                state:{
+                    routeData : props.routeData ,
+                    isSaved : props.isSaved ,
+                }})
         }
     }
 
@@ -30,18 +34,33 @@ function MapBoard(props: MapBoardProps) {
         <>
             <div className="card h-100 shadow-sm">
                 <div className="bd-placeholder-img card-img-top map_pic">
-                    <Map routeWaypoints={props.routeData!.waypoints}/>
+                    <Map containerStyle={containerStyle} routeWaypoints={props.routeData!.waypoints}/>
                 </div>
                 <div className="card-body">
-                    {props.routeData &&
-                        <div>
-                            <div onClick={clickHandler}>
-                                <h4 className="card-title">{props.routeData.walk_name}</h4>
-                            </div>
-                            <hr/>
 
-                            <p className="list-group-item">{props.routeData.description}</p>
-                            <br/>
+                        {props.routeData &&
+                            <div>
+                                <h4 className="card-title">{props.routeData.walk_name}</h4>
+                                <hr/>
+                                <p className="list-group-item">{props.routeData.description}</p>
+                                <p> <a href='' onClick={clickHandler}>More details</a></p>
+                                <p><a href={`#popup${props.index}`}>Export route</a></p>
+                                <div id={`popup${props.index}`} className="overlay">
+                                    <div className="popup">
+                                        <h2>Route Export Links</h2>
+                                        <a className="close" href="#">&times;</a>
+                                        <div className="content">
+                                            <a target="_blank" href={props.routeData.exportLinks.exportMapLink}>Route map</a><br/>
+                                            <a target="_blank" href={props.routeData.exportLinks.exportStartMapLink}>Route including directions to startpoint</a><br/>
+                                            <a target="_blank" href={props.routeData.exportLinks.exportEndMapLink}>Route including directions to endpoint</a><br/>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+
 
                             <div className="d-flex justify-content-between align-items-center icons">
                                 <div className="save-button">
@@ -74,8 +93,9 @@ function MapBoard(props: MapBoardProps) {
                                     {props.routeData.distance} km
                                 </div>
                             </div>
-                        </div>}
-                </div>
+
+                </div>}
+            </div>
             </div>
         </>
     );
