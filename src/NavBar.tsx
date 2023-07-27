@@ -23,7 +23,7 @@ function NavBar() {
                         </a>
                     </a>
                 </div>
-                <div className="col-md-2 text-end">
+                <div className="col-md-2 text-end saved-routes-link">
                     <Link to={"/savedroutes"}> Saved</Link>
                 </div>
             </header>

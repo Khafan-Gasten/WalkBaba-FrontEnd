@@ -1,22 +1,29 @@
 
-
 import "./css/App.css";
-
-
 import MapBoard from "./MapBoard.tsx";
 import {routeResponseDTO} from "./DTOs/routeResponseDTO.tsx";
+import { useNavigate} from "react-router-dom";
+import NavBar from "./NavBar.tsx";
 
 type SaveRouteProp = {
     savedRoutes : routeResponseDTO[]
     fetchSavedRoute :  (arg: number,  saveRoute: boolean) => void
 }
 
-const SavedRoute = ( props: SaveRouteProp) => {
+function SavedRoute( props: SaveRouteProp) {
 
-
+    const navigate = useNavigate()
+    const clickHandler = (e: any) => {
+        console.log("here in save click")
+        e.preventDefault()
+        navigate("/")
+    }
 
     return (
         <>
+            <div className="saved-route-page-nav-bar">
+            <NavBar/>
+            </div>
             <main>
                 <section className="py-5 text-center container">
                     <div className="row py-lg-5">
