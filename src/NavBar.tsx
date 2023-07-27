@@ -1,6 +1,6 @@
 import {Link, useNavigate} from "react-router-dom";
-import WalkBabaLogo from "/assets/walkbaba.png"
-import KingWillem from "/assets/king-willy.jpg"
+import WalkBabaLogo from "./assets/walkbaba.png"
+import KingWillem from "./assets/king-willy.jpg"
 
 function NavBar() {
     const navigate = useNavigate()
