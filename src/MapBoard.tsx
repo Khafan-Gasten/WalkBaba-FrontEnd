@@ -21,7 +21,7 @@ function MapBoard(props: MapBoardProps) {
     const clickHandler = (e: any) => {
         e.preventDefault();
         if (props.routeData) {
-            navigate('/routes/map' , {
+            navigate(`/routes/map?routeId=${props.routeData.route_id}` , {
                 state:{
                     routeData : props.routeData ,
                     isSaved : props.isSaved ,
