@@ -28,9 +28,9 @@ const SavedRoute = ( props: SaveRouteProp) => {
                     <div className="container">
                         <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                             {
-                                Array.from(props.savedRoutes).map((s:routeResponseDTO, index: number) => (
+                                Array.from(props.savedRoutes).map((s:routeResponseDTO) => (
                                     <div className="col">
-                                        <MapBoard key={index} isSaved={true} fetchSavedRoute={props.fetchSavedRoute}
+                                        <MapBoard key={s.route_id} isSaved={true} fetchSavedRoute={props.fetchSavedRoute}
                                                    routeData={s}/>
                                     </div>
                                 ))
