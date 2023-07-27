@@ -6,13 +6,13 @@ import {useLocation} from "react-router-dom";
 import DisplayImages from "./DisplayImages.tsx";
 import {WaypointDTO} from "./DTOs/waypointDTO.tsx";
 import NavBar from "./NavBar.tsx";
-import React, {Dispatch, SetStateAction, useEffect, useState} from "react";
+import { useEffect, useState} from "react";
 import {routeResponseDTO} from "./DTOs/routeResponseDTO.tsx";
 import SaveIcon from "./SaveIcon.tsx";
 import axios, {AxiosResponse} from "axios";
 
 
-type MapSignle = {
+type MapSingle = {
     fetchSavedRoute : (arg: number,  saveRoute: boolean) => void
 }
 
@@ -23,10 +23,10 @@ const containerStyle = {
 
 function MapSingle( props: MapSingle) {
     const deployUrl = "http://walkbaba.azurewebsites.net/api/routes/map?routeId="
-    const[singleMapRouteData, setSingleMapRouteData] = useState<routeResponseDTO>(null)
+    const[singleMapRouteData, setSingleMapRouteData] = useState<routeResponseDTO | null>(null)
     const[isSaved, setIsSaved] = useState<boolean>(false)
 
-    const scrollToGallery = (event) => {
+    const scrollToGallery = (event: any) => {
         event.preventDefault();
         const targetId = event.currentTarget.getAttribute("href");
         const targetElement = document.querySelector(targetId);
@@ -35,10 +35,10 @@ function MapSingle( props: MapSingle) {
         }
     };
 
-    const getPageInfo = async(routeId: string) => {
-        const queryUrl = `${deployUrl}${routeId}`
-        console.log(queryUrl+routeId)
-        const response: AxiosResponse<routeResponseDTO> = await axios.get(deployUrl + routeId);
+    const getPageInfo = async(routeId: string | null) => {
+        const queryUrl = `${deployUrl}${routeId!}`
+        console.log(queryUrl+routeId!)
+        const response: AxiosResponse<routeResponseDTO> = await axios.get(queryUrl);
         setSingleMapRouteData(response.data)
         setIsSaved(false)
     }
@@ -67,7 +67,7 @@ return (
         <div className={"background-image"}></div>
     {singleMapRouteData && <>
     <main>
-        <NavBar setRouteData={props.setRouteData} setDisplayMap={props.setDisplayMap}/>
+        <NavBar/>
 
         <div className="singleMapTitle">
             <h3>{singleMapRouteData.walk_name} in {singleMapRouteData.city}</h3>

@@ -369,3 +369,6 @@ body *{
   overflow: auto;
 }
 
+.saved-route-page-nav-bar > nav > header > .saved-routes-link {
+  display: none;
+}

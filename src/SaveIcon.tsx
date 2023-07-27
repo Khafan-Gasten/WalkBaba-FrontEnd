@@ -28,7 +28,7 @@ const SaveIcon = ({fetchSavedRoute, routeId, isSaved}: SaveIconProps) => {
             await axios.delete(localUrl, {data})
         }
     }
-    const saveButtonHandler = (e): void => {
+    const saveButtonHandler = (e: any): void => {
         e.preventDefault()
         setSaved(!saved)
         changeRouteSavingState(!saved)

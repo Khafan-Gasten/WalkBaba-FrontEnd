@@ -25,7 +25,7 @@ function App() {
     const fetchSavedRoute = (id: number, isSaved: boolean) => {
         if (isSaved) {
             if (routeData) {
-                for (let val: routeResponseDTO of routeData) {
+                for (const val of routeData) {
                     if (val.route_id == id) {
                         savedRoutes.push(val)
                         setSavedRoutes(savedRoutes)
