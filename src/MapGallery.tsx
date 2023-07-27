@@ -69,7 +69,7 @@ function MapGallery(props: MapGalleryProps) {
             {props.displayMap &&
                 <>
                     <div className="mapgallery-root">
-                        <NavBar setRouteData={props.setRouteData} setDisplayMap={props.setDisplayMap}/>
+                        <NavBar/>
                         <main className="mapgallery">
                             <div className="col-lg-5 col-md-5 mx-auto searchbar-gallery">
                                 <SearchBar setRouteData={props.setRouteData} setDisplayMap={props.setDisplayMap}/>
@@ -86,7 +86,7 @@ function MapGallery(props: MapGalleryProps) {
                                                 <div className="col " id={index.toString()}>
                                                     <MapBoard key={index} routeData={props.routeData![index]}
                                                               fetchSavedRoute={props.fetchSavedRoute}
-                                                              isSaved={isRouteSaved(props.routeData![index])}/>
+                                                              isSaved={isRouteSaved(props.routeData![index])} index={index}/>
                                                 </div>
                                             ))
                                         }

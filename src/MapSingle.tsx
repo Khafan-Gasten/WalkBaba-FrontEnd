@@ -66,7 +66,7 @@ return (
     <>
     {singleMapRouteData && <>
     <main>
-        <NavBar setRouteData={props.setRouteData} setDisplayMap={props.setDisplayMap}/>
+        <NavBar/>
 
         <div className="singleMapTitle">
             <h3>{singleMapRouteData.walk_name} in {singleMapRouteData.city}</h3>
