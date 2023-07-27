@@ -43,10 +43,7 @@ body *{
 
 .singleMapTitle {
   color: rgb(106	68	241);
-  background-color: #fafafab3;
-  border-radius: 5px;
-  width: fit-content;
-  margin: auto;
+  font-weight: bold;
 }
 
 .singleMapInfo {
@@ -167,6 +164,7 @@ body *{
   color: indianred;
   border-radius: 5px;
   background-color: rgba(255, 255, 255, 0.72);
+  margin: auto;
 }
 
 .landingPage-Content:hover, .landingPage-Content:focus,.landingPage-Content:active {
@@ -376,11 +374,12 @@ body *{
 }
 
 .profile-photo {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-left: 10px;
+  border: 3px solid black;
 }
-
 .route-buttons {
   display: flex;
   justify-content: flex-start;
@@ -416,7 +415,7 @@ body *{
 
 
 }
-.text-end a {
+.saved-routes-button {
   text-decoration: none;
   color: white;
   background-color: #876ff0;
@@ -439,4 +438,26 @@ body *{
 }
 .saved-route-page .card-footer {
   background-color: white;
+
+.single-map-export-buttons {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  width: 100%;
+
+}
+
+.single-map-export-buttons > a {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.route-details-time {
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.mapCardSingle {
+  background-color: rgb(255, 255, 255) !important;
+  margin-left: 10px;
 }

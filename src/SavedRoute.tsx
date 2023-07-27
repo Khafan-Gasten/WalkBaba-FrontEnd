@@ -2,8 +2,6 @@
 import "./css/App.css";
 import MapBoard from "./MapBoard.tsx";
 import {routeResponseDTO} from "./DTOs/routeResponseDTO.tsx";
-
-import { useNavigate} from "react-router-dom";
 import NavBar from "./NavBar.tsx";
 
 type SaveRouteProp = {
@@ -12,13 +10,6 @@ type SaveRouteProp = {
 }
 
 function SavedRoute( props: SaveRouteProp) {
-
-    const navigate = useNavigate()
-    const clickHandler = (e: any) => {
-        console.log("here in save click")
-        e.preventDefault()
-        navigate("/")
-    }
 
     return (
         <>
