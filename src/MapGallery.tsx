@@ -64,7 +64,7 @@ function MapGallery(props: MapGalleryProps) {
 
     return (
         <>
-
+            <div className={"background-image"}></div>
             {!props.displayMap && <LoadingPage displayMap={props.displayMap}/>}
             {props.displayMap &&
                 <>

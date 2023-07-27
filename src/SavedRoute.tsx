@@ -5,6 +5,7 @@ import "./css/App.css";
 
 import MapBoard from "./MapBoard.tsx";
 import {routeResponseDTO} from "./DTOs/routeResponseDTO.tsx";
+import React from "react";
 
 type SaveRouteProp = {
     savedRoutes : routeResponseDTO[]
@@ -17,6 +18,7 @@ const SavedRoute = ( props: SaveRouteProp) => {
 
     return (
         <>
+            <div className={"background-image"}></div>
             <main>
                 <section className="py-5 text-center container">
                     <div className="row py-lg-5">

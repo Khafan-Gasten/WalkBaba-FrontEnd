@@ -21,22 +21,20 @@ body *{
   font-family: "Coolvetica rg", sans-serif;
 }
 
-body::before {
-  background: url(../assets/amsterdam-full.jpg) center center fixed;
+.background-image {
+  background: url(../assets/amsterdam-full.jpg) repeat center center fixed;
   content: '';
-  top: 0px;
+  top: 0;
   z-index: -1;
   width: 100%;
   height: 100%;
-  position:absolute;
+  position:fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   -webkit-filter: blur(5px);
-
   filter: blur(5px);
-
 }
 
 /*.mapgallery-root {*/
@@ -152,6 +150,27 @@ body::before {
 
 .landingPage-Content a {
   color: white;
+
+}
+
+.landingPage-Content > .container {
+  display: grid;
+  justify-items: center;
+}
+
+.landingPage-Content a:hover {
+  color: #6f55dc;
+  background-color: rgba(255, 255, 255, 0.77);
+  border-radius: 4px;
+}
+
+
+.error-message {
+  margin: 0;
+  width: 300px;
+  color: indianred;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.72);
 }
 
 .landingPage-Content:hover, .landingPage-Content:focus,.landingPage-Content:active {

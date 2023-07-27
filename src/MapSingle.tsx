@@ -64,6 +64,7 @@ function MapSingle( props: MapSingle) {
 
 return (
     <>
+        <div className={"background-image"}></div>
     {singleMapRouteData && <>
     <main>
         <NavBar setRouteData={props.setRouteData} setDisplayMap={props.setDisplayMap}/>
