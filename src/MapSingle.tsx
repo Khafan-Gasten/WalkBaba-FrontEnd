@@ -36,7 +36,7 @@ function MapSingle( props: MapSingle) {
     };
 
     const getPageInfo = async(routeId: string | null) => {
-        const queryUrl = `${deployUrl}${routeId!}`
+        const queryUrl = deployUrl + routeId!
         console.log(queryUrl+routeId!)
         const response: AxiosResponse<routeResponseDTO> = await axios.get(queryUrl);
         setSingleMapRouteData(response.data)
