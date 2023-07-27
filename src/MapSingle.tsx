@@ -133,7 +133,7 @@ return (
         <div className="image-galleries-container">
             {singleMapRouteData.waypoints.map((waypoint: WaypointDTO, index: number) => (
                 <div className="col " id={`gallery-${index}`}>
-                    <DisplayImages key={index} imageList={waypoint.imageLink}/>
+                    <DisplayImages key={index} waypointName = {waypoint.waypoint_name} imageList={waypoint.imageLink}/>
                 </div>))}
         </div>
 
