@@ -63,7 +63,7 @@ function SearchBar(props: SearchBarProps) {
             void fetchData();
             const countryUrl = (selectedCountry!.label).split(" ")[1];
             console.log(countryUrl)
-            navigate(`/routes?country=${countryUrl}&city=${selectedCity.split(",")[0]}`,
+            navigate(`/routes?country=${selectedCountry!.label.substring(selectedCountry!.label.indexOf(" ") + 1)}&city=${selectedCity.split(",")[0]}`,
                 {
                     state: {
                         city: selectedCity,
@@ -73,10 +73,8 @@ function SearchBar(props: SearchBarProps) {
         }
     }
 
+
     return <>
-
-
-
         <div className="container">
             <form onSubmit={onSubmitSearchRoutes} className="row g-3 justify-content-center searchbar">
                 <div className="col-auto">
@@ -90,7 +88,7 @@ function SearchBar(props: SearchBarProps) {
                     <button className="btn btn-primary mb-3 search-button" type="submit" value="Search">Search</button>
                 </div>
             </form>
-            <p>{showError && errorMessage}</p>
+            <p className={"error-message"}>{showError && errorMessage}</p>
         </div>
 
     </>

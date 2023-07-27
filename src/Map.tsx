@@ -63,7 +63,7 @@ function Map(props: MapProps) {
         const results: google.maps.DirectionsResult = await directionsService.route({
             origin: origin,
             destination: dest,
-            optimizeWaypoints: true,
+            // optimizeWaypoints: true,
             waypoints: waypoints,
             travelMode: google.maps.TravelMode.WALKING
         })

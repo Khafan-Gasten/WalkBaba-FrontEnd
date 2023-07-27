@@ -21,25 +21,20 @@ body *{
   font-family: "Coolvetica rg", sans-serif;
 }
 
-body::before {
-  background: url(../assets/amsterdam-full.jpg) center center fixed;
+.background-image {
+  background: url(../assets/amsterdam-full.jpg) repeat center center fixed;
   content: '';
-  top: 0px;
+  top: 0;
   z-index: -1;
   width: 100%;
   height: 100%;
-  position:absolute;
+  position:fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   -webkit-filter: blur(5px);
   filter: blur(5px);
-
-  display: grid;
-  justify-content: center;
-  justify-items: center;
-
 }
 
 .searchbar-gallery .col-auto {
@@ -115,6 +110,8 @@ body::before {
 
 .css-b62m3t-container {
   color: black;
+  width: 12vw;
+  min-width: 150px;
 }
 
 .landingPage-Content {
@@ -146,14 +143,40 @@ body::before {
   display: none;
 }
 
+.landingPage-Content a {
+  color: white;
+
+}
+
+.landingPage-Content > .container {
+  display: grid;
+  justify-items: center;
+}
+
+.landingPage-Content a:hover {
+  color: #6f55dc;
+  background-color: rgba(255, 255, 255, 0.77);
+  border-radius: 4px;
+}
+
+
+.error-message {
+  margin: 0;
+  width: 300px;
+  color: indianred;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.72);
+}
+
 .landingPage-Content:hover, .landingPage-Content:focus,.landingPage-Content:active {
   box-shadow: 0 0 8px rgba(23, 23, 23, 0.6);
 }
 
 .landingPage form {
   display: grid;
-  grid-template-columns: 1fr 1fr;
   justify-items: center;
+  grid-template-rows: 6vh;
+
 }
 
 /*.landingPage form button{*/
@@ -216,6 +239,7 @@ body::before {
   font-size: 25px;
   margin: 30px 20px 20px;
 }
+
 
 .searchbar {
   padding-bottom: 10px;
@@ -336,6 +360,24 @@ body::before {
   max-height: 30%;
   overflow: auto;
 }
+
+.saved-route-page-nav-bar > nav > header > .saved-routes-link {
+  display: none;
+}
+
+.saved-title {
+  color: #6f55dc;
+  background-color: rgba(255, 255, 255, 0.47);
+  width: fit-content;
+  border-radius: 5px;
+  align-items: center;
+  margin: auto;
+}
+
+.profile-photo {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%
 
 .route-buttons {
   display: flex;
