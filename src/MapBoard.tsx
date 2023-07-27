@@ -5,13 +5,15 @@ import {useNavigate} from "react-router-dom";
 import SaveIcon from "./SaveIcon.tsx";
 
 type MapBoardProps = {
-    fetchSavedRoute: () => void
+    fetchSavedRoute : (arg: number,saveRoute: boolean) => void
     routeData: routeResponseDTO | null
     isSaved: boolean
 }
 
 function MapBoard(props: MapBoardProps) {
+
     const navigate = useNavigate()
+
     const clickHandler = (e: any) => {
         e.preventDefault();
         if (props.routeData) {
@@ -33,7 +35,6 @@ function MapBoard(props: MapBoardProps) {
                 <div className="card-body">
                     {props.routeData &&
                         <div>
-
                             <div onClick={clickHandler}>
                                 <h4 className="card-title">{props.routeData.walk_name}</h4>
                             </div>
@@ -47,7 +48,6 @@ function MapBoard(props: MapBoardProps) {
                                     <SaveIcon fetchSavedRoute={props.fetchSavedRoute}
                                               routeId={props.routeData!.route_id} isSaved={props.isSaved}/>
                                 </div>
-
 
                                 <div className="duration">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -72,17 +72,11 @@ function MapBoard(props: MapBoardProps) {
                                             d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
                                     </svg>
                                     {props.routeData.distance} km
-
                                 </div>
-
                             </div>
-
                         </div>}
-
                 </div>
             </div>
-
-
         </>
     );
 }

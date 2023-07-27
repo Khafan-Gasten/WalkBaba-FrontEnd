@@ -1,19 +1,19 @@
 
+
 import "./css/App.css";
-import {useEffect} from "react";
+
+
 import MapBoard from "./MapBoard.tsx";
 import {routeResponseDTO} from "./DTOs/routeResponseDTO.tsx";
 
 type SaveRouteProp = {
     savedRoutes : routeResponseDTO[]
-    fetchSavedRoute :  () => void
+    fetchSavedRoute :  (arg: number,  saveRoute: boolean) => void
 }
 
 const SavedRoute = ( props: SaveRouteProp) => {
 
-    useEffect(()=>{
-        props.fetchSavedRoute()
-    },)
+
 
     return (
         <>
@@ -31,10 +31,10 @@ const SavedRoute = ( props: SaveRouteProp) => {
                     <div className="container">
                         <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                             {
-                                Array.from(Array(props.savedRoutes.length).keys()).map((index: number) => (
+                                Array.from(props.savedRoutes).map((s:routeResponseDTO) => (
                                     <div className="col">
-                                        <MapBoard  isSaved={true} fetchSavedRoute={props.fetchSavedRoute}
-                                                   routeData={props.savedRoutes[index]}/>
+                                        <MapBoard key={s.route_id} isSaved={true} fetchSavedRoute={props.fetchSavedRoute}
+                                                   routeData={s}/>
                                     </div>
                                 ))
                             }

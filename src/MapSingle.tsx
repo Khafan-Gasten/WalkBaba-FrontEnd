@@ -10,10 +10,8 @@ import {Dispatch, SetStateAction, useState} from "react";
 import {routeResponseDTO} from "./DTOs/routeResponseDTO.tsx";
 
 
-type MapSingle = {
-    fetchSavedRoute : () => void
-    setRouteData: Dispatch<SetStateAction<routeResponseDTO[] | null>>
-    setDisplayMap: Dispatch<SetStateAction<boolean>>
+type MapSignle = {
+    fetchSavedRoute : (arg: number,  saveRoute: boolean) => void
 }
 function MapSingle( props: MapSingle) {
 
