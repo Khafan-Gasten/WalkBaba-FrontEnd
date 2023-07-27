@@ -17,8 +17,8 @@ type MapSingle = {
 }
 
 const containerStyle = {
-    width: '45vw',
-    height: '35vw'
+    width: '32vw',
+    height: '45vh'
 };
 
 function MapSingle( props: MapSingle) {
@@ -64,29 +64,15 @@ function MapSingle( props: MapSingle) {
 
 return (
     <>
+        <div className={"background-image"}></div>
     {singleMapRouteData && <>
-    <main>
+    <main className={"single-map"}>
         <NavBar/>
-
-        <div className="singleMapTitle">
-            <h3>{singleMapRouteData.walk_name} in {singleMapRouteData.city}</h3>
-        </div>
-        <div className="container-lg">
-            <div className="row">
+            <div className="row map-single-container">
                 <div className="col-sm-4">
+                    <div className="h-100 mapCardSingle">
                     <Map containerStyle={containerStyle} routeWaypoints={singleMapRouteData.waypoints}/>
-                </div>
-                <div className="col-sm-8 singleMapInfo">
-                    <p>{singleMapRouteData.description}.</p>
-                    <p>This tour will take you along some of the following highlights in {singleMapRouteData.city}:</p>
-                    <ul>
-                        {singleMapRouteData.waypoints.map((waypoint: WaypointDTO, index: number) =>
-                            (<li>{waypoint.waypoint_name} <a href={`#gallery-${index}`}
-                                                             onClick={scrollToGallery}>(photos)</a><br/>
-                                    <h6>{waypoint.description}</h6>
-                                </li>
-                            ))}</ul>
-                    <div className="d-flex justify-content-between align-items-center">
+                    <div className="d-flex justify-content-between route-details-time">
                         <div className="save-button">
                             <SaveIcon fetchSavedRoute={props.fetchSavedRoute} routeId={singleMapRouteData!.route_id}
                                       isSaved={isSaved}/>
@@ -102,7 +88,7 @@ return (
                                 (singleMapRouteData.durationInMin < 61) ?
                                     <span> {singleMapRouteData.durationInMin} min</span>
                                     :
-                                    <span>{Math.floor(singleMapRouteData.durationInMin / 60)}h {singleMapRouteData.durationInMin % 60} min</span>
+                                    <span> {Math.floor(singleMapRouteData.durationInMin / 60)}h {singleMapRouteData.durationInMin % 60} min</span>
                             }
                         </div>
                         <div className="distance">
@@ -113,23 +99,35 @@ return (
                                 <path
                                     d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
                             </svg>
-                            {singleMapRouteData.distance} km
-
+                            <span> {singleMapRouteData.distance} km </span>
                         </div>
-
+                        </div>
+                    <div className="single-map-export-buttons">
+                        <a target="_blank" href={singleMapRouteData.exportLinks.exportMapLink}><button className={"btn"}>Export Route</button></a>
+                        <a target="_blank" href={singleMapRouteData.exportLinks.exportStartMapLink}><button className={"btn"}>Route to start</button></a>
+                        <a target="_blank" href={singleMapRouteData.exportLinks.exportEndMapLink}><button className={"btn"}>Route to end</button></a>
                     </div>
+                    </div>
+                </div>
+                <div className="col-sm-8 singleMapInfo h-100">
+                    <div className="singleMapTitle">
+                        <h3>{singleMapRouteData.walk_name} in {singleMapRouteData.city}</h3>
+                    </div>
+                    <p>{singleMapRouteData.description}</p>
+                    <p>This tour will take you along some of the following highlights in {singleMapRouteData.city}:</p>
+                    <ul>
+                        {singleMapRouteData.waypoints.map((waypoint: WaypointDTO, index: number) =>
+                            (<li className={"waypoints-titles"}>{waypoint.waypoint_name.split(",")[0]} <a href={`#gallery-${index}`}
+                                                             onClick={scrollToGallery}>(photos)</a><br/>
+                                    <h6>{waypoint.description}</h6>
+                                </li>
+                            ))}</ul>
+
                 </div>
 
             </div>
 
-        </div>
 
-        <a target="_blank" href={singleMapRouteData.exportLinks.exportMapLink} className="btn btn-primary btn-lg active" role="button"
-           aria-pressed="true">Export Route</a>
-        <a target="_blank" href={singleMapRouteData.exportLinks.exportStartMapLink} className="btn btn-primary btn-lg active"
-           role="button" aria-pressed="true">Route with nav to start</a>
-        <a target="_blank" href={singleMapRouteData.exportLinks.exportEndMapLink} className="btn btn-primary btn-lg active"
-           role="button" aria-pressed="true">Route with nav to end</a>
 
         {/*<a href="#" className="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Link</a>*/}
         <div className="image-galleries-container">

@@ -8,59 +8,45 @@ body {
   margin: 0;
 }
 
-@font-face {
-  font-family: "Coolvetica rg";
-  src: url("../assets/Coolvetica rg.otf"),
-  /*src: url("Milky_Again.woff") format("woff"),*/
-  url("../assets/Coolvetica rg.otf") format("opentype");
-  /*url("Milky_Again.svg#filename") format("svg");*/
-}
+/*@font-face {*/
+/*  font-family: "Coolvetica rg";*/
+/*  src: url("../assets/Coolvetica rg.otf"),*/
+/*  !*src: url("Milky_Again.woff") format("woff"),*!*/
+/*  url("../assets/Coolvetica rg.otf") format("opentype");*/
+/*  !*url("Milky_Again.svg#filename") format("svg");*!*/
+/*}*/
 
 
-body *{
-  font-family: "Coolvetica rg", sans-serif;
-}
+/*body *{*/
+/*  font-family: "Coolvetica rg", sans-serif;*/
+/*}*/
 
-body::before {
-  background: url(../assets/amsterdam-full.jpg) center center fixed;
+.background-image {
+  background: url(../assets/amsterdam-full.jpg) repeat center center fixed;
   content: '';
-  top: 0px;
+  top: 0;
   z-index: -1;
   width: 100%;
   height: 100%;
-  position:absolute;
+  position:fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   -webkit-filter: blur(5px);
-
   filter: blur(5px);
-
 }
 
-/*.mapgallery-root {*/
-/*  background: url(../assets/amsterdam-full.jpg) no-repeat top center fixed;*/
-/*  -webkit-background-size: cover;*/
-/*  -moz-background-size: cover;*/
-/*  -o-background-size: cover;*/
-/*  background-size: cover;*/
-/*  height: 100vh;*/
-/*  display: grid;*/
-/*  justify-content: center;*/
-/*  justify-items: center;*/
-/*}*/
+.searchbar-gallery .col-auto {
+  margin: 0;
+}
 
 .singleMapTitle {
   color: rgb(106	68	241);
-  background-color: #fafafab3;
-  border-radius: 5px;
-  width: fit-content;
-  margin: auto;
+  font-weight: bold;
 }
 
 .singleMapInfo {
-  background-color: #fafafab3;
   border-radius: 5px;
   width: fit-content;
   height: fit-content;
@@ -78,15 +64,19 @@ body::before {
 
 }
 .result-title {
-
-  padding: 10px 0px;
-  margin-bottom: 0;
+  font-weight: bolder;
+  padding: 5px 10px;
   border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.37);
+  text-align: center;
+  margin-bottom: 30px;
 
 }
 .result-title h5 {
-  color: white;
+  color: #555069;
   margin: 0;
+  font-size: 20px;
+  font-weight: bold;
 }
 .searchLabel{
   opacity: 0;
@@ -117,6 +107,8 @@ body::before {
 
 .css-b62m3t-container {
   color: black;
+  width: 12vw;
+  min-width: 150px;
 }
 
 .landingPage-Content {
@@ -128,12 +120,11 @@ body::before {
   margin-top: 10vh;
 }
 .searchbar-gallery {
-  background-color: rgba(72, 72, 72, 0.62);
-  border-radius: 20px;
   text-align: center;
   color: white;
   height: fit-content;
   width: 50vh;
+  margin-bottom: 10px
 }
 
 .title-landingPage {
@@ -148,14 +139,41 @@ body::before {
   display: none;
 }
 
+.landingPage-Content a {
+  color: white;
+
+}
+
+.landingPage-Content > .container {
+  display: grid;
+  justify-items: center;
+}
+
+.landingPage-Content a:hover {
+  color: #6f55dc;
+  background-color: rgba(255, 255, 255, 0.77);
+  border-radius: 4px;
+}
+
+
+.error-message {
+  margin: 0;
+  width: 300px;
+  color: indianred;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.72);
+  margin: auto;
+}
+
 .landingPage-Content:hover, .landingPage-Content:focus,.landingPage-Content:active {
   box-shadow: 0 0 8px rgba(23, 23, 23, 0.6);
 }
 
 .landingPage form {
   display: grid;
-  grid-template-columns: 1fr 1fr;
   justify-items: center;
+  grid-template-rows: 6vh;
+
 }
 
 /*.landingPage form button{*/
@@ -220,21 +238,14 @@ body::before {
 }
 
 .searchbar {
-  padding-bottom: 20px;
+  padding-bottom: 10px;
+  margin-top: 10PX;
 }
 .search-button {
   margin-top: 25px;
 }
 .map-article__content {
   margin: 0 20px 20px;
-}
-
-.news-article__buttons {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  padding: 20px;
-  flex-direction: row;
 }
 
 
@@ -287,6 +298,7 @@ body::before {
 .card-body .list-group-item
 {
   color: #8d8b8b;
+  margin-bottom: 2rem;
 }
 
 .card-body hr {
@@ -294,7 +306,6 @@ body::before {
 }
 .icons {
   color: #6f55dc;
-
 }
 
 .overlay {
@@ -346,3 +357,126 @@ body::before {
   overflow: auto;
 }
 
+.saved-route-page-nav-bar > nav > header > .saved-routes-link {
+  display: none;
+}
+
+.saved-title {
+  color: #6f55dc;
+  background-color: rgba(255, 255, 255, 0.47);
+  width: fit-content;
+  border-radius: 5px;
+  align-items: center;
+  margin: auto;
+}
+
+.profile-photo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-left: 10px;
+  border: 3px solid black;
+}
+.route-buttons {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+}
+
+.route-button {
+  color: white;
+  /*border: 1px rgb(0 0 0 / 36%) solid;*/
+  border-radius: 4px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-right: 10px;
+  font-size: 12px;
+  background-color: #876ff0;
+}
+.route-button a {
+  text-decoration: none;
+  color: white;
+}
+.export-button {
+  float: left;
+}
+/*.route-button:hover {*/
+/*  background-color: #6f55dc;*/
+/*  color: white;*/
+/*}*/
+
+.text-end {
+  text-align: center;
+
+
+}
+.saved-routes-button {
+  text-decoration: none;
+  color: white;
+  background-color: #876ff0;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 15px;
+}
+
+.mapgallery .card-footer {
+  background-color: white;
+}
+.mapgallery .card-text{
+  height: 100px;
+}
+.mapgallery {
+  margin-bottom: 50px;
+}
+.saved-route-page .card-footer {
+  background-color: white;
+}
+.single-map-export-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+  width: 100%;
+}
+
+.single-map-export-buttons > a > button {
+  background-color: #6A44F1;
+  height: 5vh;
+  color: white;
+}
+
+.single-map-export-buttons > a > button:hover {
+  background-color: white;
+  color: #6A44F1;;
+}
+
+
+.singleMapInfo > p {
+  font-size: 18px;
+}
+
+.single-map-export-buttons > a {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.route-details-time {
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.map-single-container {
+  background-color: rgba(255, 255, 255, 0.74);
+  padding: 20px;
+}
+
+.waypoints-titles {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.waypoints-titles h6 {
+  font-weight: 300;
+  font-size: 18px;
+}

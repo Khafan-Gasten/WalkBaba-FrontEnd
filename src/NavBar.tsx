@@ -15,7 +15,7 @@ function NavBar() {
     return (
         <nav>
             <header
-                className="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom mapgallery-bar">
+                className="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-2 mb-4 border-bottom mapgallery-bar">
                 <div className="col-md-3 mb-2 mb-md-0">
                     <a href="/" className="d-inline-flex link-body-emphasis text-decoration-none">
                         <a className="navbar-brand" href="#">
@@ -23,9 +23,13 @@ function NavBar() {
                         </a>
                     </a>
                 </div>
-                <div className="col-md-2 text-end">
-                    <Link to={"/savedroutes"}> Saved</Link>
+
+
+                <div className="col-md-2 text-end saved-routes-link">
+                    <Link to={"/savedroutes"} className={"saved-routes-button"}> Saved Routes</Link>
+                    <a href={"/savedroutes"}><img className="profile-photo" src="../src/assets/king-willy.jpg"/> </a>
                 </div>
+
             </header>
         </nav>
     )

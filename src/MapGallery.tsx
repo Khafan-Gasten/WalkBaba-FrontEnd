@@ -64,22 +64,23 @@ function MapGallery(props: MapGalleryProps) {
 
     return (
         <>
-
+            <div className={"background-image"}></div>
             {!props.displayMap && <LoadingPage displayMap={props.displayMap}/>}
             {props.displayMap &&
                 <>
                     <div className="mapgallery-root">
                         <NavBar/>
                         <main className="mapgallery">
-                            <div className="col-lg-5 col-md-5 mx-auto searchbar-gallery">
+                            <div className=" col-lg-4 col-md-4 mx-auto result-title">
+                                <h3>Top Walking Routes in {city}, {country}</h3>
+                            </div>
+                            <div className="col-lg-4 col-md-4 mx-auto searchbar-gallery">
                                 <SearchBar setRouteData={props.setRouteData} setDisplayMap={props.setDisplayMap}/>
                             </div>
 
-                            <div className="album py-3">
+                            <div className="album">
+
                                 <div className="container">
-                                    <div className="result-title">
-                                        <h5>Top Walking Routes in {city}, {country}</h5>
-                                    </div>
                                     <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                                         {
                                             Array.from(Array(props.routeData?.length).keys()).map((index: number) => (
