@@ -372,3 +372,12 @@ body *{
 .saved-route-page-nav-bar > nav > header > .saved-routes-link {
   display: none;
 }
+
+.saved-title {
+  color: #6f55dc;
+  background-color: rgba(255, 255, 255, 0.47);
+  width: fit-content;
+  border-radius: 5px;
+  align-items: center;
+  margin: auto;
+}
