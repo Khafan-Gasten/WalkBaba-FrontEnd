@@ -24,10 +24,10 @@ function NavBar() {
                     </a>
                 </div>
 
+
                 <div className="col-md-2 text-end saved-routes-link">
                     <Link to={"/savedroutes"} className={"saved-routes-button"}> Saved Routes</Link>
                     <a href={"/savedroutes"}><img className="profile-photo" src="../src/assets/king-willy.jpg"/> </a>
-
                 </div>
 
             </header>

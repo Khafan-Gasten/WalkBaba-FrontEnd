@@ -71,16 +71,16 @@ function MapGallery(props: MapGalleryProps) {
                     <div className="mapgallery-root">
                         <NavBar/>
                         <main className="mapgallery">
+                            <div className=" col-lg-4 col-md-4 mx-auto result-title">
+                                <h5>Top Walking Routes in {city}, {country}</h5>
+                            </div>
                             <div className="col-lg-4 col-md-4 mx-auto searchbar-gallery">
                                 <SearchBar setRouteData={props.setRouteData} setDisplayMap={props.setDisplayMap}/>
                             </div>
 
                             <div className="album">
-                                <div className=" col-lg-4 col-md-4 mx-auto result-title">
-                                    <h5>Top Walking Routes in {city}, {country}</h5>
-                                </div>
-                                <div className="container">
 
+                                <div className="container">
                                     <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                                         {
                                             Array.from(Array(props.routeData?.length).keys()).map((index: number) => (

@@ -33,7 +33,8 @@ function MapBoard(props: MapBoardProps) {
 
     return (
         <>
-            <div className="card h-100 shadow-sm">
+            <div className="col">
+            <div className="card shadow-sm mapcard">
                 <div className="bd-placeholder-img card-img-top map_pic">
                     <Map containerStyle={containerStyle} routeWaypoints={props.routeData!.waypoints}/>
                 </div>
@@ -43,7 +44,7 @@ function MapBoard(props: MapBoardProps) {
                             <div>
                                 <h4 className="card-title">{props.routeData.walk_name}</h4>
                                 <hr/>
-                                <p className="list-group-item">{props.routeData.description}</p>
+                                <p className="card-text list-group-item">{props.routeData.description}</p>
                                 <div className="route-buttons">
                                 <p className="details route-button"> <a href='' onClick={clickHandler}>More details</a></p>
                                 <p className="export route-button export-button"><a href={`#popup${props.index}`}>Export route</a></p>
@@ -59,12 +60,7 @@ function MapBoard(props: MapBoardProps) {
                                         </div>
                                     </div>
                                 </div>
-
-
-
-
-
-
+                                <div className="card-footer">
 
                             <div className="d-flex justify-content-between align-items-center icons">
                                 <div className="save-button">
@@ -98,8 +94,10 @@ function MapBoard(props: MapBoardProps) {
                                     {props.routeData.distance} km
                                 </div>
                             </div>
+                                </div>
 
                 </div>}
+            </div>
             </div>
             </div>
         </>
