@@ -1,10 +1,10 @@
 import {Dispatch, SetStateAction, useEffect, useState} from "react";
-import Select from "react-select";
-import {Country} from "./Country.tsx";
+import Select, {SingleValue} from "react-select";
+import {Country} from "./DTOs/Country.tsx";
 
 type countryProps = {
-    selectedCountry : Country | undefined
-    setSelectedCountry :Dispatch<SetStateAction<Country | undefined>>
+    selectedCountry : SingleValue<Country> | undefined
+    setSelectedCountry :Dispatch<SetStateAction<SingleValue<Country> | undefined>>
 }
 const CountrySelect = (props: countryProps) => {
     const [countries, setCountries] = useState([]);
@@ -22,7 +22,7 @@ const CountrySelect = (props: countryProps) => {
     }, []);
     return (
         <div className= "countrySelection">
-        <label className="searchLabel">Enter a country:</label>
+        <label className="searchLabel">1</label>
         <Select
             options={countries}
             value={props.selectedCountry}

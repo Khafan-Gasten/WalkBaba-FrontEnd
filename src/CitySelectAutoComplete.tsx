@@ -1,17 +1,20 @@
 import {useRef, useEffect, Dispatch, SetStateAction} from "react";
-import {Country} from "./Country.tsx";
+import {Country} from "./DTOs/Country.tsx";
+import {SingleValue} from "react-select";
 
 type countryProps = {
-    selectedCountry : Country | undefined
-    setSelectedCountry :Dispatch<SetStateAction<Country | undefined>>
+    selectedCountry : SingleValue<Country> | undefined
+    setSelectedCountry :Dispatch<SetStateAction<SingleValue<Country> | undefined>>
     selectedCity : string
     setSelectedCity :Dispatch<SetStateAction<string>>
 }
+/* eslint-disable */
 const CitySelectAutoComplete = (props: countryProps) => {
-    const autoCompleteRef = useRef();
-    const inputRef = useRef<HTMLInputElement | undefined>();
+
+    const autoCompleteRef = useRef<any>();
+    const inputRef = useRef<HTMLInputElement>(null);
     const options = {
-        componentRestrictions: { country : props.selectedCountry?.value },
+        componentRestrictions: { country : props.selectedCountry?.value || null },
         fields: ["name"],
         types: ['(cities)']
     };
@@ -21,21 +24,18 @@ const CitySelectAutoComplete = (props: countryProps) => {
         if(props.selectedCountry) {
             if (!autoCompleteRef.current) {
                 autoCompleteRef.current = new window.google.maps.places.Autocomplete(
-                    inputRef.current,
+                    inputRef.current!,
                     options)
-                //
-                // props.setSelectedCity(inputRef.current?.value)
-                // console.log(props.selectedCity)
 
                 autoCompleteRef.current.addListener("place_changed", async function () {
                     const place = await autoCompleteRef.current.getPlace();
-                    props.setSelectedCity(inputRef.current?.value)
+                    props.setSelectedCity(inputRef.current!.value)
 
                     console.log("Selected city = " + props.selectedCity)
 
                     console.log({ place });
                 })
-        } else {
+            } else {
                 const countryRestriction = { country: props.selectedCountry.value };
                 autoCompleteRef.current.setComponentRestrictions(countryRestriction);
             }
@@ -43,8 +43,8 @@ const CitySelectAutoComplete = (props: countryProps) => {
     }, [props.selectedCountry, options]);
     return (
         <div>
-            <label className="searchLabel">Enter a city: </label> <br/>
-            <input className="css-13cymwt-control" ref={inputRef} placeholder={"Select from dropdown"} />
+            <label className="searchLabel">  </label> <br/>
+            <input className="css-13cymwt-control" ref={inputRef} placeholder={"Select city"} />
         </div>
     );
 };
