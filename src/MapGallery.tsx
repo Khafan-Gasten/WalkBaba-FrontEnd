@@ -1,7 +1,7 @@
 import MapBoard from "./MapBoard.tsx";
 import {routeResponseDTO} from "./DTOs/routeResponseDTO.tsx";
 import "./css/App.css";
-import React, {Dispatch, SetStateAction, useEffect} from "react";
+import {Dispatch, SetStateAction, useEffect} from "react";
 import LoadingPage from "./LoadingPage.tsx";
 import NavBar from "./NavBar.tsx"
 import SearchBar from "./SearchBar.tsx";

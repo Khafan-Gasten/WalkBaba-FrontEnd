@@ -8,6 +8,7 @@ type MapBoardProps = {
     fetchSavedRoute : (arg: number,saveRoute: boolean) => void
     routeData: routeResponseDTO | null
     isSaved: boolean
+    index: number
 }
 
 const containerStyle = {

@@ -1,17 +1,13 @@
-import SearchBar from "./SearchBar.tsx";
+
 import {Link, useNavigate} from "react-router-dom";
-import React, {Dispatch, SetStateAction} from "react";
-import {routeResponseDTO} from "./DTOs/routeResponseDTO.tsx";
 
-type NavBarProps = {
-    setRouteData: Dispatch<SetStateAction<routeResponseDTO[] | null>>
-    setDisplayMap: Dispatch<SetStateAction<boolean>>
-}
 
-function NavBar(props: NavBarProps) {
+
+
+function NavBar() {
     const navigate = useNavigate()
 
-    const clickHandler = (e) => {
+    const clickHandler = (e: any) => {
         e.preventDefault()
         navigate("/")
     }
