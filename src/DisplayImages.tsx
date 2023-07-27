@@ -7,6 +7,7 @@ import {useEffect, useState} from "react";
 
 type DisplayImagesProps = {
     imageList: string[]
+    waypointName : string
 }
 
 function DisplayImages(props: DisplayImagesProps) {
@@ -23,7 +24,7 @@ function DisplayImages(props: DisplayImagesProps) {
             const imageItem: ReactImageGalleryItem = {
                 "original": image,
                 "thumbnail": image.replace("maxwidth=500", "maxwidth=100"),
-                // "description": `Awesome Image`
+                "description": `${props.waypointName.split(",")[0]}`
             }
             imageArray.push(imageItem);
         }

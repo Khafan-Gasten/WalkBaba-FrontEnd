@@ -442,7 +442,6 @@ body {
 
 .single-map-export-buttons > a > button {
   background-color: #6A44F1;
-  height: 5vh;
   color: white;
 }
 
@@ -479,4 +478,15 @@ body {
 .waypoints-titles h6 {
   font-weight: 300;
   font-size: 18px;
+}
+
+@media only screen and (max-width: 575px) {
+
+  .map-article > div {
+    width: 90vw !important;
+  }
+  .images {
+    margin: 0 !important;
+  }
+
 }
