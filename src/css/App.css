@@ -117,6 +117,8 @@ body::before {
 
 .css-b62m3t-container {
   color: black;
+  width: 12vw;
+  min-width: 150px;
 }
 
 .landingPage-Content {
@@ -148,14 +150,19 @@ body::before {
   display: none;
 }
 
+.landingPage-Content a {
+  color: white;
+}
+
 .landingPage-Content:hover, .landingPage-Content:focus,.landingPage-Content:active {
   box-shadow: 0 0 8px rgba(23, 23, 23, 0.6);
 }
 
 .landingPage form {
   display: grid;
-  grid-template-columns: 1fr 1fr;
   justify-items: center;
+  grid-template-rows: 6vh;
+
 }
 
 /*.landingPage form button{*/
@@ -219,9 +226,6 @@ body::before {
   margin: 30px 20px 20px;
 }
 
-.searchbar {
-  padding-bottom: 20px;
-}
 .search-button {
   margin-top: 25px;
 }

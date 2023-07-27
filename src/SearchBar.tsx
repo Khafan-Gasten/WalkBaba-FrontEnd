@@ -63,7 +63,7 @@ function SearchBar(props: SearchBarProps) {
             void fetchData();
             const countryUrl = (selectedCountry!.label).split(" ")[1];
             console.log(countryUrl)
-            navigate(`/routes?country=${countryUrl}&city=${selectedCity.split(",")[0]}`,
+            navigate(`/routes?country=${selectedCountry!.label.substring(selectedCountry!.label.indexOf(" ") + 1)}&city=${selectedCity.split(",")[0]}`,
                 {
                     state: {
                         city: selectedCity,
