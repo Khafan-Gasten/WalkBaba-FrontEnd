@@ -19,7 +19,7 @@ function NavBar() {
                 <div className="col-md-3 mb-2 mb-md-0">
                     <a href="/" className="d-inline-flex link-body-emphasis text-decoration-none">
                         <a className="navbar-brand" href="#">
-                            <img src="../src/assets/walkbaba.png" width="200"  onClick={clickHandler}/>
+                            <img src="./assets/walkbaba.png" width="200"  onClick={clickHandler}/>
                         </a>
                     </a>
                 </div>
@@ -27,7 +27,7 @@ function NavBar() {
 
                 <div className="col-md-2 text-end saved-routes-link">
                     <Link to={"/savedroutes"} className={"saved-routes-button"}> Saved Routes</Link>
-                    <a href={"/savedroutes"}><img className="profile-photo" src="../src/assets/king-willy.jpg"/> </a>
+                    <a href={"/savedroutes"}><img className="profile-photo" src="./assets/king-willy.jpg"/> </a>
                 </div>
 
             </header>
