@@ -22,7 +22,7 @@ const SavedRoute = ( props: SaveRouteProp) => {
                     <div className="row py-lg-5">
                         <div className="col-lg-6 col-md-8 mx-auto">
                             <img className="user_profile"/>
-                            <h1 className="fw-light">ypur saved tour in WalkBaba</h1>
+                            <h1 className="fw-light">Your saved tour in WalkBaba</h1>
                         </div>
                     </div>
                 </section>
