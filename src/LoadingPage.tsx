@@ -23,7 +23,7 @@ function LoadingPage(props: LoadingPageProps) {
 
     const incrementIndex = async () => {
         for (let i = 1; i < 5; i++) {
-            await sleep(5)
+            await sleep(12)
             setIndex(i)
         }
     }
