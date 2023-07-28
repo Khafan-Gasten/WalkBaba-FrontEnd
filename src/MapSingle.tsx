@@ -36,10 +36,22 @@ function MapSingle( props: MapSingle) {
     };
 
     const getPageInfo = async(routeId: string | null) => {
+        console.log(routeId)
         const queryUrl = deployUrl + routeId!
-        console.log(queryUrl+routeId!)
+        console.log(queryUrl)
         const response: AxiosResponse<routeResponseDTO> = await axios.get(queryUrl);
-        setSingleMapRouteData(response.data)
+        const responseData = response.data;
+        let wayPoints: WaypointDTO[] = [];
+        for (let wayPoint of responseData.waypoints) {
+            wayPoints.push({
+                waypoint_name: wayPoint.waypoint_name+", "+responseData.city+", "+responseData.country,
+                description : wayPoint.description,
+                imageLink: wayPoint.imageLink
+            })
+        }
+        responseData["waypoints"] = wayPoints;
+        console.log(responseData)
+        setSingleMapRouteData(responseData)
         setIsSaved(false)
     }
 

@@ -10,6 +10,10 @@ type SaveRouteProp = {
 }
 
 function SavedRoute( props: SaveRouteProp) {
+console.log("saved"  , props.savedRoutes)
+
+
+
 
     return (
         <>
