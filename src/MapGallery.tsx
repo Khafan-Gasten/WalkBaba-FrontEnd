@@ -33,7 +33,9 @@ function MapGallery(props: MapGalleryProps) {
     const deployUrl = "http://walkbaba.azurewebsites.net/api/openai"
 
     useEffect(()=>{
-        onPageLoad()
+        if (!props.routeData) {
+            onPageLoad()
+        }
     },[])
 
     const onPageLoad = () => {
